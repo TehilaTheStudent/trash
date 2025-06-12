@@ -1,0 +1,142 @@
+{
+  "stages": [
+    {
+      "name": "Build Stage",
+      "sequence": "0",
+      "jobs": [
+        {
+          "id": "",
+          "identifier_old": null,
+          "stage_index": null,
+          "type": null,
+          "name": "ExecuteShellCommand",
+          "async": null,
+          "identifier": "JOB_BUILD",
+          "sequence": 0,
+          "condition": "${{ default() }}",
+          "strategy": {
+            "select_strategy": "selected"
+          },
+          "timeout": "",
+          "resource": "{\"type\":\"system\",\"arch\":\"x86\"}",
+          "steps": [
+            {
+              "runtime_attribution": "agent",
+              "multi_step_editable": 1,
+              "official_task_version": "1.0.0",
+              "icon_url": "",
+              "name": "Build",
+              "task": "official_shell_plugin",
+              "business_type": "Normal",
+              "inputs": [
+                {
+                  "key": "OFFICIAL_SHELL_SCRIPT_INPUT",
+                  "value": "echo \"Build Image\""
+                }
+              ],
+              "env": [],
+              "sequence": 0,
+              "identifier": "17481654546950d2b7a92-9fc7-4bc5-a1f6-cc2fb2f740b5",
+              "endpoint_ids": []
+            }
+          ],
+          "stage_id": "174816440285",
+          "unfinished_steps": [],
+          "condition_tag": "",
+          "exec_type": "OCTOPUS_JOB",
+          "depends_on": [],
+          "reusable_job_id": null
+        }
+      ],
+      "identifier": "174816440285cbec3959-c89d-4bc5-a1f6-cc2fb2f740b5",
+      "pre": [
+        {
+          "runtime_attribution": null,
+          "multi_step_editable": 0,
+          "official_task_version": null,
+          "icon_url": null,
+          "name": null,
+          "task": "official_devcloud_autoTrigger",
+          "business_type": null,
+          "inputs": null,
+          "env": null,
+          "sequence": 0,
+          "identifier": null,
+          "endpoint_ids": null
+        }
+      ],
+      "post": null,
+      "depends_on": [],
+      "run_always": false
+    },
+    {
+      "name": "Test Stage",
+      "sequence": "1",
+      "jobs": [
+        {
+          "id": "",
+          "identifier_old": null,
+          "stage_index": null,
+          "type": null,
+          "name": "ExecuteShellCommand",
+          "async": null,
+          "identifier": "JOB_TEST",
+          "sequence": 0,
+          "condition": "${{ default() }}",
+          "strategy": {
+            "select_strategy": "selected"
+          },
+          "timeout": "",
+          "resource": "{\"type\":\"system\",\"arch\":\"x86\"}",
+          "steps": [
+            {
+              "runtime_attribution": "agent",
+              "multi_step_editable": 1,
+              "official_task_version": "1.0.0",
+              "icon_url": "",
+              "name": "Test",
+              "task": "official_shell_plugin",
+              "business_type": "Normal",
+              "inputs": [
+                {
+                  "key": "OFFICIAL_SHELL_SCRIPT_INPUT",
+                  "value": "echo \"Test Stage\""
+                }
+              ],
+              "env": [],
+              "sequence": 0,
+              "identifier": "17481654546950d2b7a92-9fc7-4bc5-a1f6-cc2fb2f740b6",
+              "endpoint_ids": []
+            }
+          ],
+          "stage_id": "174816440286",
+          "unfinished_steps": [],
+          "condition_tag": "",
+          "exec_type": "OCTOPUS_JOB",
+          "depends_on": [],
+          "reusable_job_id": null
+        }
+      ],
+      "identifier": "174816440285cbec3959-c89d-4bc5-a1f6-cc2fb2f740b6",
+      "pre": [
+        {
+          "runtime_attribution": null,
+          "multi_step_editable": 0,
+          "official_task_version": null,
+          "icon_url": null,
+          "name": null,
+          "task": "official_devcloud_autoTrigger",
+          "business_type": null,
+          "inputs": null,
+          "env": null,
+          "sequence": 0,
+          "identifier": null,
+          "endpoint_ids": null
+        }
+      ],
+      "post": null,
+      "depends_on": [],
+      "run_always": false
+    }
+  ]
+}

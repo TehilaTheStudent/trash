@@ -1,0 +1,30 @@
+{
+    "projectId": "b3f25c9ab5cb457b97aa19bbc06b2743",
+    "name": "1",
+    "description": "",
+    "is_publish": false,
+    "disable_release_branch_management": false,
+    "sources": [
+        {
+            "type": "code",
+            "params": {
+                "git_type": "codehub",
+                "repo_project_id": "",
+                "codehub_id": "956389",
+                "endpoint_id": "245d30bc922e4bbcb9c81a8af192d113",
+                "default_branch": "master",
+                "git_url": "https://codehub.devcloud.ap-southeast-3.huaweicloud.com/b3f25c9ab5cb457b97aa19bbc06b2743/gitops-environment.git",
+                "human_name": "",
+                "ssh_git_url": "git@codehub.devcloud.ap-southeast-3.huaweicloud.com:b3f25c9ab5cb457b97aa19bbc06b2743/gitops-environment.git",
+                "web_url": "",
+                "repo_name": "gitops-environment",
+                "alias": "",
+                "workspace_id": "",
+                "workspace_name": ""
+            }
+        }
+    ],
+    "agency_name": "",
+    "group_id": "",
+    "definition": "eyJzdGFnZXMiOlt7ImlkIjoxNzQ5Mzk5NDIyNTE2LCJpZGVudGlmaWVyIjoiMTc0OTM5OTQyMjUxNjdlYTU4M2U4LWZiYmMtNDRkNC1iZGRiLTE3N2Y4YzhiOWY3NyIsInJ1bl9hbHdheXMiOmZhbHNlLCJuYW1lIjoiU3RhZ2VfMSIsInNlcXVlbmNlIjoiMCIsImpvYnMiOlt7ImlkIjoiIiwic3RhZ2VfaWQiOjE3NDkzOTk0MjI1MTYsImlkZW50aWZpZXIiOiJKT0JfeE5tYWkiLCJuYW1lIjoiTmV3IEpvYiIsImRlcGVuZHNfb24iOltdLCJ0aW1lb3V0IjoiIiwidGltZW91dF91bml0IjoiIiwic3RlcHMiOltdLCJleGVjX3R5cGUiOiJBR0VOVExFU1NfSk9CIiwic2VxdWVuY2UiOjAsImNvbmRpdGlvbiI6IiR7eyBkZWZhdWx0KCkgfX0ifV0sInJ1bGVfdGVtcGxhdGVzIjpbXSwicHJlIjpbeyJ0YXNrIjoib2ZmaWNpYWxfZGV2Y2xvdWRfYXV0b1RyaWdnZXIiLCJzZXF1ZW5jZSI6MH1dLCJwb3N0IjpbXSwiZGVwZW5kc19vbiI6W119XX0="
+}

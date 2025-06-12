@@ -1,0 +1,15 @@
+description: |
+  needed keys for  body.definition.stage.job.step.task.inputs.key are: 
+  1. __sameProject__
+    1.1 value = "true"
+  2. __projectId__
+    2.1 value is project id
+  3. jobId
+    3.1 value is job id:
+      3.1.1 use tool queryBuildTasks,for each task use tool getBuildTaskDetails
+      3.1.2 filter with getBuildTaskDetails.result.scms[].url == body.sources.params.ssh_git_url to filter task and get user consent to use it
+      3.1.3 value = queryBuildTasks | decide what task to use based on getBuildTaskDetails |.jobs[{chosen_task_after_filter}].id
+  4. __repository__
+    4.1 value = repository name same as in body.sources.params.repo_name
+  5. artifactIdentifier
+    5.1 tip: Used to identify the artifact of the build task, for example: if the ID of the build task is build_job, and the artifact identifier is defined as demo, then the artifact information can be obtained using ${jobs.build_job.artifacts.demo}} in subsequent tasks.

@@ -1,0 +1,20 @@
+[
+  {
+    "type": "code",
+    "params": {
+      "git_type": "codehub",
+      "git_url": "https://codehub.devcloud.ap-southeast-3.huaweicloud.com/b3f25c9ab5cb457b97aa19bbc06b2743/repo-group/repo-1.git",
+      "ssh_git_url": "git@codehub.devcloud.ap-southeast-3.huaweicloud.com:b3f25c9ab5cb457b97aa19bbc06b2743/repo-group/repo-1.git",
+      "web_url": "",
+      "repo_name": "repo-1",
+      "human_name": "",
+      "default_branch": "feature-1",
+      "endpoint_id": "245d30bc922e4bbcb9c81a8af192d113",
+      "codehub_id": "956525",
+      "alias": "",
+      "workspace_id": "",
+      "workspace_name": "",
+      "repo_project_id": ""
+    }
+  }
+]

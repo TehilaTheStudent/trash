@@ -1,0 +1,1158 @@
+{
+    "method": "capabilities/refresh",
+    "data": {
+        "tools": {
+            "tools": [
+                {
+                    "name": "queryExtensionsList",
+                    "description": "query extensions list",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "domain_id": {
+                                "type": "string",
+                                "description": "Domain ID of the user"
+                            },
+                            "offset": {
+                                "type": "integer",
+                                "default": 0,
+                                "description": "Offset."
+                            },
+                            "limit": {
+                                "type": "integer",
+                                "default": 100,
+                                "description": "Size."
+                            },
+                            "body": {
+                                "type": "object",
+                                "properties": {
+                                    "use_condition": {
+                                        "type": "string",
+                                        "default": "pipeline",
+                                        "description": "Whether the extension can be used by a pipeline or template. Options, pipeline or template."
+                                    },
+                                    "input_repo_type": {
+                                        "type": "string",
+                                        "default": "codehub",
+                                        "description": "Source code repository type, CodeArts Repo, GitLab, or GitHub."
+                                    },
+                                    "input_source_type": {
+                                        "type": "string",
+                                        "default": "single",
+                                        "description": "Whether a pipeline has one source or multiple sources."
+                                    },
+                                    "business_type": {
+                                        "type": "string",
+                                        "default": "",
+                                        "description": "Service type."
+                                    },
+                                    "regex_name": {
+                                        "type": "string",
+                                        "default": "",
+                                        "description": "Name."
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "description": "Request body"
+                            }
+                        },
+                        "required": [
+                            "domain_id"
+                        ],
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                },
+                {
+                    "name": "queryExtensionInputConfiguration",
+                    "description": "Query Extension Input Configuration",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "domain_id": {
+                                "type": "string",
+                                "description": "Tenant ID."
+                            },
+                            "body": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "plugin_name": {
+                                            "type": "string",
+                                            "description": "plugin unique identifier, must be retrieved by using tool queryExtensionsList, if not wrong indentifier might be used and wrong answer will output"
+                                        },
+                                        "display_name": {
+                                            "type": "string",
+                                            "default": "",
+                                            "description": "the plugin display name"
+                                        },
+                                        "plugin_attribution": {
+                                            "type": "string",
+                                            "default": "",
+                                            "description": "Extension attribute. The value can be custom or official.  must be retrieved by using tool queryExtensionsList"
+                                        },
+                                        "version_attribution": {
+                                            "type": "string",
+                                            "default": "",
+                                            "description": "Version attribute. The value can be draft or formal. A"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "description": "Request body"
+                            }
+                        },
+                        "required": [
+                            "domain_id",
+                            "body"
+                        ],
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                },
+                {
+                    "name": "DeletePipeline",
+                    "description": "Delete pipeline",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "project_id": {
+                                "type": "string",
+                                "description": "Project ID"
+                            },
+                            "pipeline_id": {
+                                "type": "string",
+                                "description": "Pipeline ID"
+                            }
+                        },
+                        "required": [
+                            "project_id",
+                            "pipeline_id"
+                        ],
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                },
+                {
+                    "name": "QueryPipelineDetail",
+                    "description": "Query pipeline details",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "project_id": {
+                                "type": "string",
+                                "description": "Project ID"
+                            },
+                            "pipeline_id": {
+                                "type": "string",
+                                "description": "Pipeline ID"
+                            }
+                        },
+                        "required": [
+                            "project_id",
+                            "pipeline_id"
+                        ],
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                },
+                {
+                    "name": "UpdatePipelineInfo",
+                    "description": "Update pipeline",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "project_id": {
+                                "type": "string",
+                                "description": "Project ID"
+                            },
+                            "pipeline_id": {
+                                "type": "string",
+                                "description": "Pipeline ID"
+                            },
+                            "componentId": {
+                                "type": "string",
+                                "description": "Microservice ID"
+                            },
+                            "body": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Pipeline name"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "Pipeline description"
+                                    },
+                                    "is_publish": {
+                                        "type": "string",
+                                        "description": "Whether it is a release pipeline"
+                                    },
+                                    "sources": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "description": "Pipeline source type"
+                                                },
+                                                "params": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "git_type": {
+                                                            "type": "string",
+                                                            "description": "Code repository type"
+                                                        },
+                                                        "codehub_id": {
+                                                            "type": "string",
+                                                            "description": "codehub code repository ID"
+                                                        },
+                                                        "endpoint_id": {
+                                                            "type": "string",
+                                                            "description": "Extension point ID"
+                                                        },
+                                                        "default_branch": {
+                                                            "type": "string",
+                                                            "description": "Default branch"
+                                                        },
+                                                        "git_url": {
+                                                            "type": "string",
+                                                            "description": "Code repository https address"
+                                                        },
+                                                        "ssh_git_url": {
+                                                            "type": "string",
+                                                            "description": "Code repository ssh address"
+                                                        },
+                                                        "web_url": {
+                                                            "type": "string",
+                                                            "description": "Code repository page address"
+                                                        },
+                                                        "repo_name": {
+                                                            "type": "string",
+                                                            "description": "Code repository name"
+                                                        },
+                                                        "alias": {
+                                                            "type": "string",
+                                                            "description": "Code repository alias"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "git_type",
+                                                        "git_url",
+                                                        "ssh_git_url"
+                                                    ],
+                                                    "additionalProperties": false,
+                                                    "description": "Source parameters"
+                                                }
+                                            },
+                                            "required": [
+                                                "type",
+                                                "params"
+                                            ],
+                                            "additionalProperties": false,
+                                            "description": "Describes the source of the pipeline, e.g., a code repository."
+                                        },
+                                        "description": "Pipeline source"
+                                    },
+                                    "variables": {
+                                        "type": "array",
+                                        "items": {
+                                            "anyOf": [
+                                                {
+                                                    "not": {}
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "name": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        },
+                                        "description": "Pipeline custom global variables"
+                                    },
+                                    "schedules": {
+                                        "type": "array",
+                                        "items": {
+                                            "anyOf": [
+                                                {
+                                                    "not": {}
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "cron": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        },
+                                        "description": "Pipeline scheduled execution configuration"
+                                    },
+                                    "triggers": {
+                                        "type": "array",
+                                        "items": {
+                                            "anyOf": [
+                                                {
+                                                    "not": {}
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "enable": {
+                                                            "type": "boolean",
+                                                            "default": true,
+                                                            "description": "Whether the trigger is enabled"
+                                                        },
+                                                        "events": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "anyOf": [
+                                                                    {
+                                                                        "not": {}
+                                                                    },
+                                                                    {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "type": {
+                                                                                "type": "string",
+                                                                                "enum": [
+                                                                                    "push",
+                                                                                    "tag_push",
+                                                                                    "merge_request",
+                                                                                    "delete"
+                                                                                ],
+                                                                                "description": "Type of the event"
+                                                                            },
+                                                                            "enable": {
+                                                                                "type": "boolean",
+                                                                                "default": true,
+                                                                                "description": "Whether the event is enabled"
+                                                                            },
+                                                                            "branches": {
+                                                                                "anyOf": [
+                                                                                    {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "not": {}
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "null"
+                                                                                    }
+                                                                                ],
+                                                                                "description": "Branches to include in the trigger"
+                                                                            },
+                                                                            "exclude_branches": {
+                                                                                "anyOf": [
+                                                                                    {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "not": {}
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "null"
+                                                                                    }
+                                                                                ],
+                                                                                "description": "Branches to exclude from the trigger"
+                                                                            },
+                                                                            "tags": {
+                                                                                "anyOf": [
+                                                                                    {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "not": {}
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "null"
+                                                                                    }
+                                                                                ],
+                                                                                "description": "Tags to include in the trigger (for tag_push events)"
+                                                                            },
+                                                                            "exclude_tags": {
+                                                                                "anyOf": [
+                                                                                    {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "not": {}
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "null"
+                                                                                    }
+                                                                                ],
+                                                                                "description": "Tags to exclude from the trigger (for tag_push events)"
+                                                                            },
+                                                                            "paths": {
+                                                                                "anyOf": [
+                                                                                    {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "not": {}
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "null"
+                                                                                    }
+                                                                                ],
+                                                                                "description": "File paths to include in the trigger"
+                                                                            },
+                                                                            "exclude_paths": {
+                                                                                "anyOf": [
+                                                                                    {
+                                                                                        "type": "array",
+                                                                                        "items": {
+                                                                                            "anyOf": [
+                                                                                                {
+                                                                                                    "not": {}
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "null"
+                                                                                    }
+                                                                                ],
+                                                                                "description": "File paths to exclude from the trigger"
+                                                                            },
+                                                                            "create": {
+                                                                                "type": [
+                                                                                    "boolean",
+                                                                                    "null"
+                                                                                ],
+                                                                                "description": "Whether to trigger on merge request creation (for merge_request events)"
+                                                                            },
+                                                                            "merge": {
+                                                                                "type": [
+                                                                                    "boolean",
+                                                                                    "null"
+                                                                                ],
+                                                                                "description": "Whether to trigger on merge (for merge_request events)"
+                                                                            },
+                                                                            "update": {
+                                                                                "type": [
+                                                                                    "boolean",
+                                                                                    "null"
+                                                                                ],
+                                                                                "description": "Whether to trigger on merge request update (for merge_request events)"
+                                                                            },
+                                                                            "code_update": {
+                                                                                "type": [
+                                                                                    "boolean",
+                                                                                    "null"
+                                                                                ],
+                                                                                "description": "Whether to trigger on code update (for merge_request events)"
+                                                                            },
+                                                                            "reopen": {
+                                                                                "type": [
+                                                                                    "boolean",
+                                                                                    "null"
+                                                                                ],
+                                                                                "description": "Whether to trigger on merge request reopen (for merge_request events)"
+                                                                            }
+                                                                        },
+                                                                        "additionalProperties": false
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "description": "List of trigger events"
+                                                        },
+                                                        "git_url": {
+                                                            "type": "string",
+                                                            "description": "Git repository URL"
+                                                        },
+                                                        "git_type": {
+                                                            "type": "string",
+                                                            "description": "Type of git repository (e.g., codehub, github, gitlab)"
+                                                        },
+                                                        "human_name": {
+                                                            "type": "string",
+                                                            "description": "Human-readable name for the trigger"
+                                                        },
+                                                        "endpoint_id": {
+                                                            "type": "string",
+                                                            "description": "Endpoint ID for the git repository"
+                                                        },
+                                                        "codehub_id": {
+                                                            "type": "string",
+                                                            "description": "CodeHub repository ID"
+                                                        },
+                                                        "is_auto_comment": {
+                                                            "type": "boolean",
+                                                            "description": "Whether to automatically comment on pull requests"
+                                                        },
+                                                        "state": {
+                                                            "type": "integer",
+                                                            "description": "Trigger state (1 = active, 0 = inactive)"
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        },
+                                        "description": "Pipeline code event trigger configuration"
+                                    },
+                                    "manifest_version": {
+                                        "type": "string",
+                                        "description": "Pipeline structure definition version, new version defaults to 3.0"
+                                    },
+                                    "definition": {
+                                        "type": "string",
+                                        "default": "{\"stages\":[]}",
+                                        "description": "Pipeline structure definition, a stringified json"
+                                    },
+                                    "project_name": {
+                                        "type": "string",
+                                        "description": "Project name"
+                                    },
+                                    "group_id": {
+                                        "type": "string",
+                                        "description": "Pipeline group ID"
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "description": "Template create pipeline request body parameters"
+                            }
+                        },
+                        "required": [
+                            "project_id",
+                            "pipeline_id",
+                            "body"
+                        ],
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                },
+                {
+                    "name": "CreatePipelineNew",
+                    "description": "Creating a pipeline",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "project_id": {
+                                "type": "string",
+                                "description": "Project ID"
+                            },
+                            "body": {
+                                "type": "object",
+                                "properties": {
+                                    "projectId": {
+                                        "type": "string",
+                                        "description": "Project ID"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Pipeline name"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "default": "",
+                                        "description": "Pipeline description"
+                                    },
+                                    "is_publish": {
+                                        "type": "boolean",
+                                        "default": false,
+                                        "description": "Whether it is a release pipeline"
+                                    },
+                                    "sources": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "description": "Pipeline source type"
+                                                },
+                                                "params": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "git_type": {
+                                                            "type": "string",
+                                                            "description": "Code repository type"
+                                                        },
+                                                        "codehub_id": {
+                                                            "type": "string",
+                                                            "description": "codehub code repository ID"
+                                                        },
+                                                        "endpoint_id": {
+                                                            "type": "string",
+                                                            "description": "Extension point ID"
+                                                        },
+                                                        "default_branch": {
+                                                            "type": "string",
+                                                            "description": "Default branch"
+                                                        },
+                                                        "git_url": {
+                                                            "type": "string",
+                                                            "description": "Code repository https address"
+                                                        },
+                                                        "ssh_git_url": {
+                                                            "type": "string",
+                                                            "description": "Code repository ssh address"
+                                                        },
+                                                        "web_url": {
+                                                            "type": "string",
+                                                            "description": "Code repository page address"
+                                                        },
+                                                        "repo_name": {
+                                                            "type": "string",
+                                                            "description": "Code repository name"
+                                                        },
+                                                        "alias": {
+                                                            "type": "string",
+                                                            "description": "Code repository alias"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "git_type",
+                                                        "git_url",
+                                                        "ssh_git_url"
+                                                    ],
+                                                    "additionalProperties": false,
+                                                    "description": "Source parameters"
+                                                }
+                                            },
+                                            "required": [
+                                                "type",
+                                                "params"
+                                            ],
+                                            "additionalProperties": false,
+                                            "description": "Describes the source of the pipeline, e.g., a code repository."
+                                        },
+                                        "description": "Pipeline source"
+                                    },
+                                    "definition": {
+                                        "type": "string",
+                                        "description": "Pipeline structure definition"
+                                    }
+                                },
+                                "required": [
+                                    "projectId",
+                                    "name",
+                                    "sources",
+                                    "definition"
+                                ],
+                                "additionalProperties": false,
+                                "description": "Creating a pipeline request body"
+                            }
+                        },
+                        "required": [
+                            "project_id",
+                            "body"
+                        ],
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                },
+                {
+                    "name": "ListPipelines",
+                    "description": "List pipelines/Get project pipeline execution status",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "project_id": {
+                                "type": "string",
+                                "description": "Project ID"
+                            },
+                            "body": {
+                                "type": "object",
+                                "properties": {
+                                    "project_ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "anyOf": [
+                                                {
+                                                    "not": {}
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "component_id": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "array",
+                                        "items": {
+                                            "anyOf": [
+                                                {
+                                                    "not": {}
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "is_publish": {
+                                        "type": "boolean",
+                                        "description": "Whether it is a change pipeline"
+                                    },
+                                    "creator_ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "anyOf": [
+                                                {
+                                                    "not": {}
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "description": "Creator ID list"
+                                    },
+                                    "executor_ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "anyOf": [
+                                                {
+                                                    "not": {}
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "description": "Executor ID list"
+                                    },
+                                    "start_time": {
+                                        "type": "string",
+                                        "description": "Start time"
+                                    },
+                                    "end_time": {
+                                        "type": "string",
+                                        "description": "End time"
+                                    },
+                                    "offset": {
+                                        "type": "integer",
+                                        "description": "Start offset"
+                                    },
+                                    "limit": {
+                                        "type": "integer",
+                                        "description": "Query quantity"
+                                    },
+                                    "sort_key": {
+                                        "type": "string",
+                                        "description": "Sort field name"
+                                    },
+                                    "sort_dir": {
+                                        "type": "string",
+                                        "description": "Sort rule"
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "description": "Query pipeline list request body"
+                            }
+                        },
+                        "required": [
+                            "project_id"
+                        ],
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                },
+                {
+                    "name": "RunPipeline",
+                    "description": "Run pipeline",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "project_id": {
+                                "type": "string",
+                                "description": "Project ID"
+                            },
+                            "pipeline_id": {
+                                "type": "string",
+                                "description": "Pipeline ID"
+                            },
+                            "body": {
+                                "type": "object",
+                                "properties": {
+                                    "sources": {
+                                        "type": "array",
+                                        "items": {
+                                            "anyOf": [
+                                                {
+                                                    "not": {}
+                                                },
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string",
+                                                            "description": "源类型"
+                                                        },
+                                                        "params": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "git_type": {
+                                                                    "type": "string",
+                                                                    "description": "代码仓类型"
+                                                                },
+                                                                "codehub_id": {
+                                                                    "type": "string",
+                                                                    "description": "codehub代码库ID"
+                                                                },
+                                                                "default_branch": {
+                                                                    "type": "string",
+                                                                    "description": "默认分支"
+                                                                },
+                                                                "git_url": {
+                                                                    "type": "string",
+                                                                    "description": "git仓库https地址"
+                                                                },
+                                                                "endpoint_id": {
+                                                                    "type": "string",
+                                                                    "description": "扩展点ID"
+                                                                },
+                                                                "build_params": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "build_type": {
+                                                                            "type": "string",
+                                                                            "description": "分支还是tag触发"
+                                                                        },
+                                                                        "target_branch": {
+                                                                            "type": "string",
+                                                                            "description": "运行分支"
+                                                                        },
+                                                                        "tag": {
+                                                                            "type": "string",
+                                                                            "description": "运行tag"
+                                                                        },
+                                                                        "event_type": {
+                                                                            "type": "string",
+                                                                            "description": "触发事件类型"
+                                                                        }
+                                                                    },
+                                                                    "additionalProperties": false,
+                                                                    "description": "具体构建参数"
+                                                                }
+                                                            },
+                                                            "additionalProperties": false,
+                                                            "description": "源参数"
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            ]
+                                        },
+                                        "description": "使用的源"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "运行描述"
+                                    },
+                                    "variables": {
+                                        "type": "array",
+                                        "items": {
+                                            "anyOf": [
+                                                {
+                                                    "not": {}
+                                                },
+                                                {}
+                                            ]
+                                        },
+                                        "description": "使用的自定义参数"
+                                    },
+                                    "items": {},
+                                    "choose_jobs": {
+                                        "type": "array",
+                                        "items": {
+                                            "anyOf": [
+                                                {
+                                                    "not": {}
+                                                },
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        },
+                                        "description": "选择的任务"
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "description": "运行流水线请求体"
+                            }
+                        },
+                        "required": [
+                            "project_id",
+                            "pipeline_id"
+                        ],
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                },
+                {
+                    "name": "listProjects",
+                    "description": "List all projects",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "offset": {
+                                "type": "integer",
+                                "default": 0
+                            },
+                            "limit": {
+                                "type": "integer",
+                                "default": 10
+                            },
+                            "search": {
+                                "type": "string",
+                                "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+                            }
+                        },
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                },
+                {
+                    "name": "getProject",
+                    "description": "Get project details",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "project_id": {
+                                "type": "string",
+                                "description": "The unique identifier of the project."
+                            }
+                        },
+                        "required": [
+                            "project_id"
+                        ],
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                },
+                {
+                    "name": "createWorkItem",
+                    "description": "Create a new work item",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "project_id": {
+                                "type": "string",
+                                "description": "The unique identifier of the project."
+                            },
+                            "body": {
+                                "type": "object",
+                                "properties": {
+                                    "description": {
+                                        "type": "string",
+                                        "description": "Description"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Title"
+                                    },
+                                    "priority_id": {
+                                        "type": "number",
+                                        "description": "Priority, 1: low, In 2, 3 high"
+                                    },
+                                    "tracker_id": {
+                                        "type": "number",
+                                        "description": "Work item type. The options are as follows: 2: task; 3: defect /Bug,5Epic,6Feature,7Story. The value 5 can only be the parent work item type of 6. 6 can only be the parent work item type of 7. The value 7 can only be the parent of 2 or 3."
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "priority_id",
+                                    "tracker_id"
+                                ],
+                                "additionalProperties": false,
+                                "description": "Request body"
+                            }
+                        },
+                        "required": [
+                            "project_id",
+                            "body"
+                        ],
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                },
+                {
+                    "name": "listWorkItems",
+                    "description": "List work items of a project by creation time.",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "project_id": {
+                                "type": "string",
+                                "description": "The unique identifier of the project."
+                            },
+                            "body": {
+                                "type": "object",
+                                "properties": {
+                                    "offset": {
+                                        "type": "integer"
+                                    },
+                                    "limit": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 100
+                                    }
+                                },
+                                "required": [
+                                    "offset",
+                                    "limit"
+                                ],
+                                "additionalProperties": false,
+                                "description": "Request body"
+                            }
+                        },
+                        "required": [
+                            "project_id"
+                        ],
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                },
+                {
+                    "name": "getWorkItem",
+                    "description": "Get work item details",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "project_id": {
+                                "type": "string",
+                                "description": "The unique identifier of the project."
+                            },
+                            "issue_id": {
+                                "type": "integer",
+                                "description": "The unique identifier of the work item."
+                            }
+                        },
+                        "required": [
+                            "project_id",
+                            "issue_id"
+                        ],
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                },
+                {
+                    "name": "listProjectRepositories",
+                    "description": "List all repositories in a project, can add search query with the name of the repo",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "project_uuid": {
+                                "type": "string"
+                            },
+                            "page_index": {
+                                "type": "integer",
+                                "description": "Page index, starting from 1"
+                            },
+                            "page_size": {
+                                "type": "integer",
+                                "description": "Record number on each page"
+                            },
+                            "search": {
+                                "type": "string",
+                                "description": "Search keyword"
+                            }
+                        },
+                        "required": [
+                            "project_uuid"
+                        ],
+                        "additionalProperties": false,
+                        "$schema": "http://json-schema.org/draft-07/schema#"
+                    }
+                }
+            ]
+        },
+        "resources": {
+            "resources": [
+                {
+                    "uri": "codearts-guides://create-environment",
+                    "name": "codearts-guides-create-environment"
+                },
+                {
+                    "uri": "codearts-guides://deployment-manifest",
+                    "name": "codearts-guides-deployment-manifest"
+                },
+                {
+                    "uri": "codearts-guides://generate-microservice",
+                    "name": "codearts-guides-generate-microservice"
+                },
+                {
+                    "uri": "codearts-guides://generate-pipeline",
+                    "name": "codearts-guides-generate-pipeline"
+                },
+                {
+                    "uri": "k8s-crds://environment",
+                    "name": "k8s-crds-environment"
+                },
+                {
+                    "uri": "k8s-crds://swr-organization",
+                    "name": "k8s-crds-swr-organization"
+                }
+            ]
+        },
+        "resourceTemplates": {
+            "resourceTemplates": []
+        },
+        "errors": {
+            "prompts": {}
+        }
+    },
+    "responseTime": 13.433200001716614
+}

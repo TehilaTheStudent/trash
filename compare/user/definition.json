@@ -1,0 +1,190 @@
+{
+  "stages": [
+    {
+      "name": "Stage_2",
+      "identifier": "174958520185351ee3d63-d27a-4da0-b3eb-cc548c6f3f60",
+      "run_condition": null,
+      "type": null,
+      "sequence": 0,
+      "parallel": null,
+      "pre": [
+        {
+          "runtime_attribution": null,
+          "multi_step_editable": 0,
+          "official_task_version": null,
+          "icon_url": null,
+          "name": null,
+          "task": "official_devcloud_autoTrigger",
+          "business_type": null,
+          "inputs": null,
+          "env": null,
+          "sequence": 0,
+          "identifier": null,
+          "endpoint_ids": null
+        }
+      ],
+      "post": null,
+      "jobs": [
+        {
+          "id": null,
+          "identifier_old": null,
+          "stage_index": null,
+          "type": null,
+          "name": "Check",
+          "async": null,
+          "identifier": "JOB_zNWkK",
+          "sequence": 0,
+          "condition": "${{ default() }}",
+          "strategy": {
+            "select_strategy": "selected"
+          },
+          "timeout": "",
+          "resource": "{\"type\":\"system\",\"arch\":\"x86\"}",
+          "steps": [
+            {
+              "runtime_attribution": "agent",
+              "multi_step_editable": 0,
+              "official_task_version": "0.0.3",
+              "icon_url": "/api/v1/*/common/get-plugin-icon?object_key=official_devcloud_codeCheck-54902a28bd7b4cecb582daf8c8da1a7f-CodeArtsCheck代码检查.png-080cf8d7cc800fe10f7dc006dfbbcfa0&icon_type=plugin",
+              "name": "Check",
+              "task": "official_devcloud_codeCheck",
+              "business_type": "Gate",
+              "inputs": [
+                {
+                  "key": "repository_readonly",
+                  "value": "service-a"
+                },
+                {
+                  "key": "checkMode",
+                  "value": "full"
+                },
+                {
+                  "key": "codeBranch",
+                  "value": "master"
+                },
+                {
+                  "key": "__sameProject__",
+                  "value": "true"
+                },
+                {
+                  "key": "__projectId__",
+                  "value": ""
+                },
+                {
+                  "key": "jobId",
+                  "value": "194df340ca4749e4892457378111cbd2"
+                }
+              ],
+              "env": [],
+              "sequence": 0,
+              "identifier": "17495852153256d51047b-6c75-4124-a885-fe3898e06f98",
+              "endpoint_ids": []
+            }
+          ],
+          "stage_id": "1749585201853",
+          "pipeline_id": "9649faafc732432fbacfd757fb561a14",
+          "unfinished_steps": [],
+          "condition_tag": "",
+          "exec_type": "OCTOPUS_JOB",
+          "depends_on": [],
+          "reusable_job_id": null
+        }
+      ],
+      "pipeline_id": "9649faafc732432fbacfd757fb561a14",
+      "depends_on": [],
+      "run_always": false
+    },
+    {
+      "name": "Stage_1",
+      "identifier": "1749557390910889564a0-86a2-4a06-8242-cb84c1ad89b3",
+      "run_condition": null,
+      "type": null,
+      "sequence": 1,
+      "parallel": null,
+      "pre": [
+        {
+          "runtime_attribution": null,
+          "multi_step_editable": 0,
+          "official_task_version": null,
+          "icon_url": null,
+          "name": null,
+          "task": "official_devcloud_autoTrigger",
+          "business_type": null,
+          "inputs": null,
+          "env": null,
+          "sequence": 0,
+          "identifier": null,
+          "endpoint_ids": null
+        }
+      ],
+      "post": null,
+      "jobs": [
+        {
+          "id": null,
+          "identifier_old": null,
+          "stage_index": null,
+          "type": null,
+          "name": "Build",
+          "async": null,
+          "identifier": "JOB_BbYdm",
+          "sequence": 0,
+          "condition": "${{ default() }}",
+          "strategy": {
+            "select_strategy": "selected"
+          },
+          "timeout": "",
+          "resource": "{\"type\":\"system\",\"arch\":\"x86\"}",
+          "steps": [
+            {
+              "runtime_attribution": "agent",
+              "multi_step_editable": 0,
+              "official_task_version": "0.0.4",
+              "icon_url": "/api/v1/*/common/get-plugin-icon?object_key=official_devcloud_cloudBuild-6468e5a1633447d6a1d3f0e1c80b6767-CodeArtsBuild构建.png-080cf8d7cc800fe10f7dc006dfbbcfa0&icon_type=plugin",
+              "name": "Build",
+              "task": "official_devcloud_cloudBuild",
+              "business_type": "Build",
+              "inputs": [
+                {
+                  "key": "__sameProject__",
+                  "value": "true"
+                },
+                {
+                  "key": "__projectId__",
+                  "value": ""
+                },
+                {
+                  "key": "jobId",
+                  "value": "20e03a8c0b35432ebbf20d3c7d20a428"
+                },
+                {
+                  "key": "__repository__",
+                  "value": "service-a"
+                },
+                {
+                  "key": "artifactIdentifier",
+                  "value": ""
+                }
+              ],
+              "env": [],
+              "sequence": 0,
+              "identifier": "1749557401507fecd8027-67ac-4e2b-aa5d-acab942348b4",
+              "endpoint_ids": []
+            }
+          ],
+          "stage_id": "1749557390910",
+          "pipeline_id": "9649faafc732432fbacfd757fb561a14",
+          "unfinished_steps": [],
+          "condition_tag": "",
+          "exec_type": "OCTOPUS_JOB",
+          "depends_on": [],
+          "reusable_job_id": null
+        }
+      ],
+      "pipeline_id": "9649faafc732432fbacfd757fb561a14",
+      "depends_on": [
+        "174958520185351ee3d63-d27a-4da0-b3eb-cc548c6f3f60"
+      ],
+      "run_always": false
+    }
+  ]
+}

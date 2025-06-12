@@ -1,0 +1,20 @@
+description: |
+  needed keys for  body.definition.stage.job.step.task.inputs.key are: 
+  1. repository_readonly
+    1.1 value = repository name, same as in body.sources.params.repo_name
+  2. checkMode
+    2.1 tip: There are three check modes. The default value is Full. You can change the value as required.
+      full: All files in the code repository are scanned.
+      push_inc_full: Incremental check is performed based on the latest commit file.
+      push_multi_inc_full: Incremental check is performed based on the changed files after the latest access control is passed.
+  3. codeBranch    
+    3.1 value = branch name, same as in body.sources.params.default_branch
+  4. __sameProject__
+    4.1 value = "true"
+  5. __projectId__
+    5.1 value = project_id
+  6. jobId
+    6.1 value is task id:
+      6.1.1 use tool queryCheckTasks and get user consent to use it
+      6.1.2 filter with queryCheckTasks.tasks[].git_url == body.sources.params.ssh_git_url to filter task
+      6.1.3 value = queryCheckTasks | decide what task to use | .tasks[{chosen_task_after_filter}].task_id

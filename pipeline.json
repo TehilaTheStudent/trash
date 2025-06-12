@@ -1,0 +1,124 @@
+{
+  "id": "9649faafc732432fbacfd757fb561a14",
+  "origin_id": null,
+  "name": "tehila-pipeline",
+  "description": "fdsa",
+  "manifest_version": "3.0",
+  "region": "ap-southeast-3",
+  "domain_id": "9f1a017e31a04489a56572a559924f7c",
+  "project_id": "b3f25c9ab5cb457b97aa19bbc06b2743",
+  "component_id": "",
+  "is_publish": false,
+  "disable_release_branch_management": null,
+  "creator_id": "449783a150844ae3acf503f7c6df559c",
+  "creator_name": "itai_gendler",
+  "updater_id": "449783a150844ae3acf503f7c6df559c",
+  "create_time": 1748765646000,
+  "update_time": 1749559124000,
+  "deleted": false,
+  "banned": false,
+  "is_collect": false,
+  "from_git_code": null,
+  "from_git_code_repo": null,
+  "access_token": null,
+  "git_code_repo_id": null,
+  "pac_repo_relation": null,
+  "yaml_content": null,
+  "agency_name": "",
+  "sources": [
+    {
+      "type": "code",
+      "params": {
+        "git_type": "codehub",
+        "git_url": "https://codehub.devcloud.ap-southeast-3.huaweicloud.com/b3f25c9ab5cb457b97aa19bbc06b2743/service-a.git",
+        "ssh_git_url": "git@codehub.devcloud.ap-southeast-3.huaweicloud.com:b3f25c9ab5cb457b97aa19bbc06b2743/service-a.git",
+        "web_url": "",
+        "repo_name": "service-a",
+        "human_name": "",
+        "default_branch": "master",
+        "endpoint_id": "245d30bc922e4bbcb9c81a8af192d113",
+        "codehub_id": "956532",
+        "alias": "",
+        "workspace_id": null,
+        "workspace_name": null,
+        "repo_project_id": null
+      }
+    }
+  ],
+  "variables": [],
+  "schedules": null,
+  "triggers": [
+    {
+      "git_url": "https://codehub.devcloud.ap-southeast-3.huaweicloud.com/b3f25c9ab5cb457b97aa19bbc06b2743/service-a.git",
+      "git_type": "codehub",
+      "is_auto_comment": false,
+      "events": [
+        {
+          "type": "push",
+          "enable": false,
+          "branches": null,
+          "exclude_branches": null,
+          "paths": null,
+          "exclude_paths": null
+        },
+        {
+          "type": "merge_request",
+          "enable": false,
+          "create": false,
+          "update": false,
+          "code_update": false,
+          "merge": false,
+          "reopen": false,
+          "branches": null,
+          "exclude_branches": null,
+          "paths": null,
+          "exclude_paths": null,
+          "pr_tags": null
+        },
+        {
+          "type": "tag_push",
+          "enable": false,
+          "create": null,
+          "tags": [],
+          "exclude_tags": []
+        }
+      ],
+      "hook_id": null,
+      "repo_id": "956532",
+      "endpoint_id": "245d30bc922e4bbcb9c81a8af192d113",
+      "access_token": null
+    }
+  ],
+  "from_source": 0,
+  "project_name": null,
+  "group_id": null,
+  "group_name": null,
+  "concurrency_control": {
+    "pipeline_id": "9649faafc732432fbacfd757fb561a14",
+    "concurrency_number": 5,
+    "exceed_action": "ABORT",
+    "create_time": 1748765646000,
+    "update_time": 1749559124000,
+    "enable": false
+  },
+  "cancel_strategy": {
+    "id": 26991,
+    "pipeline_id": "9649faafc732432fbacfd757fb561a14",
+    "cancel_strategies": [
+      {
+        "granularity": "MR",
+        "cancel_strategy": "CANCEL_ALL_RUN"
+      }
+    ],
+    "enable": false
+  },
+  "definition": "{\"stages\":[{\"name\":\"shell commands\",\"identifier\":\"da14e00b-2b22-4f91-a734-68149b6d839c\",\"run_condition\":null,\"type\":null,\"sequence\":0,\"parallel\":null,\"pre\":[{\"runtime_attribution\":null,\"multi_step_editable\":0,\"official_task_version\":null,\"icon_url\":null,\"name\":null,\"task\":\"official_devcloud_autoTrigger\",\"business_type\":null,\"inputs\":null,\"env\":null,\"sequence\":0,\"identifier\":null,\"endpoint_ids\":null}],\"post\":null,\"jobs\":[{\"id\":null,\"identifier_old\":null,\"stage_index\":null,\"type\":null,\"name\":\"Build\",\"async\":null,\"identifier\":\"job_b95ded25-6e79-4ddc-b988-b7c36166e5d8\",\"sequence\":0,\"condition\":\"${{ default() }}\",\"strategy\":{\"select_strategy\":\"always\"},\"timeout\":\"\",\"resource\":\"{\\\"type\\\":\\\"system\\\",\\\"arch\\\":\\\"x86\\\"}\",\"steps\":[{\"runtime_attribution\":\"agent\",\"multi_step_editable\":0,\"official_task_version\":\"0.0.4\",\"icon_url\":\"/api/v1/*/common/get-plugin-icon?object_key=official_devcloud_cloudBuild-6468e5a1633447d6a1d3f0e1c80b6767-CodeArtsBuild构建.png-080cf8d7cc800fe10f7dc006dfbbcfa0&icon_type=plugin\",\"name\":\"Build\",\"task\":\"official_devcloud_cloudBuild\",\"business_type\":\"Build\",\"inputs\":[{\"key\":\"__sameProject__\",\"value\":\"true\"},{\"key\":\"__projectId__\",\"value\":\"\"},{\"key\":\"jobId\",\"value\":\"20e03a8c0b35432ebbf20d3c7d20a428\"},{\"key\":\"__repository__\",\"value\":\"service-a\"},{\"key\":\"artifactIdentifier\",\"value\":\"\"}],\"env\":[],\"sequence\":0,\"identifier\":\"1749556150788adfb345f-75dc-497b-bea6-e54a2f017dff\",\"endpoint_ids\":[]}],\"stage_id\":null,\"pipeline_id\":\"9649faafc732432fbacfd757fb561a14\",\"unfinished_steps\":[],\"condition_tag\":\"\",\"exec_type\":\"OCTOPUS_JOB\",\"depends_on\":[],\"reusable_job_id\":null}],\"pipeline_id\":\"9649faafc732432fbacfd757fb561a14\",\"depends_on\":[],\"run_always\":false},{\"name\":\"Stage_1\",\"identifier\":\"1749557390910889564a0-86a2-4a06-8242-cb84c1ad89b3\",\"run_condition\":null,\"type\":null,\"sequence\":1,\"parallel\":null,\"pre\":[{\"runtime_attribution\":null,\"multi_step_editable\":0,\"official_task_version\":null,\"icon_url\":null,\"name\":null,\"task\":\"official_devcloud_autoTrigger\",\"business_type\":null,\"inputs\":null,\"env\":null,\"sequence\":0,\"identifier\":null,\"endpoint_ids\":null}],\"post\":null,\"jobs\":[{\"id\":null,\"identifier_old\":null,\"stage_index\":null,\"type\":null,\"name\":\"Build\",\"async\":null,\"identifier\":\"JOB_BbYdm\",\"sequence\":0,\"condition\":\"${{ default() }}\",\"strategy\":{\"select_strategy\":\"selected\"},\"timeout\":\"\",\"resource\":\"{\\\"type\\\":\\\"system\\\",\\\"arch\\\":\\\"x86\\\"}\",\"steps\":[{\"runtime_attribution\":\"agent\",\"multi_step_editable\":0,\"official_task_version\":\"0.0.4\",\"icon_url\":\"/api/v1/*/common/get-plugin-icon?object_key=official_devcloud_cloudBuild-6468e5a1633447d6a1d3f0e1c80b6767-CodeArtsBuild构建.png-080cf8d7cc800fe10f7dc006dfbbcfa0&icon_type=plugin\",\"name\":\"Build\",\"task\":\"official_devcloud_cloudBuild\",\"business_type\":\"Build\",\"inputs\":[{\"key\":\"__sameProject__\",\"value\":\"true\"},{\"key\":\"__projectId__\",\"value\":\"\"},{\"key\":\"jobId\",\"value\":\"20e03a8c0b35432ebbf20d3c7d20a428\"},{\"key\":\"__repository__\",\"value\":\"service-a\"},{\"key\":\"artifactIdentifier\",\"value\":\"\"}],\"env\":[],\"sequence\":0,\"identifier\":\"1749557401507fecd8027-67ac-4e2b-aa5d-acab942348b4\",\"endpoint_ids\":[]}],\"stage_id\":\"1749557390910\",\"pipeline_id\":\"9649faafc732432fbacfd757fb561a14\",\"unfinished_steps\":[],\"condition_tag\":\"\",\"exec_type\":\"OCTOPUS_JOB\",\"depends_on\":[],\"reusable_job_id\":null}],\"pipeline_id\":\"9649faafc732432fbacfd757fb561a14\",\"depends_on\":[\"da14e00b-2b22-4f91-a734-68149b6d839c\"],\"run_always\":false}]}",
+  "detail_url": "https://devcloud.ap-southeast-3.huaweicloud.com/cicd/project/b3f25c9ab5cb457b97aa19bbc06b2743/pipeline/detail/9649faafc732432fbacfd757fb561a14?from=in-project&v=1",
+  "modify_url": "https://devcloud.ap-southeast-3.huaweicloud.com/cicd/project/b3f25c9ab5cb457b97aa19bbc06b2743/pipeline/modify/9649faafc732432fbacfd757fb561a14?from=in-project&v=1",
+  "tags": [],
+  "is_crmodel": null,
+  "yaml_repo_properties": null,
+  "pac_source_alias": "",
+  "pac_source_repo_https_endpoint": "245d30bc922e4bbcb9c81a8af192d113",
+  "subject_id": "9649faafc732432fbacfd757fb561a14"
+}

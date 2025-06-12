@@ -1,0 +1,174 @@
+[
+  {
+    "plugin_name": "tehila-inputs-id",
+    "description": ""
+  },
+  {
+    "plugin_name": "published.CodeArts_Governance.CodeArts_Governance_SCA_Binary",
+    "description": "The Binary SCA extension helps enterprises use open-source software with enhanced security and efficiency. It analyzes metadata and components to minimize risks in compliance, networks, and supply,You need to purchase the corresponding annual and monthly package for use. The public testing address is https://account.huaweicloud.com/usercenter/?region=cn-north-4#/applyBeta?serviceCodeP=beta_bsca_obt_activity_gov"
+  },
+  {
+    "plugin_name": "CI-UpdateChangeRequestMetadata",
+    "description": ""
+  },
+  {
+    "plugin_name": "merge_merge_request",
+    "description": "Merge a CodeArts Repo merge request"
+  },
+  {
+    "plugin_name": "DeployMicroserviceInstance",
+    "description": "Update the deployment configuration of a microservice instance in a specific environment\n\n"
+  },
+  {
+    "plugin_name": "CI-UpgradeChangeRequestEntity",
+    "description": "Create a change request. Use only in microservice based pipelines."
+  },
+  {
+    "plugin_name": "terraform_deploy_plugin",
+    "description": "公测版Terraform部署插件，支持init、validate、plan、apply、destroy等常用tf操作并结合流水线进行编排。建议结合自定义执行机使用并提前完成Terraform工具的安装。"
+  },
+  {
+    "plugin_name": "official_devcloud_codeCheck",
+    "description": "CodeArts Check capabilities can be called on the pipeline to check code. CodeArts Check is a cloud-based management service that checks code quality. Developers can easily perform static code and security checks in multiple languages and obtain comprehensive quality reports. CodeArts Check also provides suggestions on fixing code defects and trend analysis, effectively controlling quality and reducing costs."
+  },
+  {
+    "plugin_name": "official_devcloud_cloudBuild",
+    "description": "CodeArts Build capabilities can be called on the pipeline for building. CodeArts Build provides an easy-to-use, cloud-based build platform that supports multiple programming languages, helping you achieve continuous delivery, with shorter delivery period and higher delivery efficiency. With CodeArts Build, you can create, configure, and run build tasks with a few clicks. CodeArts Build also supports automation of code retrieval, building, and packaging, as well as real-time status monitoring."
+  },
+  {
+    "plugin_name": "official_third_part_invoke",
+    "description": "Web APIs can be configured to call third-party APIs."
+  },
+  {
+    "plugin_name": "official_docker",
+    "description": "Use this plugin to perform specified Docker operations, supported only on custom execution machines."
+  },
+  {
+    "plugin_name": "official_artifact_download",
+    "description": "Used to download products from the artifact repository."
+  },
+  {
+    "plugin_name": "published.HuaweiCloudIntel-CAE.official_cae_cross_account",
+    "description": ""
+  },
+  {
+    "plugin_name": "fast-create",
+    "description": ""
+  },
+  {
+    "plugin_name": "my-uniqu-id",
+    "description": "fdafdafdsa"
+  },
+  {
+    "plugin_name": "official_devcloud_checkpoint",
+    "description": "Configure a manual review task in separate signing or countersigning mode.After the configuration, an email notification is sent to remind the reviewer to approve the application."
+  },
+  {
+    "plugin_name": "official_devcloud_subPipeline",
+    "description": "You can configure and call other pipeline tasks in a project."
+  },
+  {
+    "plugin_name": "official_devcloud_createTag",
+    "description": "Tags can be created and pushed for CodeArts Repo repositories."
+  },
+  {
+    "plugin_name": "official_kubernetes_release",
+    "description": "Deploy docker image to CCE and Kubernetes cluster. Rolling upgrade and Blue-Green release based on k8s Service are supported."
+  },
+  {
+    "plugin_name": "official_microservice_release",
+    "description": "CloudNative publishing provides environment-level service publishing capabilities and supports customized orchestration and release of environments, such as rolling release and gray release."
+  },
+  {
+    "plugin_name": "official_docker_executor",
+    "description": "this plugin is used to run custom image"
+  },
+  {
+    "plugin_name": "official_shell_plugin",
+    "description": "this plugin is used to run shell command"
+  },
+  {
+    "plugin_name": "download-obs",
+    "description": "Download files from OBS to local"
+  },
+  {
+    "plugin_name": "upload-obs",
+    "description": "Upload files to HuaweiCloud OBS"
+  },
+  {
+    "plugin_name": "official_devcloud_cloudBuild_template",
+    "description": "This extension can be configured only in a pipeline template. When a pipeline is generated from the template, the extension automatically creates a CodeArts Build task and configures the task in the generated pipeline."
+  },
+  {
+    "plugin_name": "published.HuaweiCloud-CAE.official_cae_release",
+    "description": "Cloud Application Engine (CAE) provides serverless hosting for applications. This one-stop application hosting solution features fast deployment, low cost, and lean O&M. CAE releases applications from source code, software packages, and image packages quickly and easily, with auto scaling to the second, pay-per-use billing, and simple O&M infrastructure. The whole application lifecycle is manageable with observable metrics."
+  },
+  {
+    "plugin_name": "official_developer_debug",
+    "description": "Invoke the developer joint commissioning capability to create and release the R&D environment. Developer joint commissioning is a cloud-native R&D environment delivery platform developed by Kubernetes. Provides capabilities such as continuous R&D environment delivery and microservice joint commissioning and testing for software developers, and provides enterprise-oriented solutions to reduce R&D environment resource costs. Helps you solve R&D environment management problems and reduce R&D environment use costs.\n"
+  },
+  {
+    "plugin_name": "official_mvn_dependency",
+    "description": "Accurately identify software components and provide license and vulnerability risk scanning capabilities. Supports the creation of policies to achieve unified management and control of open source component risk."
+  },
+  {
+    "plugin_name": "official_devcloud_jenkins",
+    "description": "Jenkins tasks can be called to extend and implement custom actions."
+  },
+  {
+    "plugin_name": "official_branch_change_check",
+    "description": "Specifies the target branch. The pipeline running fails if the current pipeline running branch lags behind the specified branch."
+  },
+  {
+    "plugin_name": "official_gate_source_dependency",
+    "description": "This extension can be configured only in a pipeline pass condition. Set pass conditions by using open source governance policies."
+  },
+  {
+    "plugin_name": "official_release_executor",
+    "description": "Execute the strategy configured by the CloudNativeRelease plugin, will be called when CloudNativeRelease is running. Manual configuration and direct calls are not supported."
+  },
+  {
+    "plugin_name": "official_devcloud_apiTest_template",
+    "description": "This extension can be configured only in a pipeline template. When a pipeline is generated from the template, the extension automatically creates a CodeArts TestPlan API test task and configures the task in the generated pipeline."
+  },
+  {
+    "plugin_name": "official_devcloud_apiTest",
+    "description": "TestPlan capabilities can be called on the pipeline for testing.\nTestPlan is a one-stop test platform that allows developers to conduct API and performance tests and manage these tests in the cloud. Developed on the basis of the DevOps Agile testing concept, TestPlan helps developers improve management efficiency and deliver high-quality products."
+  },
+  {
+    "plugin_name": "official_git_clone",
+    "description": "Clones the repository configured in the pipeline source and can be used with extensions such as ShellCommands, MavenBuild, and so on."
+  },
+  {
+    "plugin_name": "official_merge_default_branch",
+    "description": "Merge the release branch into the default branch while the MicroService's Pipeline-on-Changes is running. This extension is automatically configured by the Pipeline-on-Changes and Manual configuration is not supported."
+  },
+  {
+    "plugin_name": "official_merge_release_branch",
+    "description": "Merge the Change's feature branchs into the release branch while the MicroService's Pipeline-on-Changes is running. This extension is automatically configured by the Pipeline-on-Changes and Manual configuration is not supported."
+  },
+  {
+    "plugin_name": "official_create_release_branch",
+    "description": "Create a release branch based on the default branch of Microservice and can be used in MicroService's Pipeline-on-Changes. This extension is automatically configured by the Pipeline-on-Changes and Manual configuration is not supported."
+  },
+  {
+    "plugin_name": "official_devcloud_delay",
+    "description": "The pipeline can be paused for a period of time or until a specified time. You can manually resume or terminate the pipeline, or perform extra delay for a maximum of three times."
+  },
+  {
+    "plugin_name": "official_devcloud_deploy_template",
+    "description": "This extension can be configured only in a pipeline template. When a pipeline is generated from the template, the extension automatically creates a CodeArts Deploy task and configures the task in the generated pipeline."
+  },
+  {
+    "plugin_name": "official_devcloud_codeCheck_template",
+    "description": "This extension can be configured only in a pipeline template. When a pipeline is generated from the template, the extension automatically creates a CodeArts Check task and configures the task in the generated pipeline."
+  },
+  {
+    "plugin_name": "official_gate_validation",
+    "description": "This extension can be configured only in a pipeline pass condition. Set pass conditions by using standard policies."
+  },
+  {
+    "plugin_name": "official_devcloud_deploy",
+    "description": "Deploy capabilities can be called on the pipeline for deployment.\nDeploy provides visualized, one-click deployment services. It supports deployment on VMs or containers by using Tomcat, Spring Boot, and other templates or flexibly orchestrated atomic actions. It also supports parallel deployment and seamless integration with Deploy, providing standard deployment environments and implementing automatic deployment."
+  }
+]

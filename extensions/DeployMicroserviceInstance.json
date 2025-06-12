@@ -1,0 +1,286 @@
+[
+  {
+    "componentName": "d-form",
+    "id": 1732957293669,
+    "category": "form",
+    "props": {
+      "layout": "vertical",
+      "ref": "formRef"
+    },
+    "children": [
+      {
+        "componentName": "d-form-item",
+        "id": 1732957332605,
+        "category": "form",
+        "props": {
+          "label": "Environment",
+          "field": "Environment",
+          "help-tips": "",
+          "rules": [
+            {
+              "required": true,
+              "message": "Environment value cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "Environment Invalid content.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1732957332604,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "/v2/${project_id}/environments",
+                  "method": "GET",
+                  "params": {},
+                  "header": {},
+                  "label": "name",
+                  "value": "id",
+                  "body": {},
+                  "responseUrl": "environments",
+                  "linkedFields": [],
+                  "remote": false,
+                  "remoteName": "",
+                  "remoteQueryField": "params",
+                  "searchTips": ""
+                }
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "showPlaceholder": "",
+              "filter": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1732957333730,
+        "category": "form",
+        "props": {
+          "label": "Microservice",
+          "field": "Microservice",
+          "help-tips": "",
+          "rules": [
+            {
+              "required": true,
+              "message": "Microservice value cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "Microservice Invalid content.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1732957333729,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "/v2/${project_id}/component/list/query",
+                  "method": "POST",
+                  "params": {},
+                  "header": {},
+                  "label": "name",
+                  "value": "id",
+                  "body": {
+                    "offset": 0,
+                    "limit": 10,
+                    "name": "",
+                    "sort_dir": ""
+                  },
+                  "responseUrl": "data",
+                  "linkedFields": [],
+                  "remote": false,
+                  "remoteName": "",
+                  "remoteQueryField": "params",
+                  "searchTips": ""
+                }
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "showPlaceholder": "",
+              "filter": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1748427612274,
+        "category": "form",
+        "props": {
+          "label": "Change Id",
+          "field": "CHANGE_ID_INPUT_PARAM",
+          "help-tips": "If left blank, the plugin will automatically use the predefined COMPONENT_CHANGE_IDS parameter. In change-based pipelines it contains a list of change request IDs explicitly associated with the component, In repository-based pipelines, it includes the change request implicitly linked to the repository according to the triggering branch.",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-input",
+            "id": 1748427612273,
+            "props": {
+              "inputType": "normal",
+              "showPlaceholder": "",
+              "isTrim": true,
+              "autocomplete": "off",
+              "defaultValue": "",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1732957393845,
+        "category": "form",
+        "props": {
+          "label": "Helm Parameters Patch",
+          "field": "DeploymentManifestPatchParameters",
+          "help-tips": "Helm Parameters Patch",
+          "rules": [
+            {
+              "required": true,
+              "message": "Helm Parameters Patch value cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "Helm Values Patch Invalid content.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "key-value",
+            "id": 1732957393844,
+            "props": {},
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1748414000262,
+        "category": "form",
+        "props": {
+          "label": "Wait Until Deployment Finishes",
+          "field": "isWait",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-switch",
+            "id": 1748414000261,
+            "props": {
+              "defaultValue": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      }
+    ]
+  }
+]
