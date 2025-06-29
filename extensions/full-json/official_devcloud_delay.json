@@ -1,0 +1,122 @@
+{
+  "plugin_name": "official_devcloud_delay",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "769395d3665c40e89af7db9e0b440da7",
+      "name": "timer_type",
+      "default_value": "delay",
+      "plugin_name": "official_devcloud_delay",
+      "version": "0.0.2",
+      "type": "d-radio-group",
+      "workspace_id": "*",
+      "layout_content": "[{\"componentName\":\"d-form\",\"id\":1665625344142,\"category\":\"form\",\"props\":{\"layout\":\"vertical\",\"ref\":\"formRef\"},\"children\":[{\"componentName\":\"d-form-item\",\"id\":1665625360592,\"category\":\"form\",\"props\":{\"label\":\"Delay By\",\"field\":\"timer_type\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"This field cannot be left blank.\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"Delay ByInvalid content.\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"children\":[{\"componentName\":\"d-radio-group\",\"id\":1665625360591,\"props\":{\"direction\":\"row\",\"isUpdateChildAll\":true,\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"Duration\",\"value\":\"delay\",\"defaultChecked\":true,\"visible\":false},{\"label\":\"Scheduled time\",\"value\":\"scheduled\",\"defaultChecked\":false,\"visible\":false}]},\"defaultValue\":\"delay\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\",\"children\":[{\"componentName\":\"d-radio\",\"props\":{\"name\":\"Duration\",\"value\":\"delay\",\"showText\":\"Duration\",\"style\":{\"margin-right\":\"20px\"}}},{\"componentName\":\"d-radio\",\"props\":{\"name\":\"Scheduled time\",\"value\":\"scheduled\",\"showText\":\"Scheduled time\",\"style\":{\"margin-right\":\"20px\"}}}]}]},{\"componentName\":\"d-form-item\",\"id\":1665625434329,\"category\":\"form\",\"props\":{\"label\":\"Duration\",\"field\":\"delay_time\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"This field cannot be left blank.\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"^\\\\d{2,}$\",\"message\":\"Set to higher than 10 seconds.\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"timer_type\",\"symbol\":\"===\",\"value\":\"delay\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"children\":[{\"componentName\":\"time-interval\",\"id\":1665625434328,\"props\":{\"format\":\"hh:mm:ss\",\"type\":\"seconds\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1665625566765,\"category\":\"form\",\"props\":{\"label\":\"Scheduled time\",\"field\":\"scheduled_time\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"This field cannot be left blank.\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"Invalid scheduled time.\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"timer_type\",\"symbol\":\"===\",\"value\":\"scheduled\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"children\":[{\"componentName\":\"time-interval\",\"id\":1665625549282,\"props\":{\"format\":\"hh:mm\",\"type\":\"time\"},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1676461206917,\"category\":\"form\",\"props\":{\"label\":\"Timezone\",\"field\":\"time_zone\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"This field cannot be left blank.\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"Invalid timeznone.\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"timer_type\",\"symbol\":\"===\",\"value\":\"scheduled\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1676461206916,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi\",\"value\":\"China Standard Time\",\"defaultChecked\":true,\"visible\":false},{\"label\":\"(UTC) Dublin, Edinburgh, Lisbon, London\",\"value\":\"GMT Standard Time\",\"defaultChecked\":false,\"visible\":false},{\"label\":\"(UTC+02:00) Harare, Pretoria\",\"value\":\"South Africa Standard Time\",\"defaultChecked\":false,\"visible\":false},{\"label\":\"(UTC+03:00) Moscow, St. Petersburg, Volgograd (RTZ 2)\",\"value\":\"Russian Standard Time\",\"defaultChecked\":false,\"visible\":false},{\"label\":\"(UTC+07:00) Bangkok, Hanoi, Jakarta\",\"value\":\"SE Asia Standard Time\",\"defaultChecked\":false,\"visible\":false},{\"label\":\"(UTC+08:00) Kuala Lumpur, Singapore\",\"value\":\"Singapore Standard Time\",\"defaultChecked\":false,\"visible\":false},{\"label\":\"(UTC-04:00) Santiago\",\"value\":\"Pacific SA Standard Time\",\"defaultChecked\":false,\"visible\":false},{\"label\":\"(UTC-03:00) Brasilia\",\"value\":\"E. South America Standard Time\",\"defaultChecked\":false,\"visible\":false},{\"label\":\"(UTC-06:00) Guadalajara, Mexico City, Monterrey\",\"value\":\"Central Standard Time (Mexico)\",\"defaultChecked\":false,\"visible\":false}]},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"China Standard Time\"},\"category\":\"form\",\"children\":[]}]}]}]",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "d9a70b51c1fe454ca6cc689f8ef1647a",
+      "name": "delay_time",
+      "default_value": "",
+      "plugin_name": "official_devcloud_delay",
+      "version": "0.0.2",
+      "type": "time-interval",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "e948ddbd368445429882118075c8e0b1",
+      "name": "scheduled_time",
+      "default_value": "",
+      "plugin_name": "official_devcloud_delay",
+      "version": "0.0.2",
+      "type": "time-interval",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "68579884b8254fb199717c0e7e6eb582",
+      "name": "time_zone",
+      "default_value": "China Standard Time",
+      "plugin_name": "official_devcloud_delay",
+      "version": "0.0.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

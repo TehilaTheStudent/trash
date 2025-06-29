@@ -1,0 +1,1774 @@
+[
+  {
+    "componentName": "d-form",
+    "id": 1749983228435,
+    "category": "form",
+    "props": {
+      "layout": "vertical",
+      "ref": "formRef"
+    },
+    "children": [
+      {
+        "componentName": "d-form-item",
+        "id": 1750013707682,
+        "category": "form",
+        "props": {
+          "label": "Option Button",
+          "field": "key_1750013707681",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-radio-group",
+            "id": 1750013707681,
+            "props": {
+              "direction": "row",
+              "isUpdateChildAll": true,
+              "singleOptions": {
+                "type": "fixed",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ]
+              },
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form",
+            "children": [
+              {
+                "componentName": "d-radio",
+                "props": {
+                  "name": "Option",
+                  "value": "1",
+                  "showText": "Option",
+                  "style": {
+                    "margin-right": "20px"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749983234015,
+        "category": "form",
+        "props": {
+          "label": "single-line-test-box-title",
+          "field": "single-line-test-box-unique-id-1",
+          "help-tips": "single-line-test-box-tips",
+          "rules": [
+            {
+              "required": true,
+              "message": "single-line-test-box-verification-mandatory-error-prompt",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "^[a-zA-Z0-9_-]+$",
+              "message": "single-line-test-box-verification-regexvalidation-error-message",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-input",
+            "id": 1749983234014,
+            "props": {
+              "inputType": "normal",
+              "showPlaceholder": "single-line-test-box-placeholder",
+              "isTrim": true,
+              "autocomplete": "off",
+              "defaultValue": "single-line-test-default-value",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749994466076,
+        "category": "form",
+        "props": {
+          "label": "Switch-1",
+          "field": "switch1-id",
+          "help-tips": "switch-1-tips",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-switch",
+            "id": 1749994466075,
+            "props": {
+              "defaultValue": false,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [
+                  {
+                    "comp": "single-line-test-box-unique-id-1",
+                    "symbol": "===",
+                    "value": "a",
+                    "symbolOptions": [
+                      {
+                        "name": "=",
+                        "value": "==="
+                      },
+                      {
+                        "name": "!=",
+                        "value": "!=="
+                      },
+                      {
+                        "name": "is null",
+                        "value": "empty"
+                      },
+                      {
+                        "name": "is not null",
+                        "value": "notEmpty"
+                      }
+                    ]
+                  }
+                ],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749995008736,
+        "category": "form",
+        "props": {
+          "label": "Switch-2",
+          "field": "switch2-id",
+          "help-tips": "switch-2-tips",
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "single-line-test-box-unique-id-1",
+                "symbol": "===",
+                "value": "a",
+                "symbolOptions": [
+                  {
+                    "name": "=",
+                    "value": "==="
+                  },
+                  {
+                    "name": "!=",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "is null",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "is not null",
+                    "value": "notEmpty"
+                  }
+                ]
+              },
+              {
+                "comp": "switch1-id",
+                "symbol": "===",
+                "value": true,
+                "symbolOptions": [
+                  {
+                    "name": "=",
+                    "value": "==="
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-switch",
+            "id": 1749994466075,
+            "props": {
+              "defaultValue": false,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [
+                  {
+                    "comp": "single-line-test-box-unique-id-1",
+                    "symbol": "===",
+                    "value": "a",
+                    "symbolOptions": [
+                      {
+                        "name": "=",
+                        "value": "==="
+                      },
+                      {
+                        "name": "!=",
+                        "value": "!=="
+                      },
+                      {
+                        "name": "is null",
+                        "value": "empty"
+                      },
+                      {
+                        "name": "is not null",
+                        "value": "notEmpty"
+                      }
+                    ]
+                  }
+                ],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749994544144,
+        "category": "form",
+        "props": {
+          "label": "Switch-3",
+          "field": "switch-3-id",
+          "help-tips": "switch-3-tips",
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "single-line-test-box-unique-id-1",
+                "symbol": "===",
+                "value": "a",
+                "symbolOptions": [
+                  {
+                    "name": "=",
+                    "value": "==="
+                  },
+                  {
+                    "name": "!=",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "is null",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "is not null",
+                    "value": "notEmpty"
+                  }
+                ]
+              }
+            ],
+            "value": false
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-switch",
+            "id": 1749994544143,
+            "props": {
+              "defaultValue": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749995181243,
+        "category": "form",
+        "props": {
+          "label": "Switch-5",
+          "field": "switch-5-id",
+          "help-tips": "witch-5-tips",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-switch",
+            "id": 1749995181242,
+            "props": {
+              "defaultValue": true,
+              "disabled": {
+                "type": "condition",
+                "conditions": [
+                  {
+                    "comp": "single-line-test-box-unique-id-1",
+                    "symbol": "===",
+                    "value": "a",
+                    "symbolOptions": [
+                      {
+                        "name": "=",
+                        "value": "==="
+                      },
+                      {
+                        "name": "!=",
+                        "value": "!=="
+                      },
+                      {
+                        "name": "is null",
+                        "value": "empty"
+                      },
+                      {
+                        "name": "is not null",
+                        "value": "notEmpty"
+                      }
+                    ]
+                  }
+                ],
+                "value": true
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749995011080,
+        "category": "form",
+        "props": {
+          "label": "Switch-4",
+          "field": "switch-4-id",
+          "help-tips": "switch-4-tips",
+          "visible": {
+            "type": "fixed",
+            "conditions": [
+              {
+                "comp": "single-line-test-box-unique-id-1",
+                "symbol": "===",
+                "value": "",
+                "symbolOptions": [
+                  {
+                    "name": "=",
+                    "value": "==="
+                  },
+                  {
+                    "name": "!=",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "is null",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "is not null",
+                    "value": "notEmpty"
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-switch",
+            "id": 1749994544143,
+            "props": {
+              "defaultValue": true,
+              "disabled": {
+                "type": "condition",
+                "conditions": [
+                  {
+                    "comp": "single-line-test-box-unique-id-1",
+                    "symbol": "===",
+                    "value": "a",
+                    "symbolOptions": [
+                      {
+                        "name": "=",
+                        "value": "==="
+                      },
+                      {
+                        "name": "!=",
+                        "value": "!=="
+                      },
+                      {
+                        "name": "is null",
+                        "value": "empty"
+                      },
+                      {
+                        "name": "is not null",
+                        "value": "notEmpty"
+                      }
+                    ]
+                  }
+                ],
+                "value": true
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749995655484,
+        "category": "form",
+        "props": {
+          "label": "Digit-title",
+          "field": "digit-id",
+          "help-tips": "digit-tips",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-input-number",
+            "id": 1749995655483,
+            "props": {
+              "showPlaceholder": "",
+              "type": true,
+              "precision": 4,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              },
+              "defaultValue": 2
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749995687560,
+        "category": "form",
+        "props": {
+          "label": "multi-line-test-box-title",
+          "field": "multi-line-text-box-id",
+          "help-tips": "multi-line-test-box-tips",
+          "rules": [
+            {
+              "required": true,
+              "message": "multi-line-test-box-title value cannot be left blank",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "multi-line-test-box-title Invalid content.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-textarea",
+            "id": 1749995687559,
+            "props": {
+              "showPlaceholder": "",
+              "textType": "edit",
+              "isTrim": true,
+              "defaultValue": "multy-line-test-box-default-value",
+              "showCount": false,
+              "maxlength": "1",
+              "resize": "none",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749997502277,
+        "category": "form",
+        "props": {
+          "label": "Single-selection Drop-down List",
+          "field": "key_1749997502276",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1749997502276,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "fixed",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option2",
+                    "value": "2",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option3",
+                    "value": "3",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option4",
+                    "value": "4",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ]
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "showPlaceholder": "",
+              "filter": true,
+              "allowCreate": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749997509732,
+        "category": "form",
+        "props": {
+          "label": "Single-selection Drop-down List",
+          "field": "key_1749997502276_79010",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1749997502276,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "fixed",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": true,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option2",
+                    "value": "2",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option3",
+                    "value": "3",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option4",
+                    "value": "4",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option5",
+                    "value": "5",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ]
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "showPlaceholder": "",
+              "filter": true,
+              "allowCreate": false,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              },
+              "defaultValue": "1"
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749998014524,
+        "category": "form",
+        "props": {
+          "label": "Single-selection Drop-down List",
+          "field": "key_1749997502276_79010_1855",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1749997502276,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "context",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option2",
+                    "value": "2",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option3",
+                    "value": "3",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option4",
+                    "value": "4",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option5",
+                    "value": "5",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "dataSource": "repoSource",
+                  "params": {},
+                  "header": {},
+                  "body": {}
+                },
+                "dataSource": "repoSource"
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "showPlaceholder": "",
+              "filter": true,
+              "allowCreate": false,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749998023913,
+        "category": "form",
+        "props": {
+          "label": "Single-selection Drop-down List",
+          "field": "key_1749997502276_79010_1855_94545",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1749997502276,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "context",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option2",
+                    "value": "2",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option3",
+                    "value": "3",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option4",
+                    "value": "4",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option5",
+                    "value": "5",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "dataSource": "buildTasks",
+                  "params": {},
+                  "header": {},
+                  "body": {}
+                },
+                "dataSource": "buildTasks"
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "showPlaceholder": "",
+              "filter": true,
+              "allowCreate": false,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1750016045126,
+        "category": "form",
+        "props": {
+          "label": "Single-selection Drop-down List",
+          "field": "key_1749997502276_79010_1855_94545_41283",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1749997502276,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option2",
+                    "value": "2",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option3",
+                    "value": "3",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option4",
+                    "value": "4",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option5",
+                    "value": "5",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "https://localhost:1234",
+                  "method": "GET",
+                  "params": {
+                    "key1": "${project_id}"
+                  },
+                  "header": {
+                    "x-auth-token": "fdsafdsafdsa"
+                  },
+                  "label": "optionName",
+                  "value": "optionValue",
+                  "body": {},
+                  "responseUrl": "path",
+                  "linkedFields": [
+                    "single-line-test-box-unique-id-1",
+                    "switch1-id",
+                    "switch2-id",
+                    "switch-3-id"
+                  ],
+                  "remote": true,
+                  "remoteName": "fdsafdsa",
+                  "remoteQueryField": "body",
+                  "searchTips": "tip tip!!!!!"
+                }
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "showPlaceholder": "",
+              "filter": true,
+              "allowCreate": false,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1750016096731,
+        "category": "form",
+        "props": {
+          "label": "Single-selection Drop-down List",
+          "field": "key_1749997502276_79010_1855_94545_41283_69865",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1749997502276,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option2",
+                    "value": "2",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option3",
+                    "value": "3",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option4",
+                    "value": "4",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option5",
+                    "value": "5",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "https://localhost:1234",
+                  "method": "POST",
+                  "params": {
+                    "key1": "${project_id}"
+                  },
+                  "header": {
+                    "x-auth-token": "fdsafdsafdsa"
+                  },
+                  "label": "optionName",
+                  "value": "optionValue",
+                  "body": {},
+                  "responseUrl": "path",
+                  "linkedFields": [
+                    "single-line-test-box-unique-id-1",
+                    "switch1-id",
+                    "switch2-id",
+                    "switch-3-id"
+                  ],
+                  "remote": true,
+                  "remoteName": "fdsafdsa",
+                  "remoteQueryField": "params",
+                  "searchTips": "tip tip!!!!!"
+                }
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "showPlaceholder": "",
+              "filter": true,
+              "allowCreate": false,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749999190094,
+        "category": "form",
+        "props": {
+          "label": "Multi-selection Drop-down List",
+          "field": "key_1749999190093",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "multiple-select",
+            "id": 1749999190093,
+            "props": {
+              "multipleOptions": {
+                "type": "context",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "dataSource": "repoSource",
+                  "params": {},
+                  "header": {},
+                  "body": {}
+                },
+                "dataSource": "repoSource"
+              },
+              "isUpdateChildAll": true,
+              "showPlaceholder": "",
+              "multiple": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749999203206,
+        "category": "form",
+        "props": {
+          "label": "Multi-selection Drop-down List",
+          "field": "key_1749999190093_65236",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "multiple-select",
+            "id": 1749999190093,
+            "props": {
+              "multipleOptions": {
+                "type": "context",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "dataSource": "buildTasks",
+                  "params": {},
+                  "header": {},
+                  "body": {}
+                },
+                "dataSource": "buildTasks"
+              },
+              "isUpdateChildAll": true,
+              "showPlaceholder": "",
+              "multiple": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749999216483,
+        "category": "form",
+        "props": {
+          "label": "Multi-selection Drop-down List",
+          "field": "key_1749999216482",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "multiple-select",
+            "id": 1749999216482,
+            "props": {
+              "multipleOptions": {
+                "type": "fixed",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option2",
+                    "value": "2",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option3",
+                    "value": "3",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option4",
+                    "value": "4",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option5",
+                    "value": "5",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ]
+              },
+              "isUpdateChildAll": true,
+              "showPlaceholder": "",
+              "multiple": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749999224605,
+        "category": "form",
+        "props": {
+          "label": "Multi-selection Drop-down List",
+          "field": "key_1749999224604",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "multiple-select",
+            "id": 1749999224604,
+            "props": {
+              "multipleOptions": {
+                "type": "fixed",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": true,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option2",
+                    "value": "2",
+                    "defaultChecked": true,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option3",
+                    "value": "3",
+                    "defaultChecked": true,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option4",
+                    "value": "4",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ]
+              },
+              "isUpdateChildAll": true,
+              "showPlaceholder": "",
+              "multiple": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              },
+              "defaultValue": "1,2,3"
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749999252866,
+        "category": "form",
+        "props": {
+          "label": "Multi-selection Drop-down List",
+          "field": "key_1749999252865",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "multiple-select",
+            "id": 1749999252865,
+            "props": {
+              "multipleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "https://localhost:8443/users",
+                  "method": "GET",
+                  "params": {
+                    "par1": "${project_id}",
+                    "par2": "${switch1-id}"
+                  },
+                  "header": {
+                    "x-header-1": "vvvvv"
+                  },
+                  "label": "email",
+                  "value": "id",
+                  "body": {},
+                  "responseUrl": "users",
+                  "linkedFields": [],
+                  "remote": false,
+                  "remoteName": "",
+                  "remoteQueryField": "params",
+                  "searchTips": ""
+                }
+              },
+              "isUpdateChildAll": true,
+              "showPlaceholder": "",
+              "multiple": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749999988782,
+        "category": "form",
+        "props": {
+          "label": "Multi-selection Drop-down List",
+          "field": "key_1749999252865_49989",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "multiple-select",
+            "id": 1749999252865,
+            "props": {
+              "multipleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "https://localhost:8443/users",
+                  "method": "POST",
+                  "params": {
+                    "par1": "${project_id}",
+                    "par2": "${switch1-id}"
+                  },
+                  "header": {
+                    "x-header-1": "vvvvv"
+                  },
+                  "label": "email",
+                  "value": "id",
+                  "body": {},
+                  "responseUrl": "students",
+                  "linkedFields": [],
+                  "remote": false,
+                  "remoteName": "",
+                  "remoteQueryField": "params",
+                  "searchTips": ""
+                }
+              },
+              "isUpdateChildAll": true,
+              "showPlaceholder": "",
+              "multiple": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1750015938290,
+        "category": "form",
+        "props": {
+          "label": "Multi-selection Drop-down List",
+          "field": "key_1749999252865_49989_28038",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "multiple-select",
+            "id": 1749999252865,
+            "props": {
+              "multipleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "https://localhost:8443/users",
+                  "method": "POST",
+                  "params": {
+                    "par1": "${project_id}",
+                    "par2": "${switch1-id}"
+                  },
+                  "header": {
+                    "x-header-1": "vvvvv"
+                  },
+                  "label": "email",
+                  "value": "id",
+                  "body": {
+                    "a": [
+                      1,
+                      2,
+                      3,
+                      4
+                    ]
+                  },
+                  "responseUrl": "students",
+                  "linkedFields": [
+                    "key_1750013707681",
+                    "single-line-test-box-unique-id-1",
+                    "switch2-id",
+                    "switch-5-id",
+                    "switch-3-id",
+                    "switch-4-id"
+                  ],
+                  "remote": true,
+                  "remoteName": "aaaaaaaaaa",
+                  "remoteQueryField": "params",
+                  "searchTips": ""
+                }
+              },
+              "isUpdateChildAll": true,
+              "showPlaceholder": "",
+              "multiple": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1750015968559,
+        "category": "form",
+        "props": {
+          "label": "Multi-selection Drop-down List",
+          "field": "key_1749999252865_49989_28038_50502",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "multiple-select",
+            "id": 1749999252865,
+            "props": {
+              "multipleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "https://localhost:8443/users",
+                  "method": "POST",
+                  "params": {
+                    "par1": "${project_id}",
+                    "par2": "${switch1-id}"
+                  },
+                  "header": {
+                    "x-header-1": "vvvvv"
+                  },
+                  "label": "email",
+                  "value": "id",
+                  "body": {
+                    "a": "b"
+                  },
+                  "responseUrl": "students",
+                  "linkedFields": [
+                    "key_1750013707681",
+                    "single-line-test-box-unique-id-1",
+                    "switch2-id",
+                    "switch-5-id",
+                    "switch-3-id",
+                    "switch-4-id"
+                  ],
+                  "remote": true,
+                  "remoteName": "aaaaaaaaaa",
+                  "remoteQueryField": "body",
+                  "searchTips": ""
+                }
+              },
+              "isUpdateChildAll": true,
+              "showPlaceholder": "",
+              "multiple": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1750013687279,
+        "category": "form",
+        "props": {
+          "label": "Option Button",
+          "field": "key_1750013687278",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-radio-group",
+            "id": 1750013687278,
+            "props": {
+              "direction": "row",
+              "isUpdateChildAll": true,
+              "singleOptions": {
+                "type": "context",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option2",
+                    "value": "2",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option3",
+                    "value": "3",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option4",
+                    "value": "4",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "dataSource": "repoSource",
+                  "params": {},
+                  "header": {},
+                  "body": {}
+                },
+                "dataSource": "repoSource"
+              },
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form",
+            "children": []
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1750013712403,
+        "category": "form",
+        "props": {
+          "label": "Option Button",
+          "field": "key_1750013712402",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-radio-group",
+            "id": 1750013712402,
+            "props": {
+              "direction": "row",
+              "isUpdateChildAll": true,
+              "singleOptions": {
+                "type": "context",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "dataSource": "buildTasks",
+                  "params": {},
+                  "header": {},
+                  "body": {}
+                },
+                "dataSource": "buildTasks"
+              },
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form",
+            "children": []
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1750013730708,
+        "category": "form",
+        "props": {
+          "label": "Option Button",
+          "field": "key_1750013730707",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-radio-group",
+            "id": 1750013730707,
+            "props": {
+              "direction": "row",
+              "isUpdateChildAll": true,
+              "singleOptions": {
+                "type": "fixed",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option2",
+                    "value": "2",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option3",
+                    "value": "3",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option4",
+                    "value": "4",
+                    "defaultChecked": true,
+                    "visible": false
+                  }
+                ]
+              },
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              },
+              "defaultValue": "4"
+            },
+            "category": "form",
+            "children": [
+              {
+                "componentName": "d-radio",
+                "props": {
+                  "name": "Option",
+                  "value": "1",
+                  "showText": "Option",
+                  "style": {
+                    "margin-right": "20px"
+                  }
+                }
+              },
+              {
+                "componentName": "d-radio",
+                "props": {
+                  "name": "Option2",
+                  "value": "2",
+                  "showText": "Option2",
+                  "style": {
+                    "margin-right": "20px"
+                  }
+                }
+              },
+              {
+                "componentName": "d-radio",
+                "props": {
+                  "name": "Option3",
+                  "value": "3",
+                  "showText": "Option3",
+                  "style": {
+                    "margin-right": "20px"
+                  }
+                }
+              },
+              {
+                "componentName": "d-radio",
+                "props": {
+                  "name": "Option4",
+                  "value": "4",
+                  "showText": "Option4",
+                  "style": {
+                    "margin-right": "20px"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

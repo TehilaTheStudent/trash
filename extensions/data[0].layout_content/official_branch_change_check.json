@@ -1,0 +1,65 @@
+[
+  {
+    "componentName": "d-form",
+    "id": 1685023016672,
+    "category": "form",
+    "props": {
+      "layout": "vertical",
+      "ref": "formRef"
+    },
+    "children": [
+      {
+        "componentName": "d-form-item",
+        "id": 1685023018114,
+        "category": "form",
+        "props": {
+          "label": "Target Branch",
+          "field": "TARGET_COMPARE_BRANCH",
+          "help-tips": "Specify the branch name as the target branch for the check. The pipeline running fails if the current pipeline running branch lags behind the specified branch.. Support fixed parameters such as master or environment variable references.",
+          "rules": [
+            {
+              "required": true,
+              "message": "单行输入不能为空",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "单行输入内容不符合规范",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-input",
+            "id": 1685023018113,
+            "props": {
+              "inputType": "normal",
+              "isTrim": true,
+              "autocomplete": "off",
+              "defaultValue": "",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      }
+    ]
+  }
+]

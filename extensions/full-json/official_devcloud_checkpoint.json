@@ -1,0 +1,209 @@
+{
+  "plugin_name": "official_devcloud_checkpoint",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "44eb87bca8c44b7eba767ad6631ea27d",
+      "name": "audit_source",
+      "default_value": "members",
+      "plugin_name": "official_devcloud_checkpoint",
+      "version": "0.0.6",
+      "type": "d-radio-group",
+      "workspace_id": "*",
+      "layout_content": "[{\"componentName\":\"d-form\",\"id\":1665562820600,\"category\":\"form\",\"props\":{\"layout\":\"vertical\",\"ref\":\"formRef\"},\"children\":[{\"componentName\":\"d-form-item\",\"id\":1689650128128,\"category\":\"form\",\"props\":{\"label\":\"Review Source\",\"field\":\"audit_source\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"审核来源不能为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"审核来源内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-radio-group\",\"id\":1689650128127,\"props\":{\"direction\":\"row\",\"isUpdateChildAll\":true,\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"Project Members\",\"value\":\"members\",\"defaultChecked\":true,\"visible\":false},{\"label\":\"Project Roles\",\"value\":\"roles\",\"defaultChecked\":false,\"visible\":false}]},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"members\"},\"category\":\"form\",\"children\":[{\"componentName\":\"d-radio\",\"props\":{\"name\":\"Project Members\",\"value\":\"members\",\"showText\":\"Project Members\",\"style\":{\"margin-right\":\"20px\"}}},{\"componentName\":\"d-radio\",\"props\":{\"name\":\"Project Roles\",\"value\":\"roles\",\"showText\":\"Project Roles\",\"style\":{\"margin-right\":\"20px\"}}}]}]},{\"componentName\":\"d-form-item\",\"id\":1666342394424,\"category\":\"form\",\"props\":{\"label\":\"Reviewer\",\"field\":\"approvers\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"审核人不能为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"^([^,]+,){0,9}[^,]+$\",\"message\":\"It can add a maximum of 10 reviewers\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"audit_source\",\"symbol\":\"===\",\"value\":\"members\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"multiple-select\",\"id\":1666342394423,\"props\":{\"selectType\":\"multiSelect\",\"multipleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"devcloud_devcloud_h00485561_01 \",\"value\":\"847a5317086c41798469d0868535943a\",\"defaultChecked\":false,\"visible\":false},{\"label\":\"devcloud_devcloud_s00404480_01\",\"value\":\"a360371833bf4c558f796fd707b44daf\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v5/project/${project_id}/member/${special_pipeline_id}/list\",\"method\":\"GET\",\"params\":{},\"header\":{},\"label\":\"display_name\",\"value\":\"identifier\",\"body\":{},\"responseUrl\":\"\",\"linkedFields\":[],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\",\"searchTips\":\"\"}},\"isUpdateChildAll\":true,\"multiple\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1689650183062,\"category\":\"form\",\"props\":{\"label\":\"Review Role\",\"field\":\"audit_role\",\"help-tips\":\"Use a union of people corresponding to the roles and can be reviewed by anyone. In IPD projects, The project creator will be not involved in the reviewers as the role of  project manager.\",\"rules\":[{\"required\":true,\"message\":\"审核角色不能为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"^([^,]+,){0,9}[^,]+$\",\"message\":\"最多添加10个审核角色\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"audit_source\",\"symbol\":\"===\",\"value\":\"roles\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"multiple-select\",\"id\":1689650183061,\"props\":{\"multipleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v5/project/${project_id}/roles\",\"method\":\"GET\",\"params\":{},\"label\":\"roleName\",\"value\":\"roleId\",\"body\":{},\"responseUrl\":\"\",\"linkedFields\":[],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\"}},\"isUpdateChildAll\":true,\"multiple\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1665562945593,\"category\":\"form\",\"props\":{\"label\":\"Review Mode\",\"field\":\"check_strategy\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"审核模式不能为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"审核模式内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"audit_source\",\"symbol\":\"===\",\"value\":\"members\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"children\":[{\"componentName\":\"d-radio-group\",\"id\":1665562945592,\"props\":{\"direction\":\"row\",\"isUpdateChildAll\":true,\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"Review by all\",\"value\":\"all\",\"defaultChecked\":true,\"visible\":false},{\"label\":\"Review by anyone\",\"value\":\"any\",\"defaultChecked\":false,\"visible\":false}]},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"all\"},\"category\":\"form\",\"children\":[{\"componentName\":\"d-radio\",\"props\":{\"name\":\"Review by all\",\"value\":\"all\",\"showText\":\"Review by all\",\"style\":{\"margin-right\":\"20px\"}}},{\"componentName\":\"d-radio\",\"props\":{\"name\":\"Review by anyone\",\"value\":\"any\",\"showText\":\"Review by anyone\",\"style\":{\"margin-right\":\"20px\"}}}]}]},{\"componentName\":\"d-form-item\",\"id\":1665562986040,\"category\":\"form\",\"props\":{\"label\":\"Timeout Processing\",\"field\":\"timeout_strategy\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"超时处理不能为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"超时处理内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"children\":[{\"componentName\":\"d-radio-group\",\"id\":1665562983894,\"props\":{\"direction\":\"row\",\"isUpdateChildAll\":true,\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"Review failed and pipeline stopped\",\"value\":\"reject\",\"defaultChecked\":true,\"visible\":false},{\"label\":\"Review result ignored and pipeline continues\",\"value\":\"pass\",\"defaultChecked\":false,\"visible\":false}]},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"reject\"},\"category\":\"form\",\"children\":[{\"componentName\":\"d-radio\",\"props\":{\"name\":\"Review failed and pipeline stopped\",\"value\":\"reject\",\"showText\":\"Review failed and pipeline stopped\",\"style\":{\"margin-right\":\"20px\"}}},{\"componentName\":\"d-radio\",\"props\":{\"name\":\"Review result ignored and pipeline continues\",\"value\":\"pass\",\"showText\":\"Review result ignored and pipeline continues\",\"style\":{\"margin-right\":\"20px\"}}}]}]},{\"componentName\":\"d-form-item\",\"id\":1665563026053,\"category\":\"form\",\"props\":{\"label\":\"Review Duration\",\"field\":\"timeout\",\"help-tips\":\"The review duration cannot exceed 3 days.\",\"rules\":[{\"required\":true,\"message\":\"审核时长不能为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"[^0]\",\"message\":\"审核时长不能为0\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"children\":[{\"componentName\":\"time-interval\",\"id\":1665563023929,\"props\":{\"type\":\"seconds\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"timeMaxHour\":71},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1667614472592,\"category\":\"form\",\"props\":{\"label\":\"Description\",\"field\":\"comment\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false,\"rules\":[{\"required\":false,\"message\":\"审核说明不能为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"^.{0,200}$\",\"message\":\"It can contain a maximum of 200 characters.\",\"trigger\":[\"blur\",\"change\"]}]},\"children\":[{\"componentName\":\"d-textarea\",\"id\":1667614472591,\"props\":{\"placeholder\":\"请输入\",\"textType\":\"edit\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"isTrim\":true,\"maxlength\":\"200\"},\"category\":\"form\"}]}]}]",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "29b4390d78c4410cb35fc193513fd458",
+      "name": "approvers",
+      "default_value": "",
+      "plugin_name": "official_devcloud_checkpoint",
+      "version": "0.0.6",
+      "type": "multiple-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "fc20637e55d34325ad12dad95079e469",
+      "name": "audit_role",
+      "default_value": "",
+      "plugin_name": "official_devcloud_checkpoint",
+      "version": "0.0.6",
+      "type": "multiple-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "a011b78747844f90a7c525cbf0952bbd",
+      "name": "check_strategy",
+      "default_value": "all",
+      "plugin_name": "official_devcloud_checkpoint",
+      "version": "0.0.6",
+      "type": "d-radio-group",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "89dab49424f34167990b6fed4635ad34",
+      "name": "timeout_strategy",
+      "default_value": "reject",
+      "plugin_name": "official_devcloud_checkpoint",
+      "version": "0.0.6",
+      "type": "d-radio-group",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "02f14db9f7f94c1f8d22efda47b23877",
+      "name": "timeout",
+      "default_value": "",
+      "plugin_name": "official_devcloud_checkpoint",
+      "version": "0.0.6",
+      "type": "time-interval",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "277b926fc004400781f7ee1eb895bc2d",
+      "name": "comment",
+      "default_value": "",
+      "plugin_name": "official_devcloud_checkpoint",
+      "version": "0.0.6",
+      "type": "d-textarea",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "plugin_name": "CI-UpdateChangeRequestMetadata",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "6b6e20045af84beba4604593786f9343",
+      "name": "CHANGE_ID_INPUT_PARAM",
+      "default_value": "",
+      "plugin_name": "CI-UpdateChangeRequestMetadata",
+      "version": "0.0.4",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "[{\"componentName\":\"d-form\",\"id\":1748407536670,\"category\":\"form\",\"props\":{\"layout\":\"vertical\",\"ref\":\"formRef\"},\"children\":[{\"componentName\":\"d-form-item\",\"id\":1748407542165,\"category\":\"form\",\"props\":{\"label\":\"Change ID\",\"field\":\"CHANGE_ID_INPUT_PARAM\",\"help-tips\":\"If left blank, the plugin will automatically use the predefined COMPONENT_CHANGE_IDS parameter. In change-based pipelines it contains a list of change request IDs explicitly associated with the component, In repository-based pipelines, it includes the change request implicitly linked to the repository according to the triggering branch.\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1748407542164,\"props\":{\"inputType\":\"normal\",\"showPlaceholder\":\"\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1748407566261,\"category\":\"form\",\"props\":{\"label\":\"Parameters\",\"field\":\"Parameters\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false,\"rules\":[{\"required\":true,\"message\":\"Parameters value cannot be left blank\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"Parameters Invalid content.\",\"trigger\":[\"blur\",\"change\"]}]},\"children\":[{\"componentName\":\"key-value\",\"id\":1748407566260,\"props\":{},\"category\":\"form\"}]}]}]",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null, 
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "bbd609e7f52a4c5fb2d69db96834df2f",
+      "name": "Parameters",
+      "default_value": "",
+      "plugin_name": "CI-UpdateChangeRequestMetadata",
+      "version": "0.0.4",
+      "type": "key-value",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

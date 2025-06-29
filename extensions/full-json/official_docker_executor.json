@@ -1,0 +1,98 @@
+{
+  "plugin_name": "official_docker_executor",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "16d80e5b89d4459ca788e347ec9877fc",
+      "name": "attribute",
+      "default_value": "public",
+      "plugin_name": "official_docker_executor",
+      "version": "0.0.2",
+      "type": "radio",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "image attribute",
+      "description": "please select your swr image attribute",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": [
+          {
+            "label": "public image",
+            "value": "public"
+          }
+        ],
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "please select an option",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "0470f48f13fb4dc88158a6ae841785cb",
+      "name": "image",
+      "default_value": "",
+      "plugin_name": "official_docker_executor",
+      "version": "0.0.2",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "address for the image",
+      "description": "please input your image address",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "please input your image address",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "6a3aed7c7d334a98a12be81e68c5e5f5",
+      "name": "command",
+      "default_value": "",
+      "plugin_name": "official_docker_executor",
+      "version": "0.0.2",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "start command",
+      "description": "please input your start command",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "please input your start command",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "plugin_name": "official_docker",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "2b0d3f5bc6ed46858bb7c8039d6af03e",
+      "name": "option",
+      "default_value": "",
+      "plugin_name": "official_docker",
+      "version": "0.0.2",
+      "type": "singleSelect",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Operation",
+      "description": "",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": [
+          {
+            "label": "login",
+            "value": "login"
+          },
+          {
+            "label": "pull",
+            "value": "pull"
+          },
+          {
+            "label": "tag",
+            "value": "tag"
+          },
+          {
+            "label": "push",
+            "value": "push"
+          },
+          {
+            "label": "rmi",
+            "value": "rmi"
+          }
+        ],
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "Option cannot be empty",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "aa70c439ecba4bf8b71004c973ddd5f5",
+      "name": "input_option",
+      "default_value": "swr",
+      "plugin_name": "official_docker",
+      "version": "0.0.2",
+      "type": "radio",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Repository Type",
+      "description": "",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": [
+          {
+            "label": "swr",
+            "value": "swr"
+          },
+          {
+            "label": "docker",
+            "value": "docker"
+          }
+        ],
+        "disabled_conditions": null,
+        "visible_conditions": [
+          {
+            "comp": "option",
+            "symbol": "===",
+            "value": "login"
+          }
+        ]
+      },
+      "validation": {
+        "required_message": "",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "b0cd2ddb8a334b6299d70b0ef9d1d6c8",
+      "name": "endpoint",
+      "default_value": "",
+      "plugin_name": "official_docker",
+      "version": "0.0.2",
+      "type": "endpoint:${devcloud2018.docker-command.deploy_docker}",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Credential Information",
+      "description": "Please select a Docker repository extension point as the credential information for downloading the repository. If there is no data, please create a new one.",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": [
+          {
+            "comp": "option",
+            "symbol": "===",
+            "value": "login"
+          },
+          {
+            "comp": "input_option",
+            "symbol": "===",
+            "value": "docker"
+          }
+        ]
+      },
+      "validation": {
+        "required_message": "Credential information cannot be empty.",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "12fb15e47e664c13a26b0f0d4bb0c097",
+      "name": "pull_url",
+      "default_value": "",
+      "plugin_name": "official_docker",
+      "version": "0.0.2",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Image Address",
+      "description": "",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": [
+          {
+            "comp": "option",
+            "symbol": "===",
+            "value": "pull"
+          }
+        ]
+      },
+      "validation": {
+        "required_message": "Image address cannot be empty",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "9607d297a575489bb3ecf48f4c89c4e4",
+      "name": "source_url",
+      "default_value": "",
+      "plugin_name": "official_docker",
+      "version": "0.0.2",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Source Image Address",
+      "description": "",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": [
+          {
+            "comp": "option",
+            "symbol": "===",
+            "value": "tag"
+          }
+        ]
+      },
+      "validation": {
+        "required_message": "Image address cannot be empty",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "84b97539314e43b1be9d4666ea2ff45b",
+      "name": "target_url",
+      "default_value": "",
+      "plugin_name": "official_docker",
+      "version": "0.0.2",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Target Image Address",
+      "description": "",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": [
+          {
+            "comp": "option",
+            "symbol": "===",
+            "value": "tag"
+          }
+        ]
+      },
+      "validation": {
+        "required_message": "Image address cannot be empty",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "b8e3edabfb694b5e9d509c75b78ce572",
+      "name": "push_url",
+      "default_value": "",
+      "plugin_name": "official_docker",
+      "version": "0.0.2",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Image Address",
+      "description": "",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": [
+          {
+            "comp": "option",
+            "symbol": "===",
+            "value": "push"
+          }
+        ]
+      },
+      "validation": {
+        "required_message": "Image address cannot be empty",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "314b5f9f050f4e04aba49dd514855f48",
+      "name": "rmi_url",
+      "default_value": "",
+      "plugin_name": "official_docker",
+      "version": "0.0.2",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Use image ID or image name and tag, separate multiple images with spaces",
+      "description": "Images to be deleted",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": [
+          {
+            "comp": "option",
+            "symbol": "===",
+            "value": "rmi"
+          }
+        ]
+      },
+      "validation": {
+        "required_message": "Image address cannot be empty",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "68ed57d8815741a8a8a41feb4a04135d",
+      "name": "choice",
+      "default_value": "false",
+      "plugin_name": "official_docker",
+      "version": "0.0.2",
+      "type": "radio",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Do you want to force delete?",
+      "description": "",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": [
+          {
+            "label": "yes",
+            "value": "true"
+          },
+          {
+            "label": "no",
+            "value": "false"
+          }
+        ],
+        "disabled_conditions": null,
+        "visible_conditions": [
+          {
+            "comp": "option",
+            "symbol": "===",
+            "value": "rmi"
+          }
+        ]
+      },
+      "validation": {
+        "required_message": "",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

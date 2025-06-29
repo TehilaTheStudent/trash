@@ -1,0 +1,327 @@
+[
+  {
+    "componentName": "d-form",
+    "id": 1665822051692,
+    "category": "form",
+    "props": {
+      "layout": "vertical",
+      "ref": "formRef"
+    },
+    "children": [
+      {
+        "componentName": "d-form-item",
+        "id": 1747141204658,
+        "category": "form",
+        "props": {
+          "label": "Project Config",
+          "field": "__sameProject__",
+          "help-tips": "Project Config",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-radio-group",
+            "id": 1747141204657,
+            "props": {
+              "direction": "row",
+              "isUpdateChildAll": true,
+              "singleOptions": {
+                "type": "fixed",
+                "fixedOptions": [
+                  {
+                    "label": "This Project",
+                    "value": "true",
+                    "defaultChecked": true,
+                    "visible": false
+                  },
+                  {
+                    "label": "Select Project",
+                    "value": "false",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ]
+              },
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              },
+              "defaultValue": "true"
+            },
+            "category": "form",
+            "children": [
+              {
+                "componentName": "d-radio",
+                "props": {
+                  "name": "This Project",
+                  "value": "true",
+                  "showText": "This Project",
+                  "style": {
+                    "margin-right": "20px"
+                  }
+                }
+              },
+              {
+                "componentName": "d-radio",
+                "props": {
+                  "name": "Select Project",
+                  "value": "false",
+                  "showText": "Select Project",
+                  "style": {
+                    "margin-right": "20px"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1747141255426,
+        "category": "form",
+        "props": {
+          "label": "Select Project",
+          "field": "__projectId__",
+          "help-tips": "Select Project",
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "__sameProject__",
+                "symbol": "===",
+                "value": "false",
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  },
+                  {
+                    "name": "不等于",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "为空",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "不为空",
+                    "value": "notEmpty"
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1747141255425,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "选项",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "/v1/project/queryRelatedProject",
+                  "method": "GET",
+                  "params": {
+                    "archive": "1",
+                    "pageNo": "1",
+                    "pageSize": "50",
+                    "queryType": "simplify"
+                  },
+                  "header": {},
+                  "label": "name",
+                  "value": "identifier",
+                  "body": {},
+                  "responseUrl": "result.projectInfoList",
+                  "linkedFields": [
+                    "__sameProject__"
+                  ],
+                  "remote": true,
+                  "remoteName": "search",
+                  "remoteQueryField": "params",
+                  "searchTips": ""
+                }
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "showPlaceholder": "",
+              "filter": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1667546489702,
+        "category": "form",
+        "props": {
+          "label": "Select Task",
+          "field": "jobId",
+          "help-tips": "Select a task which has same repository or configured to be called from pipeline",
+          "rules": [
+            {
+              "required": true,
+              "message": "请选择需要调度的任务不能为空",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "请选择需要调度的任务内容不符合规范",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "link-select",
+            "id": 1667546489701,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "选项",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "/v3/pipelines/plugin-tasks",
+                  "method": "POST",
+                  "params": {},
+                  "header": {},
+                  "label": "name",
+                  "value": "id",
+                  "body": {
+                    "project_id": "${__sameProject__}===true?${project_id}:${__projectId__}",
+                    "task_type": "codeCheck",
+                    "repo_info": "${repo_info}"
+                  },
+                  "responseUrl": "",
+                  "linkedFields": [
+                    "__sameProject__",
+                    "__projectId__"
+                  ],
+                  "remote": false,
+                  "remoteName": "",
+                  "remoteQueryField": "params",
+                  "searchTips": ""
+                }
+              },
+              "isUpdateChildAll": true,
+              "remote": "",
+              "allow-clear": false,
+              "filter": "",
+              "linkText": "Create One",
+              "linkHref": "${origin}/codecheck/project/${project_id}/codecheck/newtask",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              },
+              "herfTips": ""
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1667216968988,
+        "category": "form",
+        "props": {
+          "label": "Task parameters",
+          "field": "key_1667216968987",
+          "help-tips": "",
+          "rules": null,
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "task-parameter",
+            "id": 1667216968987,
+            "props": {
+              "params": {
+                "type": "api",
+                "apiOptions": {
+                  "url": "/v2/pipeline/getPipelineSubTaskParamWithContext",
+                  "method": "POST",
+                  "params": {
+                    "taskType": "codeCheck",
+                    "subTaskID": "${jobId}",
+                    "taskName": "Task_6",
+                    "projectId": "${__sameProject__}===true?${project_id}:${__projectId__}",
+                    "pipelineId": "${pipeline_id}===undefined?:${pipeline_id}"
+                  },
+                  "header": {},
+                  "label": "",
+                  "value": "",
+                  "body": "",
+                  "responseUrl": "result.parameters",
+                  "linkedFields": [
+                    "jobId"
+                  ],
+                  "remote": false,
+                  "remoteName": "",
+                  "remoteQueryField": "params",
+                  "searchTips": ""
+                }
+              },
+              "isCustomVar": false,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      }
+    ]
+  }
+]

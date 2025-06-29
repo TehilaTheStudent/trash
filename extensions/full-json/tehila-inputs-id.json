@@ -1,0 +1,209 @@
+{
+  "plugin_name": "tehila-inputs-id",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "ad0a36489c4d4b05aaec58347fe2c269",
+      "name": "key_1749389536511",
+      "default_value": "",
+      "plugin_name": "tehila-inputs-id",
+      "version": "0.0.1",
+      "type": "d-input",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "[{\"componentName\":\"d-form\",\"id\":1749389535082,\"category\":\"form\",\"props\":{\"layout\":\"vertical\",\"ref\":\"formRef\"},\"children\":[{\"componentName\":\"d-form-item\",\"id\":1749389536512,\"category\":\"form\",\"props\":{\"label\":\"Single-line Text Box\",\"field\":\"key_1749389536511\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1749389536511,\"props\":{\"inputType\":\"normal\",\"showPlaceholder\":\"\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1749389538931,\"category\":\"form\",\"props\":{\"label\":\"Digit\",\"field\":\"key_1749389538930\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input-number\",\"id\":1749389538930,\"props\":{\"showPlaceholder\":\"\",\"type\":true,\"precision\":0,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1749389540116,\"category\":\"form\",\"props\":{\"label\":\"Single-selection Drop-down List\",\"field\":\"key_1749389540115\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1749389540115,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"Option\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}]},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"showPlaceholder\":\"\",\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1749389541201,\"category\":\"form\",\"props\":{\"label\":\"Multi-selection Drop-down List\",\"field\":\"key_1749389541200\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"multiple-select\",\"id\":1749389541200,\"props\":{\"multipleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"Option\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}]},\"isUpdateChildAll\":true,\"showPlaceholder\":\"\",\"multiple\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1749389542301,\"category\":\"form\",\"props\":{\"label\":\"Option Button\",\"field\":\"key_1749389542300\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-radio-group\",\"id\":1749389542300,\"props\":{\"direction\":\"row\",\"isUpdateChildAll\":true,\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"Option\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false},{\"label\":\"Option2\",\"value\":\"2\",\"defaultChecked\":false,\"visible\":false},{\"label\":\"Option3\",\"value\":\"3\",\"defaultChecked\":false,\"visible\":false}]},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\",\"children\":[{\"componentName\":\"d-radio\",\"props\":{\"name\":\"Option\",\"value\":\"1\",\"showText\":\"Option\",\"style\":{\"margin-right\":\"20px\"}}},{\"componentName\":\"d-radio\",\"props\":{\"name\":\"Option2\",\"value\":\"2\",\"showText\":\"Option2\",\"style\":{\"margin-right\":\"20px\"}}},{\"componentName\":\"d-radio\",\"props\":{\"name\":\"Option3\",\"value\":\"3\",\"showText\":\"Option3\",\"style\":{\"margin-right\":\"20px\"}}}]}]},{\"componentName\":\"d-form-item\",\"id\":1749389543497,\"category\":\"form\",\"props\":{\"label\":\"Switch\",\"field\":\"key_1749389543496\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-switch\",\"id\":1749389543496,\"props\":{\"defaultValue\":false,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1749389544798,\"category\":\"form\",\"props\":{\"label\":\"Multi-line Text Box\",\"field\":\"key_1749389544797\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-textarea\",\"id\":1749389544797,\"props\":{\"showPlaceholder\":\"\",\"textType\":\"edit\",\"isTrim\":true,\"defaultValue\":\"\",\"showCount\":false,\"maxlength\":null,\"resize\":\"none\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]}]}]",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "1e6887a8897a4a4983ad86a6ceea1e7a",
+      "name": "key_1749389538930",
+      "default_value": "",
+      "plugin_name": "tehila-inputs-id",
+      "version": "0.0.1",
+      "type": "d-input-number",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "bf2dbc46ffaa40f699d8c101065a4648",
+      "name": "key_1749389540115",
+      "default_value": "",
+      "plugin_name": "tehila-inputs-id",
+      "version": "0.0.1",
+      "type": "d-select",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "18fb39a3a04d48fb9ec283220acdd837",
+      "name": "key_1749389541200",
+      "default_value": "",
+      "plugin_name": "tehila-inputs-id",
+      "version": "0.0.1",
+      "type": "multiple-select",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "1dde9419fa2a4b24ac07b8551e064a13",
+      "name": "key_1749389542300",
+      "default_value": "",
+      "plugin_name": "tehila-inputs-id",
+      "version": "0.0.1",
+      "type": "d-radio-group",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "6a6f21eb9cdc459d927eeb7b98b2e5d3",
+      "name": "key_1749389543496",
+      "default_value": "false",
+      "plugin_name": "tehila-inputs-id",
+      "version": "0.0.1",
+      "type": "d-switch",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "10f04eea83274203bcab1f7456d8eeee",
+      "name": "key_1749389544797",
+      "default_value": "",
+      "plugin_name": "tehila-inputs-id",
+      "version": "0.0.1",
+      "type": "d-textarea",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

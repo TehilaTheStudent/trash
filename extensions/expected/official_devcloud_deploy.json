@@ -1,0 +1,18 @@
+[
+  {
+    "key": "relatedPipelineTask",
+    "value": "17499339075720215e8e6-1ff8-451a-bd6a-7283aa6e9088.JOB_bpCfY.17499339155850a82af3b-717d-4071-8df6-0401846fe19d"
+  },
+  {
+    "key": "SYSTEM_DEVCLOUD_SUBPIPELINE_TRIGGER_ID",
+    "value": "5ff82d65da4044a8a0cdd8bb8f86ebd9"
+  },
+  {
+    "key": "_OFFICIAL_DEVCLOUD_JOB_NAME_",
+    "value": "shell"
+  },
+  {
+    "key": "_OFFICIAL_DEVCLOUD_JOB_APPLICATION_ID_",
+    "value": "548cca58c85542d4af4de144b0e61bd5"
+  }
+]

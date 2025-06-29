@@ -1,0 +1,296 @@
+{
+  "plugin_name": "my-uniqu-id",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "46abaadf5a9946daab6b2ef657243539",
+      "name": "key_1742238953089",
+      "default_value": "false",
+      "plugin_name": "my-uniqu-id",
+      "version": "0.0.1",
+      "type": "d-switch",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "[{\"componentName\":\"d-form\",\"id\":1742238927796,\"category\":\"form\",\"props\":{\"layout\":\"vertical\",\"ref\":\"formRef\"},\"children\":[{\"componentName\":\"d-form-item\",\"id\":1742238953090,\"category\":\"form\",\"props\":{\"label\":\"Switch\",\"field\":\"key_1742238953089\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-switch\",\"id\":1742238953089,\"props\":{\"defaultValue\":false,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1742238957379,\"category\":\"form\",\"props\":{\"label\":\"Switch\",\"field\":\"key_1742238957378\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-switch\",\"id\":1742238957378,\"props\":{\"defaultValue\":false,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1742238959179,\"category\":\"form\",\"props\":{\"label\":\"Digit\",\"field\":\"key_1742238959178\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input-number\",\"id\":1742238959178,\"props\":{\"showPlaceholder\":\"\",\"type\":true,\"precision\":0,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1742238960222,\"category\":\"form\",\"props\":{\"label\":\"Multi-selection Drop-down List\",\"field\":\"key_1742238960221\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"multiple-select\",\"id\":1742238960221,\"props\":{\"multipleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"Option\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}]},\"isUpdateChildAll\":true,\"showPlaceholder\":\"\",\"multiple\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1742238961348,\"category\":\"form\",\"props\":{\"label\":\"Single-selection Drop-down List\",\"field\":\"key_1742238961347\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1742238961346,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"Option\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}]},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"showPlaceholder\":\"\",\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1742238962614,\"category\":\"form\",\"props\":{\"label\":\"Single-line Text Box\",\"field\":\"key_1742238962613\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1742238962613,\"props\":{\"inputType\":\"normal\",\"showPlaceholder\":\"\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1742238963798,\"category\":\"form\",\"props\":{\"label\":\"Multi-line Text Box\",\"field\":\"key_1742238963797\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-textarea\",\"id\":1742238963797,\"props\":{\"showPlaceholder\":\"\",\"textType\":\"edit\",\"isTrim\":true,\"defaultValue\":\"\",\"showCount\":false,\"maxlength\":null,\"resize\":\"none\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1742238966676,\"category\":\"form\",\"props\":{\"label\":\"Switch\",\"field\":\"key_1742238966675\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-switch\",\"id\":1742238966675,\"props\":{\"defaultValue\":false,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1742239243631,\"category\":\"form\",\"props\":{\"label\":\"some button!!!!!!!!!!!!\",\"field\":\"key_1742239243630\",\"help-tips\":\"some tooltip!!!!!!!!!!!\",\"rules\":[{\"required\":true,\"message\":\"Option Button value cannot be left blank\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"Option Button Invalid content.\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"key_1742238959178\",\"symbol\":\"===\",\"value\":0,\"symbolOptions\":[{\"name\":\"=\",\"value\":\"===\"},{\"name\":\"!=\",\"value\":\"!==\"}]}],\"value\":false},\"disabled\":false},\"children\":[{\"componentName\":\"d-radio-group\",\"id\":1742239243630,\"props\":{\"direction\":\"row\",\"isUpdateChildAll\":true,\"singleOptions\":{\"type\":\"context\",\"fixedOptions\":[{\"label\":\"Option\",\"value\":\"1\",\"defaultChecked\":true,\"visible\":false}],\"apiOptions\":{\"dataSource\":\"repoSource\",\"params\":{},\"header\":{},\"body\":{}},\"dataSource\":\"repoSource\"},\"disabled\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"key_1742238957378\",\"symbol\":\"===\",\"value\":true,\"symbolOptions\":[{\"name\":\"=\",\"value\":\"===\"}]},{\"comp\":\"key_1742238959178\",\"symbol\":\"===\",\"value\":0,\"symbolOptions\":[{\"name\":\"=\",\"value\":\"===\"},{\"name\":\"!=\",\"value\":\"!==\"}]},{\"comp\":\"key_1742238960221\",\"symbol\":\"empty\",\"value\":\"\",\"symbolOptions\":[{\"name\":\"=\",\"value\":\"===\"},{\"name\":\"!=\",\"value\":\"!==\"},{\"name\":\"is null\",\"value\":\"empty\"},{\"name\":\"is not null\",\"value\":\"notEmpty\"}]},{\"comp\":\"key_1742238959178\",\"symbol\":\"!==\",\"value\":0,\"symbolOptions\":[{\"name\":\"=\",\"value\":\"===\"},{\"name\":\"!=\",\"value\":\"!==\"}]}],\"value\":true},\"defaultValue\":\"1\"},\"category\":\"form\",\"children\":[]}]},{\"componentName\":\"d-form-item\",\"id\":1742238965415,\"category\":\"form\",\"props\":{\"label\":\"Single-selection Drop-down List\",\"field\":\"key_1742238965414\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1742238965414,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"Option\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}]},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"showPlaceholder\":\"\",\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]}]}]",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "ca65b0601e434179884a383428031b66",
+      "name": "key_1742238957378",
+      "default_value": "false",
+      "plugin_name": "my-uniqu-id",
+      "version": "0.0.1",
+      "type": "d-switch",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "d636364cd77f44e5bdf5799d0d4c0ad2",
+      "name": "key_1742238959178",
+      "default_value": "",
+      "plugin_name": "my-uniqu-id",
+      "version": "0.0.1",
+      "type": "d-input-number",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "6c4b7bd43eef4322bb093105a9444bb0",
+      "name": "key_1742238960221",
+      "default_value": "",
+      "plugin_name": "my-uniqu-id",
+      "version": "0.0.1",
+      "type": "multiple-select",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "dfd7ceb3f26742ad8095fc270e42566e",
+      "name": "key_1742238961347",
+      "default_value": "",
+      "plugin_name": "my-uniqu-id",
+      "version": "0.0.1",
+      "type": "d-select",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "0ac20a03f1c74ca58eb01bd3a00bfc44",
+      "name": "key_1742238962613",
+      "default_value": "",
+      "plugin_name": "my-uniqu-id",
+      "version": "0.0.1",
+      "type": "d-input",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "fdf7785c8bd14a51bff930f3d7a27cc4",
+      "name": "key_1742238963797",
+      "default_value": "",
+      "plugin_name": "my-uniqu-id",
+      "version": "0.0.1",
+      "type": "d-textarea",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "511ef9cf28a640cf89e33a217aa35208",
+      "name": "key_1742238966675",
+      "default_value": "false",
+      "plugin_name": "my-uniqu-id",
+      "version": "0.0.1",
+      "type": "d-switch",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "7d68fdeb3eae4f6ea8b57ac933108d71",
+      "name": "key_1742239243630",
+      "default_value": "1",
+      "plugin_name": "my-uniqu-id",
+      "version": "0.0.1",
+      "type": "d-radio-group",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "7b84fc82eec947bcb27b34639ccf3b14",
+      "name": "key_1742238965414",
+      "default_value": "",
+      "plugin_name": "my-uniqu-id",
+      "version": "0.0.1",
+      "type": "d-select",
+      "workspace_id": "9f1a017e31a04489a56572a559924f7c",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": "default",
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

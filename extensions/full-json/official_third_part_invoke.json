@@ -1,0 +1,217 @@
+{
+  "plugin_name": "official_third_part_invoke",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "177850c558ad423d8d290c7090cf5510",
+      "name": "API_METHOD",
+      "default_value": "GET",
+      "plugin_name": "official_third_part_invoke",
+      "version": "0.0.1",
+      "type": "singleSelect",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "API METHPD",
+      "description": "API METHPD.",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": [
+          {
+            "label": "GET",
+            "value": "GET"
+          },
+          {
+            "label": "POST",
+            "value": "POST"
+          },
+          {
+            "label": "PATCH",
+            "value": "PATCH"
+          },
+          {
+            "label": "PUT",
+            "value": "PUT"
+          },
+          {
+            "label": "DELETE",
+            "value": "DELETE"
+          }
+        ],
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "Please select.",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "455496b942d04c5e8ffc85e665789d9d",
+      "name": "API_URL",
+      "default_value": "",
+      "plugin_name": "official_third_part_invoke",
+      "version": "0.0.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "API URL",
+      "description": "API URL.",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "Enter the API URL.",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "b205c0b2795e4370a68375690e6f45f6",
+      "name": "API_HEADER",
+      "default_value": "",
+      "plugin_name": "official_third_part_invoke",
+      "version": "0.0.1",
+      "type": "keyValuePair",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "API HEADER",
+      "description": "API HEADER.",
+      "required": "false",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "32de59b9fbdf413db714597fcf0b61e4",
+      "name": "API_PARAM",
+      "default_value": "",
+      "plugin_name": "official_third_part_invoke",
+      "version": "0.0.1",
+      "type": "keyValuePair",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "API PARAM",
+      "description": "API PARAM.",
+      "required": "false",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "a5b3f01674b94101b8a180c797168725",
+      "name": "API_BODY",
+      "default_value": "{}",
+      "plugin_name": "official_third_part_invoke",
+      "version": "0.0.1",
+      "type": "textarea",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "API BODY",
+      "description": "API BODY.",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": [
+          {
+            "comp": "API_METHOD",
+            "symbol": "!==",
+            "value": "GET"
+          },
+          {
+            "comp": "API_METHOD",
+            "symbol": "!==",
+            "value": "DELETE"
+          },
+          {
+            "comp": "API_METHOD",
+            "symbol": "!==",
+            "value": ""
+          }
+        ]
+      },
+      "validation": {
+        "required_message": "For POST, PUT, or PATCH requests, enter the body in JSON format.",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "6f512db974d34afe9bf204114982be09",
+      "name": "API_OUTPUT",
+      "default_value": "",
+      "plugin_name": "official_third_part_invoke",
+      "version": "0.0.1",
+      "type": "keyValuePair",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "API OUTPUT",
+      "description": "Extract the value and output it to the pipeline context. The root object is response. For details, see the node.js syntax.",
+      "required": "false",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

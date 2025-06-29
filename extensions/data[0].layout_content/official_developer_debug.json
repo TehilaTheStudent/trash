@@ -1,0 +1,1180 @@
+[
+  {
+    "componentName": "d-form",
+    "id": 1676899373302,
+    "category": "form",
+    "props": {
+      "layout": "vertical",
+      "ref": "formRef"
+    },
+    "children": [
+      {
+        "componentName": "d-form-item",
+        "id": 1676900462145,
+        "category": "form",
+        "props": {
+          "label": "Deployment Type",
+          "field": "deploy_type",
+          "help-tips": "",
+          "rules": [
+            {
+              "required": true,
+              "message": "部署类型不能为空",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "部署类型内容不符合规范",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-radio-group",
+            "id": 1675848570162,
+            "props": {
+              "direction": "row",
+              "isUpdateChildAll": true,
+              "singleOptions": {
+                "type": "fixed",
+                "fixedOptions": [
+                  {
+                    "label": "Joint debugging environment",
+                    "value": "debug",
+                    "defaultChecked": true,
+                    "visible": false
+                  },
+                  {
+                    "label": "Dynamic environment",
+                    "value": "dynamic",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ]
+              },
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              },
+              "defaultValue": "debug"
+            },
+            "category": "form",
+            "children": [
+              {
+                "componentName": "d-radio",
+                "props": {
+                  "name": "Joint debugging environment",
+                  "value": "debug",
+                  "showText": "Joint debugging environment",
+                  "style": {
+                    "margin-right": "20px"
+                  }
+                }
+              },
+              {
+                "componentName": "d-radio",
+                "props": {
+                  "name": "Dynamic environment",
+                  "value": "dynamic",
+                  "showText": "Dynamic environment",
+                  "style": {
+                    "margin-right": "20px"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1676899389352,
+        "category": "form",
+        "props": {
+          "label": "Static Environment",
+          "field": "env_instance_id",
+          "help-tips": "",
+          "rules": [
+            {
+              "required": true,
+              "message": "The static environment cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "Invalid static environment.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "deploy_type",
+                "symbol": "===",
+                "value": "debug",
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  },
+                  {
+                    "name": "不等于",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "为空",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "不为空",
+                    "value": "notEmpty"
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1675848646164,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "选项",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "/v1/${projectId}/environments",
+                  "method": "GET",
+                  "params": {
+                    "offset": "0",
+                    "limit": "200"
+                  },
+                  "label": "name",
+                  "value": "instance_id",
+                  "body": {},
+                  "responseUrl": "data",
+                  "linkedFields": [
+                    "deploy_type"
+                  ],
+                  "remote": false,
+                  "remoteName": "",
+                  "remoteQueryField": "params"
+                }
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "filter": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1676899390957,
+        "category": "form",
+        "props": {
+          "label": "Microservice",
+          "field": "app_instance_id",
+          "help-tips": "",
+          "rules": [
+            {
+              "required": true,
+              "message": "The microservice cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "Invalid microservice.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "deploy_type",
+                "symbol": "===",
+                "value": "debug",
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  },
+                  {
+                    "name": "不等于",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "为空",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "不为空",
+                    "value": "notEmpty"
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1675848646164,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "选项",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "/v1/${projectId}/environments/${env_instance_id}/detail",
+                  "method": "GET",
+                  "params": {
+                    "offset": "0",
+                    "limit": "200"
+                  },
+                  "label": "microservice_name",
+                  "value": "microservice_id",
+                  "body": {},
+                  "responseUrl": "data",
+                  "linkedFields": [
+                    "deploy_type",
+                    "env_instance_id"
+                  ],
+                  "remote": false,
+                  "remoteName": "",
+                  "remoteQueryField": "params"
+                }
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "filter": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1678706523185,
+        "category": "form",
+        "props": {
+          "label": "Environment Name",
+          "field": "name",
+          "help-tips": "The dynamic environment name must be unique in a project. ${TIMESTAMP} indicates the time stamp when the task is executed.",
+          "rules": [
+            {
+              "required": true,
+              "message": "The environment name cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "Invalid environment name.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "deploy_type",
+                "symbol": "===",
+                "value": "dynamic",
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  },
+                  {
+                    "name": "不等于",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "为空",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "不为空",
+                    "value": "notEmpty"
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-input",
+            "id": 1678706523184,
+            "props": {
+              "inputType": "normal",
+              "placeholder": "请输入",
+              "isTrim": true,
+              "autocomplete": "off",
+              "defaultValue": "DynamicEnvironment${TIMESTAMP}",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1678705692370,
+        "category": "form",
+        "props": {
+          "label": "Cluster",
+          "field": "cluster_instance_id",
+          "help-tips": "The cluster deployed in the dynamic environment.",
+          "rules": [
+            {
+              "required": true,
+              "message": "The cluster cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "Invalid cluster.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "deploy_type",
+                "symbol": "===",
+                "value": "dynamic",
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  },
+                  {
+                    "name": "不等于",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "为空",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "不为空",
+                    "value": "notEmpty"
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1675848646164,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "选项",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "/v1/${projectId}/clusters",
+                  "method": "GET",
+                  "params": {
+                    "offset": "0",
+                    "limit": "200"
+                  },
+                  "label": "name",
+                  "value": "id",
+                  "body": {},
+                  "responseUrl": "data",
+                  "linkedFields": [],
+                  "remote": false,
+                  "remoteName": "",
+                  "remoteQueryField": "params"
+                }
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "filter": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1676899393507,
+        "category": "form",
+        "props": {
+          "label": "Environment Type",
+          "field": "env_type",
+          "help-tips": "",
+          "rules": [
+            {
+              "required": true,
+              "message": "The environment type cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "Invalid environment type.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "deploy_type",
+                "symbol": "===",
+                "value": "dynamic",
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  },
+                  {
+                    "name": "不等于",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "为空",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "不为空",
+                    "value": "notEmpty"
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1675848646164,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "fixed",
+                "fixedOptions": [
+                  {
+                    "label": "DEV (development environment)",
+                    "value": "DEV",
+                    "defaultChecked": true,
+                    "visible": false
+                  },
+                  {
+                    "label": "SIT (system integration test environment)",
+                    "value": "SIT",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "UAT (user acceptance environment)",
+                    "value": "UAT",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "PET (pressure test environment)",
+                    "value": "PET",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ]
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "filter": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              },
+              "defaultValue": "DEV"
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1678705690465,
+        "category": "form",
+        "props": {
+          "label": "Template",
+          "field": "template_instance_id",
+          "help-tips": "",
+          "rules": [
+            {
+              "required": true,
+              "message": "The template cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "Invalid static template.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "deploy_type",
+                "symbol": "===",
+                "value": "dynamic",
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  },
+                  {
+                    "name": "不等于",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "为空",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "不为空",
+                    "value": "notEmpty"
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1675848646164,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "选项",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "/v1/${projectId}/templates",
+                  "method": "GET",
+                  "params": {
+                    "offset": "0",
+                    "limit": "200"
+                  },
+                  "label": "name",
+                  "value": "instance_id",
+                  "body": {},
+                  "responseUrl": "data",
+                  "linkedFields": [],
+                  "remote": false,
+                  "remoteName": "",
+                  "remoteQueryField": "params"
+                }
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "filter": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1676899399315,
+        "category": "form",
+        "props": {
+          "label": "Microservice",
+          "field": "template_app_instance_id",
+          "help-tips": "",
+          "rules": [
+            {
+              "required": true,
+              "message": "The microservice cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "Invalid microservice.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "deploy_type",
+                "symbol": "===",
+                "value": "dynamic",
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  },
+                  {
+                    "name": "不等于",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "为空",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "不为空",
+                    "value": "notEmpty"
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1675848646164,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "选项",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "/v1/${projectId}/templates/${template_instance_id}",
+                  "method": "GET",
+                  "params": {
+                    "offset": "0",
+                    "limit": "200"
+                  },
+                  "label": "microservice_name",
+                  "value": "instance_id",
+                  "body": {},
+                  "responseUrl": "components",
+                  "linkedFields": [
+                    "template_instance_id",
+                    "template_instance_id_2"
+                  ],
+                  "remote": false,
+                  "remoteName": "",
+                  "remoteQueryField": "params"
+                }
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "filter": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1676899401166,
+        "category": "form",
+        "props": {
+          "label": "Image Path",
+          "field": "image_url",
+          "help-tips": "Format: image repository address/organization name/image name:version name. Example: swr.cn-north-4.myhuaweicloud.com/cloud-develop/2048:v1",
+          "rules": [
+            {
+              "required": true,
+              "message": "The image path cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "^[\\s\\S]{1,256}$",
+              "message": "Max. 256 characters",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [
+              {
+                "comp": "deploy_type",
+                "symbol": "===",
+                "value": "debug",
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  },
+                  {
+                    "name": "不等于",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "为空",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "不为空",
+                    "value": "notEmpty"
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-input",
+            "id": 1675848812553,
+            "props": {
+              "inputType": "normal",
+              "placeholder": "请输入",
+              "isTrim": true,
+              "autocomplete": "off",
+              "defaultValue": "",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1681522831981,
+        "category": "form",
+        "props": {
+          "label": "Automatic Rollback",
+          "field": "use_rollback",
+          "help-tips": "Enabled: If the environment deployment is abnormal or is longer than 15 minutes, the system rolls back to the version before deployment. Disabled: If the environment deployment is abnormal or is longer than 15 minutes, the system does not roll back.",
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "deploy_type",
+                "symbol": "===",
+                "value": "debug",
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  },
+                  {
+                    "name": "不等于",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "为空",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "不为空",
+                    "value": "notEmpty"
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-switch",
+            "id": 1676697812237,
+            "props": {
+              "defaultValue": false,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1676899409390,
+        "category": "form",
+        "props": {
+          "label": "Environment Recycling",
+          "field": "release_strategy_flag",
+          "help-tips": "Enabled: After the pipeline is complete, the environment is recycled based on the delay time Disabled: The environment is recycled immediately after the pipeline is complete. The maximum delay time is 1,440 minutes.",
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "deploy_type",
+                "symbol": "===",
+                "value": "dynamic",
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  },
+                  {
+                    "name": "不等于",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "为空",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "不为空",
+                    "value": "notEmpty"
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-switch",
+            "id": 1676697812237,
+            "props": {
+              "defaultValue": false,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1678761233561,
+        "category": "form",
+        "props": {
+          "label": "Minutes Before Recycling for a Successful Run",
+          "field": "success_delay_release_time",
+          "help-tips": "",
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "deploy_type",
+                "symbol": "===",
+                "value": "dynamic",
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  },
+                  {
+                    "name": "不等于",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "为空",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "不为空",
+                    "value": "notEmpty"
+                  }
+                ]
+              },
+              {
+                "comp": "release_strategy_flag",
+                "symbol": "===",
+                "value": true,
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false,
+          "rules": [
+            {
+              "required": true,
+              "message": "Required field.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "^(?:[0-9]|[1-9][0-9]{1,3}|8[0-5][0-9]{2}|86[0-3][0-9]|86400)$",
+              "message": "Enter a value from 0 to 1,440",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ]
+        },
+        "children": [
+          {
+            "componentName": "d-input",
+            "id": 1678761233560,
+            "props": {
+              "inputType": "normal",
+              "placeholder": "请输入",
+              "isTrim": true,
+              "autocomplete": "off",
+              "defaultValue": "",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1678761281673,
+        "category": "form",
+        "props": {
+          "label": "Minutes Before Recycling for a Failed Run",
+          "field": "failed_delay_release_time",
+          "help-tips": "",
+          "visible": {
+            "type": "condition",
+            "conditions": [
+              {
+                "comp": "deploy_type",
+                "symbol": "===",
+                "value": "dynamic",
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  },
+                  {
+                    "name": "不等于",
+                    "value": "!=="
+                  },
+                  {
+                    "name": "为空",
+                    "value": "empty"
+                  },
+                  {
+                    "name": "不为空",
+                    "value": "notEmpty"
+                  }
+                ]
+              },
+              {
+                "comp": "release_strategy_flag",
+                "symbol": "===",
+                "value": true,
+                "symbolOptions": [
+                  {
+                    "name": "等于",
+                    "value": "==="
+                  }
+                ]
+              }
+            ],
+            "value": true
+          },
+          "disabled": false,
+          "rules": [
+            {
+              "required": true,
+              "message": "Required field.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "^(?:[0-9]|[1-9][0-9]{1,3}|8[0-5][0-9]{2}|86[0-3][0-9]|86400)$",
+              "message": "Enter a value from 0 to 1,440",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ]
+        },
+        "children": [
+          {
+            "componentName": "d-input",
+            "id": 1678761281672,
+            "props": {
+              "inputType": "normal",
+              "placeholder": "请输入",
+              "isTrim": true,
+              "autocomplete": "off",
+              "defaultValue": "",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      }
+    ]
+  }
+]

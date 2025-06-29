@@ -1,0 +1,10 @@
+[
+  {
+    "key": "CHANGE_ID_INPUT_PARAM",
+    "value": "${COMPONENT_CHANGE_IDS}"
+  },
+  {
+    "key": "Parameters",
+    "value": "[{\"key\":\"image.tag\",\"value\":\"demo\"}]"
+  }
+]

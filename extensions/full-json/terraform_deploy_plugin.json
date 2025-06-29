@@ -1,0 +1,192 @@
+{
+  "plugin_name": "terraform_deploy_plugin",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "8935a643292248579e27f9f4e3f8da71",
+      "name": "providers",
+      "default_value": "HuaweiCloud",
+      "plugin_name": "terraform_deploy_plugin",
+      "version": "0.1.1",
+      "type": "singleSelect",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "资源类型",
+      "description": "",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": [
+          {
+            "label": "华为云",
+            "value": "HuaweiCloud"
+          },
+          {
+            "label": "AWS",
+            "value": "AWS"
+          }
+        ],
+        "disabled_conditions": null,
+        "visible_conditions": []
+      },
+      "validation": {
+        "required_message": "该项值不可为空！",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "ff54e77fbf7a47219cfe1b4e7ebd0eeb",
+      "name": "terraform_credentials",
+      "default_value": "",
+      "plugin_name": "terraform_deploy_plugin",
+      "version": "0.1.1",
+      "type": "endpoint:${devcloud2018.deploy_iam_connection.endponit}",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Terraform资源凭据",
+      "description": "配置了Terraform创建资源所需认证凭据的IAM拓展点，需要提供真实有效的账户AK、SK",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": []
+      },
+      "validation": {
+        "required_message": "该项值不可为空！",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "8f93978436c6491089f0e614b4107480",
+      "name": "terraform_action",
+      "default_value": "plan",
+      "plugin_name": "terraform_deploy_plugin",
+      "version": "0.1.1",
+      "type": "singleSelect",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Terraform操作类型",
+      "description": "所有操作类型前都会自动附带init操作",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": [
+          {
+            "label": "init",
+            "value": "INIT"
+          },
+          {
+            "label": "validate",
+            "value": "VALIDATE"
+          },
+          {
+            "label": "plan",
+            "value": "PLAN"
+          },
+          {
+            "label": "apply",
+            "value": "APPLY"
+          },
+          {
+            "label": "destroy",
+            "value": "DESTROY"
+          }
+        ],
+        "disabled_conditions": null,
+        "visible_conditions": []
+      },
+      "validation": {
+        "required_message": "该项值不可为空！",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "5eb3ff97e86b44e1bad1b411f642372e",
+      "name": "terraform_yaml_path",
+      "default_value": "./",
+      "plugin_name": "terraform_deploy_plugin",
+      "version": "0.1.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Terraform资源定义文件路径",
+      "description": "支持绝对路径及相对路径。若填入相对路径，将从任务执行时的工作空间获取文件，可以与“下载制品”、“下载代码仓”等步骤搭配使用。例如，若前置步骤有“下载代码仓”，此处填入“./”即可",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": []
+      },
+      "validation": {
+        "required_message": "该项值不可为空！",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "104e2463afa24bc6adb6f18aefc6f3da",
+      "name": "terraform_var_path",
+      "default_value": "",
+      "plugin_name": "terraform_deploy_plugin",
+      "version": "0.1.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Terraform参数文件路径",
+      "description": "支持指定参数文件路径，若为指定则默认不使用参数定义文件。",
+      "required": "false",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": [
+          {
+            "comp": "terraform_action",
+            "symbol": "!==",
+            "value": "INIT"
+          },
+          {
+            "comp": "terraform_action",
+            "symbol": "!==",
+            "value": "VALIDATE"
+          }
+        ]
+      },
+      "validation": {
+        "required_message": "该项值不可为空！",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

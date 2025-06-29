@@ -1,0 +1,122 @@
+{
+  "plugin_name": "feishu_robot",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "84a8041feb044fc58d1ae2fabbdcb0ed",
+      "name": "FEISHU_WEBHOOK",
+      "default_value": "",
+      "plugin_name": "feishu_robot",
+      "version": "0.0.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Webhook Url",
+      "description": "Feishu webhook.",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "Please input your webhook url.",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "533e68b165fa4e4597b95c31ac636ab5",
+      "name": "FEISHU_SECRET",
+      "default_value": "",
+      "plugin_name": "feishu_robot",
+      "version": "0.0.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Secret",
+      "description": "Feishu robot secret.",
+      "required": "false",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "8b43ee3a9fd94d7f9696491d4535135f",
+      "name": "CUSTOM_CONTENT",
+      "default_value": "",
+      "plugin_name": "feishu_robot",
+      "version": "0.0.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Custom Content",
+      "description": "Pipeline parameters can be referenced, for example, ${PIPELINE_RUN_ID}.",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "Please input your custom content.",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "48183fda75de476a950e680a79348383",
+      "name": "NOTICE_USERS",
+      "default_value": "",
+      "plugin_name": "feishu_robot",
+      "version": "0.0.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "@user_id",
+      "description": "Multiple user_id (FeiShu user_id) are separated by commas (,). @all (enter all) is supported.",
+      "required": "false",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

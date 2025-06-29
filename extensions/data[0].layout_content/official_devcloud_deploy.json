@@ -1,0 +1,152 @@
+[
+  {
+    "componentName": "d-form",
+    "id": 1669114667282,
+    "category": "form",
+    "props": {
+      "layout": "vertical",
+      "ref": "formRef"
+    },
+    "children": [
+      {
+        "componentName": "d-form-item",
+        "id": 1669114673142,
+        "category": "form",
+        "props": {
+          "label": "Select Task",
+          "field": "SYSTEM_DEVCLOUD_SUBPIPELINE_TRIGGER_ID",
+          "help-tips": "",
+          "rules": [
+            {
+              "required": true,
+              "message": "This field cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "请选择需要调用的任务内容不符合规范",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "link-select",
+            "id": 1669114673141,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "选项",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "/v2/pipeline/getPipelineSubTaskResult",
+                  "method": "GET",
+                  "params": {
+                    "projectId": "${project_id}",
+                    "taskType": "deployMan",
+                    "jobName": "",
+                    "recordNum": "20"
+                  },
+                  "label": "jobName",
+                  "value": "id",
+                  "body": {},
+                  "responseUrl": "result.jobResultList",
+                  "linkedFields": [],
+                  "remote": true,
+                  "remoteName": "jobName",
+                  "remoteQueryField": "params"
+                }
+              },
+              "isUpdateChildAll": true,
+              "remote": "",
+              "allow-clear": false,
+              "filter": "",
+              "linkText": "Create One",
+              "linkHref": "/deployman/project/${project_id}/deployman/newcreatetemplate",
+              "herfTips": "",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1669114993360,
+        "category": "form",
+        "props": {
+          "label": "Task parameters",
+          "field": "key_1669114993359",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "task-parameter",
+            "id": 1669114993359,
+            "props": {
+              "params": {
+                "type": "api",
+                "apiOptions": {
+                  "url": "/v2/pipeline/getPipelineSubTaskParamWithContext",
+                  "method": "POST",
+                  "params": {
+                    "taskType": "deployMan",
+                    "subTaskID": "${SYSTEM_DEVCLOUD_SUBPIPELINE_TRIGGER_ID}",
+                    "taskName": "Task_3",
+                    "projectId": "${project_id}"
+                  },
+                  "label": "",
+                  "value": "",
+                  "body": "",
+                  "responseUrl": "result.parameters",
+                  "linkedFields": [
+                    "SYSTEM_DEVCLOUD_SUBPIPELINE_TRIGGER_ID"
+                  ],
+                  "remote": false,
+                  "remoteName": "",
+                  "remoteQueryField": "params"
+                }
+              },
+              "isCustomVar": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,93 @@
+{
+  "plugin_name": "official_devcloud_apiTest_template",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "3442150252ef43e095245819490d91b2",
+      "name": "is_build_in",
+      "default_value": "system",
+      "plugin_name": "official_devcloud_apiTest_template",
+      "version": "0.0.1",
+      "type": "d-radio-group",
+      "workspace_id": "*",
+      "layout_content": "[{\"componentName\":\"d-form\",\"id\":1668244598708,\"category\":\"form\",\"props\":{\"layout\":\"vertical\",\"ref\":\"formRef\"},\"children\":[{\"componentName\":\"d-form-item\",\"id\":1668244896428,\"category\":\"form\",\"props\":{\"label\":\"Template Type\",\"field\":\"is_build_in\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"This field cannot be left blank.\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"模板类型内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-radio-group\",\"id\":1668244896427,\"props\":{\"direction\":\"row\",\"isUpdateChildAll\":true,\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"System Templates\",\"value\":\"system\",\"defaultChecked\":true,\"visible\":false},{\"label\":\"Custom Templates\",\"value\":\"custom\",\"defaultChecked\":false,\"visible\":false}]},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"defaultValue\":\"system\"},\"category\":\"form\",\"children\":[{\"componentName\":\"d-radio\",\"props\":{\"name\":\"System Templates\",\"value\":\"system\",\"showText\":\"System Templates\",\"style\":{\"margin-right\":\"20px\"}}},{\"componentName\":\"d-radio\",\"props\":{\"name\":\"Custom Templates\",\"value\":\"custom\",\"showText\":\"Custom Templates\",\"style\":{\"margin-right\":\"20px\"}}}]}]},{\"componentName\":\"d-form-item\",\"id\":1668244946492,\"category\":\"form\",\"props\":{\"label\":\"Templates\",\"field\":\"module_or_template_id\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"This field cannot be left blank.\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"Invalid template\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1668244946491,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v1/templates/list\",\"method\":\"POST\",\"params\":{},\"label\":\"template_name\",\"value\":\"template_id\",\"body\":{\"template_type\":\"apiTest\",\"is_build_in\":\"${is_build_in}===system?true:false\",\"keyword\":\"\",\"page\":1,\"size\":20},\"responseUrl\":\"result.content\",\"linkedFields\":[\"is_build_in\"],\"remote\":true,\"remoteName\":\"keyword\",\"remoteQueryField\":\"body\"}},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\",\"children\":[]}]},{\"componentName\":\"d-form-item\",\"id\":1668245009378,\"category\":\"form\",\"props\":{\"label\":\"Task parameters\",\"field\":\"key_1668245009377\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"task-parameter\",\"id\":1668245009377,\"props\":{\"params\":{\"type\":\"api\",\"apiOptions\":{\"url\":\"/v1/templates/${module_or_template_id}\",\"method\":\"GET\",\"params\":{\"template_type\":\"apiTest\",\"filter_type\":\"\"},\"label\":\"\",\"value\":\"\",\"body\":\"\",\"responseUrl\":\"result.parameters\",\"linkedFields\":[\"module_or_template_id\"],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\"}},\"isCustomVar\":false,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]}]}]",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "713e778341bb43ce8973e677f8c8e6e9",
+      "name": "module_or_template_id",
+      "default_value": "",
+      "plugin_name": "official_devcloud_apiTest_template",
+      "version": "0.0.1",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "c94b5206d49c4dd6ace30d1ab2b036b2",
+      "name": "key_1668245009377",
+      "default_value": "",
+      "plugin_name": "official_devcloud_apiTest_template",
+      "version": "0.0.1",
+      "type": "task-parameter",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

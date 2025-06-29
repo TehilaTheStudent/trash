@@ -1,0 +1,10 @@
+[
+  {
+    "key": "Repo_ID",
+    "value": "${CODEHUB_ID}"
+  },
+  {
+    "key": "MR_ID",
+    "value": "${MR_ID}"
+  }
+]

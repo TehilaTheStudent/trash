@@ -1,0 +1,330 @@
+[
+  {
+    "componentName": "d-form",
+    "id": 1749389535082,
+    "category": "form",
+    "props": {
+      "layout": "vertical",
+      "ref": "formRef"
+    },
+    "children": [
+      {
+        "componentName": "d-form-item",
+        "id": 1749389536512,
+        "category": "form",
+        "props": {
+          "label": "Single-line Text Box",
+          "field": "key_1749389536511",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-input",
+            "id": 1749389536511,
+            "props": {
+              "inputType": "normal",
+              "showPlaceholder": "",
+              "isTrim": true,
+              "autocomplete": "off",
+              "defaultValue": "",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749389538931,
+        "category": "form",
+        "props": {
+          "label": "Digit",
+          "field": "key_1749389538930",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-input-number",
+            "id": 1749389538930,
+            "props": {
+              "showPlaceholder": "",
+              "type": true,
+              "precision": 0,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749389540116,
+        "category": "form",
+        "props": {
+          "label": "Single-selection Drop-down List",
+          "field": "key_1749389540115",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-select",
+            "id": 1749389540115,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "fixed",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ]
+              },
+              "isUpdateChildAll": true,
+              "remote": false,
+              "allow-clear": false,
+              "showPlaceholder": "",
+              "filter": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749389541201,
+        "category": "form",
+        "props": {
+          "label": "Multi-selection Drop-down List",
+          "field": "key_1749389541200",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "multiple-select",
+            "id": 1749389541200,
+            "props": {
+              "multipleOptions": {
+                "type": "fixed",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ]
+              },
+              "isUpdateChildAll": true,
+              "showPlaceholder": "",
+              "multiple": true,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749389542301,
+        "category": "form",
+        "props": {
+          "label": "Option Button",
+          "field": "key_1749389542300",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-radio-group",
+            "id": 1749389542300,
+            "props": {
+              "direction": "row",
+              "isUpdateChildAll": true,
+              "singleOptions": {
+                "type": "fixed",
+                "fixedOptions": [
+                  {
+                    "label": "Option",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option2",
+                    "value": "2",
+                    "defaultChecked": false,
+                    "visible": false
+                  },
+                  {
+                    "label": "Option3",
+                    "value": "3",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ]
+              },
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form",
+            "children": [
+              {
+                "componentName": "d-radio",
+                "props": {
+                  "name": "Option",
+                  "value": "1",
+                  "showText": "Option",
+                  "style": {
+                    "margin-right": "20px"
+                  }
+                }
+              },
+              {
+                "componentName": "d-radio",
+                "props": {
+                  "name": "Option2",
+                  "value": "2",
+                  "showText": "Option2",
+                  "style": {
+                    "margin-right": "20px"
+                  }
+                }
+              },
+              {
+                "componentName": "d-radio",
+                "props": {
+                  "name": "Option3",
+                  "value": "3",
+                  "showText": "Option3",
+                  "style": {
+                    "margin-right": "20px"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749389543497,
+        "category": "form",
+        "props": {
+          "label": "Switch",
+          "field": "key_1749389543496",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-switch",
+            "id": 1749389543496,
+            "props": {
+              "defaultValue": false,
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1749389544798,
+        "category": "form",
+        "props": {
+          "label": "Multi-line Text Box",
+          "field": "key_1749389544797",
+          "help-tips": "",
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "d-textarea",
+            "id": 1749389544797,
+            "props": {
+              "showPlaceholder": "",
+              "textType": "edit",
+              "isTrim": true,
+              "defaultValue": "",
+              "showCount": false,
+              "maxlength": null,
+              "resize": "none",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      }
+    ]
+  }
+]

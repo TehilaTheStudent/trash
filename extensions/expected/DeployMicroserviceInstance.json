@@ -1,0 +1,22 @@
+[
+  {
+    "key": "Environment",
+    "value": "f568c0b09c304fe589241d81521d9ba8"
+  },
+  {
+    "key": "Microservice",
+    "value": "63a06a7860c7431c8d0cf648578950ea"
+  },
+  {
+    "key": "CHANGE_ID_INPUT_PARAM",
+    "value": "${COMPONENT_ID}"
+  },
+  {
+    "key": "DeploymentManifestPatchParameters",
+    "value": "[{\"key\":\"image.tag\",\"value\":\"demo\"}]"
+  },
+  {
+    "key": "isWait",
+    "value": true
+  }
+]

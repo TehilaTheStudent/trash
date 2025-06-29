@@ -1,0 +1,35 @@
+{
+  "plugin_name": "official_shell_plugin",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "c68f1657b16f4b0a8ca90ae91c6647c1",
+      "name": "OFFICIAL_SHELL_SCRIPT_INPUT",
+      "default_value": "",
+      "plugin_name": "official_shell_plugin",
+      "version": "0.0.2",
+      "type": "shell",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "command",
+      "description": "please input your shell command",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "please input your shell command",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

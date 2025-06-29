@@ -1,0 +1,151 @@
+{
+  "plugin_name": "download-obs",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "024ec96626fe4a8994613152dd19119f",
+      "name": "endpoint_select",
+      "default_value": "",
+      "plugin_name": "download-obs",
+      "version": "0.0.1",
+      "type": "endpoint:${devcloud2018.deploy_iam_connection.endponit}",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "OBS service connection info",
+      "description": "Select a service extension point which type is IAM account",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "Select the corresponding OBS service connection information. If no OBS service extension point exists, create a service extension point which type is IAM account",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "17697e19853844909d347444780b6631",
+      "name": "endpoint",
+      "default_value": "",
+      "plugin_name": "download-obs",
+      "version": "0.0.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "OBS endpoint information",
+      "description": "Please input your OBS endpoint info,refer to the link for details:https://developer.huaweicloud.com/intl/en-us/endpoint?OBS",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": "If your OBS is located in Huawei cn-north-4,please input:https://obs.cn-north4.myhuaweicloud.com",
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "The endpoint information cannot be empty",
+        "regex": "",
+        "regex_message": "",
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "22318b5d46b54faa98650007777e99ef",
+      "name": "bucket",
+      "default_value": "",
+      "plugin_name": "download-obs",
+      "version": "0.0.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "OBS bucket name",
+      "description": "Please enter the name of the OBS bucket that you want to operate",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": "Please input your OBS bucket name",
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "Bucket name cannot be empty",
+        "regex": "",
+        "regex_message": "",
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "5cb6f8367f6548b5bb7ecc0642bb05b9",
+      "name": "key",
+      "default_value": "",
+      "plugin_name": "download-obs",
+      "version": "0.0.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "OBS Object path in the bucket",
+      "description": "Enter the path information about the files in the OBS bucket to be downloaded",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": "Please input files in OBS you need to download files to the local directory, for example, /test/. All files prefixed with /test are downloaded",
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "OBS file path cannot be empty",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "9c110386b7404bc7b2be9213c208a714",
+      "name": "save_as_file",
+      "default_value": "",
+      "plugin_name": "download-obs",
+      "version": "0.0.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Local storage path",
+      "description": "Enter the path of the local file to be downloaded, the relative path and the full type of the file. The downloaded content is stored in the ${SHARE_PATH} path, for example, /test/file.zip. If you want to download multiple objects in a file, enter the local path, for example, /test/",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": "File path to the local storage, for example, /output/ indicates that OBS files are downloaded to the ${SHARE_PATH}/output folder.",
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "Local file path cannot be empty",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,905 @@
+{
+  "plugin_name": "official_kubernetes_release",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "c7f7f87fe058462eb41609cc146a0815",
+      "name": "is_demo",
+      "default_value": "false",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "[{\"componentName\":\"d-form\",\"id\":1673319423493,\"category\":\"form\",\"props\":{\"layout\":\"vertical\",\"ref\":\"formRef\"},\"children\":[{\"componentName\":\"d-form-item\",\"id\":1690361631521,\"category\":\"form\",\"props\":{\"label\":\"是否为演示集群\",\"field\":\"is_demo\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"是否为演示集群内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1690361631520,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"true\",\"value\":\"true\",\"defaultChecked\":false,\"visible\":false},{\"label\":\"false\",\"value\":\"false\",\"defaultChecked\":true,\"visible\":false}]},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"false\"},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1690361657615,\"category\":\"form\",\"props\":{\"label\":\"集群类型\",\"field\":\"cluster_type_demo\",\"help-tips\":\"演示集群没有实际资源，并未实际部署，仅用于产品功能体验\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"The cluster type does not meet the specifications.\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"is_demo\",\"symbol\":\"===\",\"value\":\"true\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1690361657614,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"Demonstration cluster\",\"value\":\"None\",\"defaultChecked\":false,\"visible\":false},{\"label\":\"Non-demonstration cluster\",\"value\":\"value\",\"defaultChecked\":true,\"visible\":false}]},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"value\"},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1688611819624,\"category\":\"form\",\"props\":{\"label\":\"部署用户\",\"field\":\"user_type\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"The deployment user content does not comply with the specifications.\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1688611819623,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"当前用户\",\"value\":\"current_user\",\"defaultChecked\":true,\"visible\":false},{\"label\":\"其他用户(仅支持CCE集群类型)\",\"value\":\"other_user\",\"defaultChecked\":false,\"visible\":false}]},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"current_user\"},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1688611857449,\"category\":\"form\",\"props\":{\"label\":\"IAM扩展点\",\"field\":\"iam_endpoint\",\"help-tips\":\"使用其他用户的IAM扩展点提权执行\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"选择IAM扩展点内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"user_type\",\"symbol\":\"===\",\"value\":\"other_user\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"link-select\",\"id\":1674183760542,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v2/${project_id}/extensions/endpoints\",\"method\":\"GET\",\"params\":{\"module_id\":\"devcloud2018.deploy_iam_connection.endponit\"},\"label\":\"name\",\"value\":\"uuid\",\"body\":{},\"responseUrl\":\"data\",\"linkedFields\":[],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\"}},\"isUpdateChildAll\":true,\"remote\":\"\",\"allow-clear\":false,\"filter\":\"\",\"linkText\":\"新建IAM扩展点\",\"linkHref\":\"${origin}/market/project/${project_id}/config/${region_name}/manager/endpoint\",\"herfTips\":\"\",\"isSubPipelineTag\":false,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1673594866585,\"category\":\"form\",\"props\":{\"label\":\"集群类型\",\"field\":\"cluster_type\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"The cluster type does not meet the specifications.\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1673592960178,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"CCE\",\"value\":\"CCE\",\"defaultChecked\":true,\"visible\":false},{\"label\":\"Kubernetes\",\"value\":\"K8S\",\"defaultChecked\":false,\"visible\":false}]},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"BLUE-GREEN\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":false},\"defaultValue\":\"CCE\"},\"category\":\"form\",\"children\":[]}]},{\"componentName\":\"d-form-item\",\"id\":1714467800068,\"category\":\"form\",\"props\":{\"label\":\"区域\",\"field\":\"region_code\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"Region Invalid content.\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"cluster_type\",\"symbol\":\"===\",\"value\":\"CCE\",\"symbolOptions\":[{\"name\":\"=\",\"value\":\"===\"},{\"name\":\"!=\",\"value\":\"!==\"},{\"name\":\"is null\",\"value\":\"empty\"},{\"name\":\"is not null\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"=\",\"value\":\"===\"},{\"name\":\"!=\",\"value\":\"!==\"},{\"name\":\"is null\",\"value\":\"empty\"},{\"name\":\"is not null\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1714467800067,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"亚太-新加坡\",\"value\":\"ap-southeast-3\",\"defaultChecked\":false,\"visible\":false}]},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"showPlaceholder\":\"\",\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1673595813065,\"category\":\"form\",\"props\":{\"label\":\"CCE集群\",\"field\":\"cluster_id\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"CCE集群内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"cluster_type\",\"symbol\":\"===\",\"value\":\"CCE\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1673595813064,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v1/${project_id}/dynamic-form/ajax-call\",\"method\":\"POST\",\"params\":{\"formula\":\"d0470ff825682a0439d8ac6cd0382cc4\"},\"label\":\"name\",\"value\":\"uuid\",\"body\":{\"region_code\":\"${region_code}\",\"user_type\":\"${user_type}\",\"iam_endpoint\":\"${user_type}===other_user?${iam_endpoint}:null\"},\"responseUrl\":\"\",\"linkedFields\":[\"region_code\",\"user_type\",\"iam_endpoint\"],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\"}},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\",\"children\":[]}]},{\"componentName\":\"d-form-item\",\"id\":1674183557312,\"category\":\"form\",\"props\":{\"label\":\"Kubernetes扩展点\",\"field\":\"kubernetes_endpoint\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"K8S集群扩展点内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"cluster_type\",\"symbol\":\"===\",\"value\":\"K8S\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"link-select\",\"id\":1674183557311,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v2/${project_id}/extensions/endpoints\",\"method\":\"GET\",\"params\":{\"module_id\":\"devcloud2018.deploy_k8s_connection.endponit\"},\"label\":\"name\",\"value\":\"uuid\",\"body\":{},\"responseUrl\":\"data\",\"linkedFields\":[],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\"}},\"isUpdateChildAll\":true,\"remote\":\"\",\"allow-clear\":false,\"filter\":\"\",\"linkText\":\"新建k8s扩展点\",\"linkHref\":\"${origin}/market/project/${project_id}/config/${region_name}/manager/endpoint\",\"herfTips\":\"\",\"isSubPipelineTag\":false,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1673596173402,\"category\":\"form\",\"props\":{\"label\":\"命名空间\",\"field\":\"namespace\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"命名空间内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1673596173401,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v1/${project_id}/dynamic-form/ajax-call\",\"method\":\"POST\",\"params\":{\"formula\":\"46737ce0dec6699936ce39cb51be396d\"},\"header\":{},\"label\":\"name\",\"value\":\"name\",\"body\":{\"cluster_type\":\"${cluster_type}\",\"region_code\":\"${region_code}===undefined?:${region_code}\",\"cluster_id\":\"${cluster_type}===CCE?${cluster_id}:${kubernetes_endpoint}\",\"kubernetes_endpoint\":\"${cluster_type}===CCE?${cluster_id}:${kubernetes_endpoint}\",\"user_type\":\"${user_type}\",\"iam_endpoint\":\"${user_type}===other_user?${iam_endpoint}:null\"},\"responseUrl\":\"\",\"linkedFields\":[\"cluster_type\",\"region_code\",\"cluster_id\",\"kubernetes_endpoint\",\"user_type\",\"iam_endpoint\"],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\"}},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\",\"children\":[]}]},{\"componentName\":\"d-form-item\",\"id\":1674181017991,\"category\":\"form\",\"props\":{\"label\":\"部署策略\",\"field\":\"deploy_strategy\",\"help-tips\":\"滚动：对无状态工作负载进行滚动发布\\n蓝绿：基于Service的蓝绿发布\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"部署策略内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-radio-group\",\"id\":1674181017989,\"props\":{\"direction\":\"row\",\"isUpdateChildAll\":true,\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"滚动\",\"value\":\"ROLLING\",\"defaultChecked\":true,\"visible\":false},{\"label\":\"蓝绿\",\"value\":\"BLUE-GREEN\",\"defaultChecked\":false,\"visible\":false}]},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"ROLLING\"},\"category\":\"form\",\"children\":[{\"componentName\":\"d-radio\",\"props\":{\"name\":\"滚动\",\"value\":\"ROLLING\",\"showText\":\"滚动\",\"style\":{\"margin-right\":\"20px\"}}},{\"componentName\":\"d-radio\",\"props\":{\"name\":\"蓝绿\",\"value\":\"BLUE-GREEN\",\"showText\":\"蓝绿\",\"style\":{\"margin-right\":\"20px\"}}}]}]},{\"componentName\":\"d-form-item\",\"id\":1690362009476,\"category\":\"form\",\"props\":{\"label\":\"部署策略\",\"field\":\"deploy_strategy_demo\",\"help-tips\":\"滚动：对无状态工作负载进行滚动发布\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"部署策略内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"cluster_type_demo\",\"symbol\":\"===\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-radio-group\",\"id\":1674181017989,\"props\":{\"direction\":\"row\",\"isUpdateChildAll\":true,\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"滚动\",\"value\":\"ROLLING\",\"defaultChecked\":true,\"visible\":false}]},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"ROLLING\"},\"category\":\"form\",\"children\":[{\"componentName\":\"d-radio\",\"props\":{\"name\":\"滚动\",\"value\":\"ROLLING\",\"showText\":\"滚动\",\"style\":{\"margin-right\":\"20px\"}}}]}]},{\"componentName\":\"d-form-item\",\"id\":1673596789608,\"category\":\"form\",\"props\":{\"label\":\"部署方式\",\"field\":\"deploy_select\",\"help-tips\":\"镜像升级：替换工作负载中容器的镜像\\nYAML部署：使用yaml文件升级工作负载\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"部署方式内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"ROLLING\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-radio-group\",\"id\":1673596789607,\"props\":{\"direction\":\"row\",\"isUpdateChildAll\":true,\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"镜像升级\",\"value\":\"QUICK\",\"defaultChecked\":true,\"visible\":false},{\"label\":\"YAML升级\",\"value\":\"YAML\",\"defaultChecked\":false,\"visible\":false}]},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"QUICK\"},\"category\":\"form\",\"children\":[{\"componentName\":\"d-radio\",\"props\":{\"name\":\"镜像升级\",\"value\":\"QUICK\",\"showText\":\"镜像升级\",\"style\":{\"margin-right\":\"20px\"}}},{\"componentName\":\"d-radio\",\"props\":{\"name\":\"YAML升级\",\"value\":\"YAML\",\"showText\":\"YAML升级\",\"style\":{\"margin-right\":\"20px\"}}}]}]},{\"componentName\":\"d-form-item\",\"id\":1690362037974,\"category\":\"form\",\"props\":{\"label\":\"部署方式\",\"field\":\"deploy_select_demo\",\"help-tips\":\"镜像升级：替换工作负载中容器的镜像\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"部署方式内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"ROLLING\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"===\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-radio-group\",\"id\":1673596789607,\"props\":{\"direction\":\"row\",\"isUpdateChildAll\":true,\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"镜像升级\",\"value\":\"QUICK\",\"defaultChecked\":true,\"visible\":false}]},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"QUICK\"},\"category\":\"form\",\"children\":[{\"componentName\":\"d-radio\",\"props\":{\"name\":\"镜像升级\",\"value\":\"QUICK\",\"showText\":\"镜像升级\",\"style\":{\"margin-right\":\"20px\"}}}]}]},{\"componentName\":\"d-form-item\",\"id\":1690362068962,\"category\":\"form\",\"props\":{\"label\":\"镜像地址\",\"field\":\"image_demo\",\"help-tips\":\"该镜像仅用于演示，并不会实际部署\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"^[\\\\s\\\\S]{1,256}$\",\"message\":\"The image URL content does not comply with the specifications. A maximum of 256 characters are supported.\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"deploy_select_demo\",\"symbol\":\"===\",\"value\":\"QUICK\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"deploy_strategy_demo\",\"symbol\":\"===\",\"value\":\"ROLLING\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"===\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1673597655907,\"props\":{\"inputType\":\"normal\",\"placeholder\":\"请输入\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1705302779497,\"category\":\"form\",\"props\":{\"label\":\"超时时间(minutes)\",\"field\":\"timeout\",\"help-tips\":\"允许滚动升级执行的最大时间，值在1-60分钟之间\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"^([1-9]|([1-5][0-9])?|60)$\",\"message\":\"Timeout must be integer, range[1,60]\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"ROLLING\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1673597655907,\"props\":{\"inputType\":\"normal\",\"placeholder\":\"请输入\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"10\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1673597375248,\"category\":\"form\",\"props\":{\"label\":\"工作负载类型\",\"field\":\"workload_type\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"工作负载类型内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1673597375247,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"Deployment\",\"value\":\"DEPLOYMENT\",\"defaultChecked\":true,\"visible\":false}]},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"DEPLOYMENT\"},\"category\":\"form\",\"children\":[]}]},{\"componentName\":\"d-form-item\",\"id\":1673596982028,\"category\":\"form\",\"props\":{\"label\":\"工作负载\",\"field\":\"workload\",\"help-tips\":\"无状态工作负载\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"工作负载内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"deploy_select\",\"symbol\":\"===\",\"value\":\"QUICK\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"ROLLING\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1673596982027,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v1/${project_id}/dynamic-form/ajax-call\",\"method\":\"POST\",\"params\":{\"formula\":\"c202a2d3202b8bbed4b36378d72657b8\"},\"header\":{},\"label\":\"name\",\"value\":\"name\",\"body\":{\"region_code\":\"${region_code}===undefined?:${region_code}\",\"cluster_type\":\"${cluster_type}\",\"cluster_id\":\"${cluster_type}===CCE?${cluster_id}:${kubernetes_endpoint}\",\"namespace\":\"${namespace}\",\"workload_type\":\"${workload_type}\",\"kubernetes_endpoint\":\"${cluster_type}===CCE?${cluster_id}:${kubernetes_endpoint}\",\"user_type\":\"${user_type}\",\"iam_endpoint\":\"${user_type}===other_user?${iam_endpoint}:null\"},\"responseUrl\":\"\",\"linkedFields\":[\"region_code\",\"cluster_type\",\"cluster_id\",\"namespace\",\"workload_type\",\"user_type\",\"iam_endpoint\"],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\"}},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\",\"children\":[]}]},{\"componentName\":\"d-form-item\",\"id\":1673597689753,\"category\":\"form\",\"props\":{\"label\":\"容器\",\"field\":\"container\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"容器内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"deploy_select\",\"symbol\":\"===\",\"value\":\"QUICK\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"ROLLING\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1673597689752,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v1/${project_id}/dynamic-form/ajax-call\",\"method\":\"POST\",\"params\":{\"formula\":\"d519d569a35d997bacff7127378ef6eb\"},\"header\":{},\"label\":\"name\",\"value\":\"name\",\"body\":{\"region_code\":\"${region_code}===undefined?:${region_code}\",\"cluster_type\":\"${cluster_type}\",\"cluster_id\":\"${cluster_type}===CCE?${cluster_id}:${kubernetes_endpoint}\",\"namespace\":\"${namespace}\",\"workload_type\":\"${workload_type}\",\"kubernetes_endpoint\":\"${cluster_type}===CCE?${cluster_id}:${kubernetes_endpoint}\",\"workload\":\"${workload}\",\"user_type\":\"${user_type}\",\"iam_endpoint\":\"${user_type}===other_user?${iam_endpoint}:null\"},\"responseUrl\":\"\",\"linkedFields\":[\"cluster_type\",\"region_code\",\"cluster_id\",\"namespace\",\"workload_type\",\"workload\",\"user_type\",\"iam_endpoint\"],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\"}},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\",\"children\":[]}]},{\"componentName\":\"d-form-item\",\"id\":1673597655908,\"category\":\"form\",\"props\":{\"label\":\"镜像地址\",\"field\":\"image\",\"help-tips\":\"待发布的镜像地址。支持使用${参数名}引用流水线参数\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"^[\\\\s\\\\S]{1,256}$\",\"message\":\"The image URL content does not comply with the specifications. A maximum of 256 characters are supported.\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"deploy_select\",\"symbol\":\"===\",\"value\":\"QUICK\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"ROLLING\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1673597655907,\"props\":{\"inputType\":\"normal\",\"placeholder\":\"请输入\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1673598699285,\"category\":\"form\",\"props\":{\"label\":\"仓库类型\",\"field\":\"repo_type\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"仓库类型内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1673598699284,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"codehub\",\"value\":\"codehub\",\"defaultChecked\":true,\"visible\":false}]},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"codehub\"},\"category\":\"form\",\"children\":[]}]},{\"componentName\":\"d-form-item\",\"id\":1673598729242,\"category\":\"form\",\"props\":{\"label\":\"仓库\",\"field\":\"repo_url\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"代码仓内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"deploy_select\",\"symbol\":\"===\",\"value\":\"YAML\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"ROLLING\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1673598729241,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v2/${project_id}/code/repositories\",\"method\":\"GET\",\"params\":{\"repoType\":\"${repo_type}\"},\"label\":\"name\",\"value\":\"http_url\",\"body\":{},\"responseUrl\":\"\",\"linkedFields\":[\"repo_type\"],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\"}},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\",\"children\":[]}]},{\"componentName\":\"d-form-item\",\"id\":1673598862275,\"category\":\"form\",\"props\":{\"label\":\"分支\",\"field\":\"code_branch\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"分支内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"deploy_select\",\"symbol\":\"===\",\"value\":\"YAML\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"ROLLING\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1673598862274,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v2/${project_id}/code/branches\",\"method\":\"GET\",\"params\":{\"repoUrl\":\"${repo_url}\"},\"label\":\"name\",\"value\":\"name\",\"body\":{},\"responseUrl\":\"\",\"linkedFields\":[\"repo_url\"],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\"}},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\",\"children\":[]}]},{\"componentName\":\"d-form-item\",\"id\":1673599052000,\"category\":\"form\",\"props\":{\"label\":\"YAML路径\",\"field\":\"yml_path\",\"help-tips\":\"需填写yaml文件的相对路径，当前目录为代码分支的根目录；仅支持单个yaml文件；例：\\\"dir/deployment.yaml\\\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"^[\\\\s\\\\S]{1,256}$\",\"message\":\"yaml路径内容不符合规范，支持最多256个字符\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"deploy_select\",\"symbol\":\"===\",\"value\":\"YAML\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"ROLLING\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1673599051999,\"props\":{\"inputType\":\"normal\",\"placeholder\":\"请输入\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1673599094606,\"category\":\"form\",\"props\":{\"label\":\"参数\",\"field\":\"variable\",\"help-tips\":\"yaml文件中可使用{{}}引用参数\",\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"deploy_select\",\"symbol\":\"===\",\"value\":\"YAML\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"ROLLING\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false,\"rules\":[{\"required\":false,\"message\":\"参数不能为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"参数内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}]},\"children\":[{\"componentName\":\"key-value\",\"id\":1673599094605,\"props\":{},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1673601032980,\"category\":\"form\",\"props\":{\"label\":\"服务\",\"field\":\"service_name\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"服务内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"BLUE-GREEN\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1673601032979,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v1/${project_id}/dynamic-form/ajax-call\",\"method\":\"POST\",\"params\":{\"formula\":\"af182ec2448e2f025282fce187a5e4a5\"},\"header\":{},\"label\":\"name\",\"value\":\"name\",\"body\":{\"region_code\":\"${region_code}===undefined?:${region_code}\",\"namespace\":\"${namespace}\",\"cluster_type\":\"${cluster_type}\",\"cluster_id\":\"${cluster_type}===CCE?${cluster_id}:${kubernetes_endpoint}\",\"kubernetes_endpoint\":\"${cluster_type}===CCE?null:${kubernetes_endpoint}\",\"user_type\":\"${user_type}\",\"iam_endpoint\":\"${user_type}===other_user?${iam_endpoint}:null\"},\"responseUrl\":\"\",\"linkedFields\":[\"region_code\",\"namespace\",\"cluster_id\",\"user_type\",\"iam_endpoint\"],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\"}},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\",\"children\":[]}]},{\"componentName\":\"d-form-item\",\"id\":1673601380806,\"category\":\"form\",\"props\":{\"label\":\"镜像地址\",\"field\":\"gray_image\",\"help-tips\":\"待发布的镜像地址。支持使用${参数名}引用流水线参数\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"^[\\\\s\\\\S]{1,256}$\",\"message\":\"The image URL content does not comply with the specifications. A maximum of 256 characters are supported.\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"cluster_type\",\"symbol\":\"===\",\"value\":\"CCE\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"BLUE-GREEN\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1673601380805,\"props\":{\"inputType\":\"normal\",\"placeholder\":\"请输入\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1673601420497,\"category\":\"form\",\"props\":{\"label\":\"自定义灰度版本号\",\"field\":\"use_custom_version\",\"help-tips\":\"\",\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"cluster_type\",\"symbol\":\"===\",\"value\":\"CCE\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"BLUE-GREEN\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-switch\",\"id\":1673601420496,\"props\":{\"defaultValue\":false,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1673601449799,\"category\":\"form\",\"props\":{\"label\":\"灰度版本号\",\"field\":\"gray_version\",\"help-tips\":\"规定version为关键字在label中标记版本号，用于区分正式版本和灰度版本，作为灰度引流的标识\",\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"cluster_type\",\"symbol\":\"===\",\"value\":\"CCE\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"BLUE-GREEN\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"use_custom_version\",\"symbol\":\"===\",\"value\":true,\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false,\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"^[-A-Za-z0-9_.]{1,10}$\",\"message\":\"Invalid grayscale version number! It can contain a maximum of 10 characters, including uppercase and lowercase letters, digits, hyphens(-), underscores(_), dot(.)\",\"trigger\":[\"blur\",\"change\"]}]},\"children\":[{\"componentName\":\"d-input\",\"id\":1673601449798,\"props\":{\"inputType\":\"normal\",\"placeholder\":\"请输入\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1673601500724,\"category\":\"form\",\"props\":{\"label\":\"升级灰度负载超时时间((minutes)\",\"field\":\"upgrade_gray_timeout\",\"help-tips\":\"升级灰度负载超时时间，输入范围[0,99]\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"^[0-9]{1,2}$\",\"message\":\"Invalid timeout, input range [0,99]\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"BLUE-GREEN\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type\",\"symbol\":\"===\",\"value\":\"CCE\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input-number\",\"id\":1673601500722,\"props\":{\"placeholder\":\"请输入\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":30},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1673601658849,\"category\":\"form\",\"props\":{\"label\":\"切流等待时间(minutes)\",\"field\":\"route_traffic_waiting_time\",\"help-tips\":\"升级灰度负载之后，等待一段时间将流量100%切换至灰度负载，输入范围[0,99]\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"^[0-9]{1,2}$\",\"message\":\"Invalid timeout, input range [0,99]\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"cluster_type\",\"symbol\":\"===\",\"value\":\"CCE\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"BLUE-GREEN\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input-number\",\"id\":1673601658848,\"props\":{\"placeholder\":\"请输入\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":30},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1688031340215,\"category\":\"form\",\"props\":{\"label\":\"下线旧负载超时时间(hours)\",\"field\":\"offline_waiting_time\",\"help-tips\":\"完成引流之后，等待一段时间自动下线旧负载，输入范围[1,24]。用户也可以在超时时间内，在发布单页面点击\\\"完成发布\\\"，手动下线旧负载\",\"rules\":[{\"required\":true,\"message\":\"该值不可为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"^([1-9]|(1[0-9])?|2[0-4])$\",\"message\":\"Invalid timeout, input range [1,24].\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"cluster_type\",\"symbol\":\"===\",\"value\":\"CCE\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"deploy_strategy\",\"symbol\":\"===\",\"value\":\"BLUE-GREEN\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]},{\"comp\":\"cluster_type_demo\",\"symbol\":\"!==\",\"value\":\"None\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input-number\",\"id\":1673601658848,\"props\":{\"placeholder\":\"请输入\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":12},\"category\":\"form\"}]}]}]",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "8b449e78ae1f4d5bacfacee9ead44813",
+      "name": "cluster_type_demo",
+      "default_value": "value",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "1ccf2fb794dc4b6188f41cb641b44e34",
+      "name": "user_type",
+      "default_value": "current_user",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "ca422971e0934d8a8b02abe9fe838f1b",
+      "name": "iam_endpoint",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "link-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "b95a578afd364090b22ddc90261b7775",
+      "name": "cluster_type",
+      "default_value": "CCE",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "84fa87c8cb314eaa8baa30402629bcdf",
+      "name": "region_code",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "02314bd970fe44fea6702e6f469b3d9e",
+      "name": "cluster_id",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "1bfa29369ca046f1b1a59a1843b24413",
+      "name": "kubernetes_endpoint",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "link-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "01abcd1bf54e413aa366d8c4057ebdf3",
+      "name": "namespace",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "936dedac7cc741bb9c48aad18432510f",
+      "name": "deploy_strategy",
+      "default_value": "ROLLING",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-radio-group",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "b168e807da53484ba5f047633673d101",
+      "name": "deploy_strategy_demo",
+      "default_value": "ROLLING",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-radio-group",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "fdbe84e6af604074835ae23919bab5da",
+      "name": "deploy_select",
+      "default_value": "QUICK",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-radio-group",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "c0851c143fff44c082190f9090e44aed",
+      "name": "deploy_select_demo",
+      "default_value": "QUICK",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-radio-group",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "036d1c3542b34e12a031f5c59c50fb64",
+      "name": "image_demo",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "0a6f909e00004458a80b50cc1eb3972e",
+      "name": "timeout",
+      "default_value": "10",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "a13962c31b034ea38f059466a47a09ae",
+      "name": "workload_type",
+      "default_value": "DEPLOYMENT",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "54a2e764878b4455ae9c8b9602837d14",
+      "name": "workload",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "cd533f060ebd499d983be2dff4ca9309",
+      "name": "container",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "486b5592865c4e6b95bb2696502798eb",
+      "name": "image",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "c5761cfc83dc40b0b34246309ae83932",
+      "name": "repo_type",
+      "default_value": "codehub",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "5a0abe5681234296a0c002e1dd742148",
+      "name": "repo_url",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "6f2892bb0e324336b61c8749e9c87ba4",
+      "name": "code_branch",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "4c3c44fe62794ddeb2b1ab834521e32c",
+      "name": "yml_path",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "a69d8219188549b6a1a8dd70871b8134",
+      "name": "variable",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "key-value",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "39957044436d4e9bbf6cf3f68272462d",
+      "name": "service_name",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "7261be414dc745b3bb070b2130da764c",
+      "name": "gray_image",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "e8999bf78b0848fc9a08fa56053af7c4",
+      "name": "use_custom_version",
+      "default_value": "false",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-switch",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "072653d8682649e9b6ccc4ab30a26e3c",
+      "name": "gray_version",
+      "default_value": "",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "6670acdfdd9c48028fe7f965f4c00157",
+      "name": "upgrade_gray_timeout",
+      "default_value": "30",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-input-number",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "6d24a52292bf4e00be254b90d96fc009",
+      "name": "route_traffic_waiting_time",
+      "default_value": "30",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-input-number",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "5c77142874614e77af548e6d14287713",
+      "name": "offline_waiting_time",
+      "default_value": "12",
+      "plugin_name": "official_kubernetes_release",
+      "version": "0.1.2",
+      "type": "d-input-number",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

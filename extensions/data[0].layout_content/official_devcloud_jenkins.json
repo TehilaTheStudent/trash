@@ -1,0 +1,294 @@
+[
+  {
+    "componentName": "d-form",
+    "id": 1665971532526,
+    "category": "form",
+    "props": {
+      "layout": "vertical",
+      "ref": "formRef"
+    },
+    "children": [
+      {
+        "componentName": "d-form-item",
+        "id": 1667479225668,
+        "category": "form",
+        "props": {
+          "label": "Jenkins Endpoint",
+          "field": "JenkinsService",
+          "help-tips": "",
+          "rules": [
+            {
+              "required": true,
+              "message": "This field cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "",
+              "message": "Jenkins实例内容不符合规范",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "link-select",
+            "id": 1667479225667,
+            "props": {
+              "selectType": "normal",
+              "singleOptions": {
+                "type": "api",
+                "fixedOptions": [
+                  {
+                    "label": "选项",
+                    "value": "1",
+                    "defaultChecked": false,
+                    "visible": false
+                  }
+                ],
+                "apiOptions": {
+                  "url": "v1/endpoints",
+                  "method": "GET",
+                  "params": {
+                    "module_id": "devcloud2018.jenkins_endpoint_jobs.Jenkins-EndPoint-market",
+                    "project_uuid": "${project_id}",
+                    "region_name": "${region_name}"
+                  },
+                  "label": "name",
+                  "value": "uuid",
+                  "body": {},
+                  "responseUrl": "result.endpoints",
+                  "linkedFields": [],
+                  "remote": false,
+                  "remoteName": "",
+                  "remoteQueryField": "params"
+                }
+              },
+              "isUpdateChildAll": true,
+              "remote": "",
+              "allow-clear": false,
+              "filter": "",
+              "linkText": "Create One",
+              "linkHref": "${origin}/market/project/${project_id}/config/${region_name}/manager/endpoint",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1665973290166,
+        "category": "form",
+        "props": {
+          "label": "JobName",
+          "field": "jobName",
+          "help-tips": "",
+          "rules": [
+            {
+              "required": true,
+              "message": "This field cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "^.{0,500}$",
+              "message": "It can contain a maximum of 500 characters.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": {
+            "type": "fixed",
+            "conditions": [],
+            "value": false
+          }
+        },
+        "children": [
+          {
+            "componentName": "d-input",
+            "id": 1665973290165,
+            "props": {
+              "inputType": "normal",
+              "placeholder": "请输入",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              },
+              "isTrim": true
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1670502645549,
+        "category": "form",
+        "props": {
+          "label": "Params",
+          "field": "params",
+          "help-tips": "Jenkins params eg: {\"releaseVersion\": \"${releaseVersion}\"}",
+          "rules": [
+            {
+              "required": false,
+              "message": "This field cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "^.{0,1024}$",
+              "message": "It can contain a maximum of 1024 characters.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": false
+        },
+        "children": [
+          {
+            "componentName": "json-input",
+            "id": 1670502645548,
+            "props": {
+              "showPassword": false,
+              "placeholder": "请输入",
+              "isTrim": true,
+              "autocomplete": "off",
+              "defaultValue": "",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1665973344327,
+        "category": "form",
+        "props": {
+          "label": "Asynchronous",
+          "field": "key",
+          "help-tips": "",
+          "rules": null,
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": {
+            "type": "fixed",
+            "conditions": [],
+            "value": false
+          }
+        },
+        "children": [
+          {
+            "componentName": "d-switch",
+            "id": 1665973340284,
+            "props": {
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              }
+            },
+            "category": "form"
+          }
+        ]
+      },
+      {
+        "componentName": "d-form-item",
+        "id": 1665973372767,
+        "category": "form",
+        "props": {
+          "label": "Description",
+          "field": "descript",
+          "help-tips": "description for connecting to the endpoint",
+          "rules": [
+            {
+              "required": false,
+              "message": "This field cannot be left blank.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            },
+            {
+              "regex": "^.{0,500}$",
+              "message": "It can contain a maximum of 500 characters.",
+              "trigger": [
+                "blur",
+                "change"
+              ]
+            }
+          ],
+          "visible": {
+            "type": "fixed",
+            "conditions": [],
+            "value": true
+          },
+          "disabled": {
+            "type": "fixed",
+            "conditions": [],
+            "value": false
+          }
+        },
+        "children": [
+          {
+            "componentName": "d-input",
+            "id": 1665973372766,
+            "props": {
+              "inputType": "normal",
+              "placeholder": "请输入",
+              "disabled": {
+                "type": "fixed",
+                "conditions": [],
+                "value": false
+              },
+              "isTrim": true
+            },
+            "category": "form"
+          }
+        ]
+      }
+    ]
+  }
+]

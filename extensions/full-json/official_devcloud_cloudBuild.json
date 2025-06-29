@@ -1,0 +1,180 @@
+{
+  "plugin_name": "official_devcloud_cloudBuild",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "d90362ccea7b419893391742d5e9d775",
+      "name": "__sameProject__",
+      "default_value": "true",
+      "plugin_name": "official_devcloud_cloudBuild",
+      "version": "0.0.4",
+      "type": "d-radio-group",
+      "workspace_id": "*",
+      "layout_content": "[{\"componentName\":\"d-form\",\"id\":1665385922976,\"category\":\"form\",\"props\":{\"layout\":\"vertical\",\"ref\":\"formRef\"},\"children\":[{\"componentName\":\"d-form-item\",\"id\":1747139479661,\"category\":\"form\",\"props\":{\"label\":\"Project Config\",\"field\":\"__sameProject__\",\"help-tips\":\"Project Config\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-radio-group\",\"id\":1747139479660,\"props\":{\"direction\":\"row\",\"isUpdateChildAll\":true,\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"This Project\",\"value\":\"true\",\"defaultChecked\":true,\"visible\":false},{\"label\":\"Select Project\",\"value\":\"false\",\"defaultChecked\":false,\"visible\":false}]},\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"defaultValue\":\"true\"},\"category\":\"form\",\"children\":[{\"componentName\":\"d-radio\",\"props\":{\"name\":\"This Project\",\"value\":\"true\",\"showText\":\"This Project\",\"style\":{\"margin-right\":\"20px\"}}},{\"componentName\":\"d-radio\",\"props\":{\"name\":\"Select Project\",\"value\":\"false\",\"showText\":\"Select Project\",\"style\":{\"margin-right\":\"20px\"}}}]}]},{\"componentName\":\"d-form-item\",\"id\":1747139569840,\"category\":\"form\",\"props\":{\"label\":\"Select Project\",\"field\":\"__projectId__\",\"help-tips\":\"Select Project\",\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"__sameProject__\",\"symbol\":\"===\",\"value\":\"false\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1747139569839,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v1/project/queryRelatedProject\",\"method\":\"GET\",\"params\":{\"archive\":\"1\",\"pageNo\":\"1\",\"pageSize\":\"50\",\"queryType\":\"simplify\"},\"header\":{},\"label\":\"name\",\"value\":\"identifier\",\"body\":{},\"responseUrl\":\"result.projectInfoList\",\"linkedFields\":[\"__sameProject__\"],\"remote\":true,\"remoteName\":\"search\",\"remoteQueryField\":\"params\",\"searchTips\":\"\"}},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"showPlaceholder\":\"\",\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1667547237524,\"category\":\"form\",\"props\":{\"label\":\"Select Task\",\"field\":\"jobId\",\"help-tips\":\"Select a task which has same repository or configured to be called from pipeline\",\"rules\":[{\"required\":true,\"message\":\"请选择需要调用的任务不能为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"请选择需要调用的任务内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"link-select\",\"id\":1667547237523,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v3/pipelines/plugin-tasks\",\"method\":\"POST\",\"params\":{},\"header\":{},\"label\":\"name\",\"value\":\"id\",\"body\":{\"project_id\":\"${__sameProject__}===true?${project_id}:${__projectId__}\",\"task_type\":\"buildJob\",\"repo_info\":\"${repo_info}\"},\"responseUrl\":\"\",\"linkedFields\":[\"__sameProject__\",\"__projectId__\"],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\",\"searchTips\":\"\"}},\"isUpdateChildAll\":true,\"remote\":\"\",\"allow-clear\":false,\"filter\":\"\",\"linkText\":\"Create One\",\"linkHref\":\"${origin}/codeci/project/${project_id}/codeci/create\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"herfTips\":\"\"},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1667198656043,\"category\":\"form\",\"props\":{\"label\":\"Repository\",\"field\":\"__repository__\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"仓库不能为空\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"仓库内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"jobId\",\"symbol\":\"notEmpty\",\"value\":\"\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1667198656042,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"context\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"dataSource\":\"repoSource\",\"params\":{},\"body\":{}},\"dataSource\":\"repoSource\"},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":false,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"allowCreate\":true},\"category\":\"form\",\"children\":[]}]},{\"componentName\":\"d-form-item\",\"id\":1667031515151,\"category\":\"form\",\"props\":{\"label\":\"Task parameters\",\"field\":\"key_1667031515150\",\"help-tips\":\"\",\"rules\":null,\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"jobId\",\"symbol\":\"notEmpty\",\"value\":\"\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"task-parameter\",\"id\":1667031515150,\"props\":{\"params\":{\"type\":\"api\",\"apiOptions\":{\"url\":\"/v2/pipeline/getPipelineSubTaskParamWithContext\",\"method\":\"POST\",\"params\":{\"taskType\":\"buildJob\",\"subTaskID\":\"${jobId}\",\"taskName\":\"Task_10\",\"projectId\":\"${__sameProject__}===true?${project_id}:${__projectId__}\"},\"header\":{},\"label\":\"\",\"value\":\"\",\"body\":\"\",\"responseUrl\":\"result.parameters\",\"linkedFields\":[\"jobId\"],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\",\"searchTips\":\"\"}},\"isCustomVar\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1741616606497,\"category\":\"form\",\"props\":{\"label\":\"Artifact Identifier\",\"field\":\"artifactIdentifier\",\"help-tips\":\"Used to identify the artifact of the build task, for example: if the ID of the build task is build_job, and the artifact identifier is defined as demo, then the artifact information can be obtained using ${jobs.build_job.artifacts.demo}} in subsequent tasks.\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1741616606496,\"props\":{\"inputType\":\"normal\",\"showPlaceholder\":\"\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]}]}]",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "3ab453ae24f843c3a8fd26ca2dcb0e33",
+      "name": "__projectId__",
+      "default_value": "",
+      "plugin_name": "official_devcloud_cloudBuild",
+      "version": "0.0.4",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "3747cdb0a6cf48be9b7ce9b8b5164e95",
+      "name": "jobId",
+      "default_value": "",
+      "plugin_name": "official_devcloud_cloudBuild",
+      "version": "0.0.4",
+      "type": "link-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "273aaa12d34048c3be48c2152bede9f9",
+      "name": "__repository__",
+      "default_value": "",
+      "plugin_name": "official_devcloud_cloudBuild",
+      "version": "0.0.4",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "7a5253e6b57d4c7eb9e4a9fc5ebf7cab",
+      "name": "key_1667031515150",
+      "default_value": "",
+      "plugin_name": "official_devcloud_cloudBuild",
+      "version": "0.0.4",
+      "type": "task-parameter",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "294de7f73c5f48859564102287a558cd",
+      "name": "artifactIdentifier",
+      "default_value": "",
+      "plugin_name": "official_devcloud_cloudBuild",
+      "version": "0.0.4",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

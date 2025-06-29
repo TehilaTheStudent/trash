@@ -1,0 +1,30 @@
+[
+  {
+    "key": "audit_source",
+    "value": "members"
+  },
+  {
+    "key": "approvers",
+    "value": "449783a150844ae3acf503f7c6df559c"
+  },
+  {
+    "key": "audit_role",
+    "value": ""
+  },
+  {
+    "key": "check_strategy",
+    "value": "all"
+  },
+  {
+    "key": "timeout_strategy",
+    "value": "reject"
+  },
+  {
+    "key": "timeout",
+    "value": 3600
+  },
+  {
+    "key": "comment",
+    "value": ""
+  }
+]

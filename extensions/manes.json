@@ -1,0 +1,46 @@
+[
+  "feishu_robot",
+  "tehila-inputs-id",
+  "published.CodeArts_Governance.CodeArts_Governance_SCA_Binary",
+  "CI-UpdateChangeRequestMetadata", //
+  "merge_merge_request", //
+  "DeployMicroserviceInstance", //
+  "CI-UpgradeChangeRequestEntity", //
+  "terraform_deploy_plugin",
+  "official_devcloud_codeCheck", // code check with check task
+  "official_devcloud_cloudBuild", // build with build task
+  "official_third_part_invoke",
+  "official_docker",
+  "official_artifact_download",
+  "published.HuaweiCloudIntel-CAE.official_cae_cross_account",
+  "fast-create",
+  "my-uniqu-id",
+  "official_devcloud_checkpoint",
+  "official_devcloud_subPipeline",
+  "official_devcloud_createTag",
+  "official_kubernetes_release",
+  "official_microservice_release",
+  "official_docker_executor",
+  "official_shell_plugin",
+  "download-obs",
+  "upload-obs",
+  "official_devcloud_cloudBuild_template",
+  "published.HuaweiCloud-CAE.official_cae_release",
+  "official_developer_debug",
+  "official_mvn_dependency",
+  "official_devcloud_jenkins",
+  "official_branch_change_check",
+  "official_gate_source_dependency",
+  "official_release_executor",
+  "official_devcloud_apiTest_template",
+  "official_devcloud_apiTest", // test with test
+  "official_git_clone",
+  "official_merge_default_branch",
+  "official_merge_release_branch",
+  "official_create_release_branch",
+  "official_devcloud_delay", 
+  "official_devcloud_deploy_template",
+  "official_devcloud_codeCheck_template",
+  "official_gate_validation",
+  "official_devcloud_deploy" // deploy with deploy task
+]

@@ -1,0 +1,267 @@
+{
+  "plugin_name": "official_mvn_dependency",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "f1423f1cb4094af79ee001a7bd26443d",
+      "name": "PACKAGE_TOOL",
+      "default_value": "",
+      "plugin_name": "official_mvn_dependency",
+      "version": "0.0.1",
+      "type": "d-select",
+      "workspace_id": "*",
+      "layout_content": "[{\"componentName\":\"d-form\",\"id\":1686655412394,\"category\":\"form\",\"props\":{\"layout\":\"vertical\",\"ref\":\"formRef\"},\"children\":[{\"componentName\":\"d-form-item\",\"id\":1686655420241,\"category\":\"form\",\"props\":{\"label\":\"Package Manager\",\"field\":\"PACKAGE_TOOL\",\"help-tips\":\"Only maven is supported currently, look forward to more package managers.\",\"rules\":[{\"required\":true,\"message\":\"This field cannot be left blank\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"Invalid package manager\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-select\",\"id\":1686655420240,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"fixed\",\"fixedOptions\":[{\"label\":\"Maven\",\"value\":\"maven\",\"defaultChecked\":false,\"visible\":false}]},\"isUpdateChildAll\":true,\"remote\":false,\"allow-clear\":false,\"filter\":true,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1686655501501,\"category\":\"form\",\"props\":{\"label\":\"Pom File Path\",\"field\":\"DEPENDENCY_CONFIGURATION_PATH\",\"help-tips\":\"The current working directory is used by default\",\"rules\":[{\"required\":true,\"message\":\"This field cannot be left blank\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"Invalid pom file path\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"PACKAGE_TOOL\",\"symbol\":\"===\",\"value\":\"maven\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1686655501500,\"props\":{\"inputType\":\"normal\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"./\",\"disabled\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"PACKAGE_TOOL\",\"symbol\":\"!==\",\"value\":\"maven\",\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"},{\"name\":\"不等于\",\"value\":\"!==\"},{\"name\":\"为空\",\"value\":\"empty\"},{\"name\":\"不为空\",\"value\":\"notEmpty\"}]}],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1686655541527,\"category\":\"form\",\"props\":{\"label\":\"Enable open source governance policy interception\",\"field\":\"OSI_SWITCH\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-switch\",\"id\":1686655541526,\"props\":{\"defaultValue\":false,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1686655578532,\"category\":\"form\",\"props\":{\"label\":\"Select Policy\",\"field\":\"OSI_STRATEGY\",\"help-tips\":\"\",\"visible\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"OSI_SWITCH\",\"symbol\":\"===\",\"value\":true,\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"}]}],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"link-select\",\"id\":1686655578531,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v2/${project_id}/open-source/rule-sets/query?include_tenant_rule_set=true\",\"method\":\"GET\",\"params\":{},\"label\":\"name\",\"value\":\"id\",\"body\":{},\"responseUrl\":\"data\",\"linkedFields\":[],\"remote\":true,\"remoteName\":\"name\",\"remoteQueryField\":\"params\"}},\"isUpdateChildAll\":true,\"remote\":\"\",\"allow-clear\":false,\"filter\":\"\",\"linkText\":\"Create One\",\"linkHref\":\"${origin}/cicd/project/${project_id}/ruleset/open-source\",\"herfTips\":\"\",\"isSubPipelineTag\":false,\"disabled\":{\"type\":\"condition\",\"conditions\":[{\"comp\":\"OSI_SWITCH\",\"symbol\":\"===\",\"value\":false,\"symbolOptions\":[{\"name\":\"等于\",\"value\":\"===\"}]}],\"value\":true}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1686655645679,\"category\":\"form\",\"props\":{\"label\":\"注册在apig上的域名（不可见）\",\"field\":\"CLOUD_PIPELINE_APIG\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1686655645678,\"props\":{\"inputType\":\"normal\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"https://cloudpipeline-ext.ap-southeast-3.myhuaweicloud.com\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1686655678784,\"category\":\"form\",\"props\":{\"label\":\"华为maven镜像源id\",\"field\":\"MIRROR_ID\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1686655678783,\"props\":{\"inputType\":\"normal\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"huaweicloud\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1686655694682,\"category\":\"form\",\"props\":{\"label\":\"华为maven镜像源mirrorOf\",\"field\":\"MIRROR_OF\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1686655694681,\"props\":{\"inputType\":\"normal\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"*\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1686655713102,\"category\":\"form\",\"props\":{\"label\":\"华为maven镜像源url\",\"field\":\"MIRROR_URL\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1686655713101,\"props\":{\"inputType\":\"normal\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"https://repo.huaweicloud.com/repository/maven/\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1686655736091,\"category\":\"form\",\"props\":{\"label\":\"debug\",\"field\":\"DEBUG\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1686655736090,\"props\":{\"inputType\":\"normal\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"false\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]}]}]",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "29813da89af04a22b2529eb48473c4c5",
+      "name": "DEPENDENCY_CONFIGURATION_PATH",
+      "default_value": "./",
+      "plugin_name": "official_mvn_dependency",
+      "version": "0.0.1",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "11e387aab860490c9dfd1066632794aa",
+      "name": "OSI_SWITCH",
+      "default_value": "false",
+      "plugin_name": "official_mvn_dependency",
+      "version": "0.0.1",
+      "type": "d-switch",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "20da7aba001d4e809548870494a83112",
+      "name": "OSI_STRATEGY",
+      "default_value": "",
+      "plugin_name": "official_mvn_dependency",
+      "version": "0.0.1",
+      "type": "link-select",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "886f62d281034464ad60d618be16efc8",
+      "name": "CLOUD_PIPELINE_APIG",
+      "default_value": "https://cloudpipeline-ext.ap-southeast-3.myhuaweicloud.com",
+      "plugin_name": "official_mvn_dependency",
+      "version": "0.0.1",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "843a34860da04c33868371c176ecaf3a",
+      "name": "MIRROR_ID",
+      "default_value": "huaweicloud",
+      "plugin_name": "official_mvn_dependency",
+      "version": "0.0.1",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "f43ccc7d41174bf18a816580a9f447ae",
+      "name": "MIRROR_OF",
+      "default_value": "*",
+      "plugin_name": "official_mvn_dependency",
+      "version": "0.0.1",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "67cd690b81804b27bc035585203a98fb",
+      "name": "MIRROR_URL",
+      "default_value": "https://repo.huaweicloud.com/repository/maven/",
+      "plugin_name": "official_mvn_dependency",
+      "version": "0.0.1",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "8f1896fb9f9e4cd784001b181cdd73f7",
+      "name": "DEBUG",
+      "default_value": "false",
+      "plugin_name": "official_mvn_dependency",
+      "version": "0.0.1",
+      "type": "d-input",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "plugin_name": "official_artifact_download",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "b1440228a7a64f6ca706689f6d6a1815",
+      "name": "pkg_url",
+      "default_value": "",
+      "plugin_name": "official_artifact_download",
+      "version": "0.0.2",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Artifact Download URL",
+      "description": "Artifact repository product link",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "Please enter.",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "73477ded56a04c21878ee082095fc3a6",
+      "name": "file_path",
+      "default_value": "",
+      "plugin_name": "official_artifact_download",
+      "version": "0.0.2",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Destination Directory",
+      "description": "Download file path, to be downloaded under SHARE_PATH.",
+      "required": "false",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "Please enter.",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

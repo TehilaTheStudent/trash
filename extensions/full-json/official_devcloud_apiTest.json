@@ -1,0 +1,64 @@
+{
+  "plugin_name": "official_devcloud_apiTest",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "1e0de17cc15e4f2b9c747145db4bdace",
+      "name": "jobId",
+      "default_value": "",
+      "plugin_name": "official_devcloud_apiTest",
+      "version": "0.0.1",
+      "type": "link-select",
+      "workspace_id": "*",
+      "layout_content": "[{\"componentName\":\"d-form\",\"id\":1665824682303,\"category\":\"form\",\"props\":{\"layout\":\"vertical\",\"ref\":\"formRef\"},\"children\":[{\"componentName\":\"d-form-item\",\"id\":1668218195895,\"category\":\"form\",\"props\":{\"label\":\"Select Task\",\"field\":\"jobId\",\"help-tips\":\"\",\"rules\":[{\"required\":true,\"message\":\"This field cannot be left blank.\",\"trigger\":[\"blur\",\"change\"]},{\"regex\":\"\",\"message\":\"请选择需要调用的任务内容不符合规范\",\"trigger\":[\"blur\",\"change\"]}],\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"link-select\",\"id\":1668218195894,\"props\":{\"selectType\":\"normal\",\"singleOptions\":{\"type\":\"api\",\"fixedOptions\":[{\"label\":\"选项\",\"value\":\"1\",\"defaultChecked\":false,\"visible\":false}],\"apiOptions\":{\"url\":\"/v2/pipeline/getPipelineSubTaskResult\",\"method\":\"GET\",\"params\":{\"projectId\":\"${project_id}\",\"taskType\":\"apiTest\",\"recordNum\":\"20\"},\"label\":\"jobName\",\"value\":\"id\",\"body\":{},\"responseUrl\":\"result.jobResultList\",\"linkedFields\":[],\"remote\":true,\"remoteName\":\"jobName\",\"remoteQueryField\":\"params\"}},\"isUpdateChildAll\":true,\"remote\":\"\",\"allow-clear\":false,\"filter\":\"\",\"linkText\":\"Create One\",\"linkHref\":\"/cloudtestportal/project/${project_id}/testsuite?type=1&creat=true\",\"herfTips\":\"\",\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1666948012161,\"category\":\"form\",\"props\":{\"label\":\"Task parameters\",\"field\":\"key_1666948012160\",\"help-tips\":\"\",\"rules\":null,\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"task-parameter\",\"id\":1666948012159,\"props\":{\"params\":{\"type\":\"api\",\"apiOptions\":{\"url\":\"/v2/pipeline/getPipelineSubTaskParamWithContext\",\"method\":\"POST\",\"params\":{\"taskType\":\"apiTest\",\"subTaskID\":\"${jobId}\",\"projectId\":\"${project_id}\",\"taskName\":\"Task_10\"},\"label\":\"\",\"value\":\"\",\"body\":\"\",\"responseUrl\":\"result.parameters\",\"linkedFields\":[\"jobId\"],\"remote\":false,\"remoteName\":\"\",\"remoteQueryField\":\"params\"}},\"isCustomVar\":false,\"disabled\":{\"type\":\"fixed\",\"conditions\":[],\"value\":false}},\"category\":\"form\"}]},{\"componentName\":\"d-form-item\",\"id\":1669087180306,\"category\":\"form\",\"props\":{\"label\":\"metrics\",\"field\":\"SYSTEM_METRICS_UNIQUE_KEY\",\"help-tips\":\"\",\"visible\":{\"type\":\"fixed\",\"conditions\":[],\"value\":true},\"disabled\":false},\"children\":[{\"componentName\":\"d-input\",\"id\":1669087180305,\"props\":{\"inputType\":\"metrics\",\"placeholder\":\"请输入\",\"isTrim\":true,\"autocomplete\":\"off\",\"defaultValue\":\"/opt/devcloud/workspace\",\"disabled\":{\"type\":\"fixed\",\"value\":true,\"conditions\":[]},\"front_data_prop\":[{\"group_name\":\"APITest-Pass-Rate-Gate\",\"properties\":[{\"key\":\"pass_ratio\",\"value\":\"0.5\",\"desc\":\"PassRatio\"}]}]},\"category\":\"form\"}]}]}]",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "429b69d764ad4af792d8551792838ece",
+      "name": "key_1666948012160",
+      "default_value": "",
+      "plugin_name": "official_devcloud_apiTest",
+      "version": "0.0.1",
+      "type": "task-parameter",
+      "workspace_id": "*",
+      "layout_content": "",
+      "front_data_prop": null,
+      "label": null,
+      "description": null,
+      "required": null,
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}

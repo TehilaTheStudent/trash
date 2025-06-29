@@ -1,0 +1,81 @@
+import requests
+import json
+
+plugins_names = [
+  "feishu_robot",
+  "tehila-inputs-id",
+  "published.CodeArts_Governance.CodeArts_Governance_SCA_Binary",
+  "CI-UpdateChangeRequestMetadata",
+  "merge_merge_request",
+  "DeployMicroserviceInstance",
+  "CI-UpgradeChangeRequestEntity",
+  "terraform_deploy_plugin",
+  "official_devcloud_codeCheck",
+  "official_devcloud_cloudBuild",
+  "official_third_part_invoke",
+  "official_docker",
+  "official_artifact_download",
+  "published.HuaweiCloudIntel-CAE.official_cae_cross_account",
+  "fast-create",
+  "my-uniqu-id",
+  "official_devcloud_checkpoint",
+  "official_devcloud_subPipeline",
+  "official_devcloud_createTag",
+  "official_kubernetes_release",
+  "official_microservice_release",
+  "official_docker_executor",
+  "official_shell_plugin",
+  "download-obs",
+  "upload-obs",
+  "official_devcloud_cloudBuild_template",
+  "published.HuaweiCloud-CAE.official_cae_release",
+  "official_developer_debug",
+  "official_mvn_dependency",
+  "official_devcloud_jenkins",
+  "official_branch_change_check",
+  "official_gate_source_dependency",
+  "official_release_executor",
+  "official_devcloud_apiTest_template",
+  "official_devcloud_apiTest",
+  "official_git_clone",
+  "official_merge_default_branch",
+  "official_merge_release_branch",
+  "official_create_release_branch",
+  "official_devcloud_delay",
+  "official_devcloud_deploy_template",
+  "official_devcloud_codeCheck_template",
+  "official_gate_validation",
+  "official_devcloud_deploy"
+]
+
+
+url = "https://cloudpipeline-ext.ap-southeast-3.myhuaweicloud.com/v1/9f1a017e31a04489a56572a559924f7c/agent-plugin/plugin-input"
+
+for plugin_name in plugins_names:   
+    payload = json.dumps([
+    {
+        "plugin_name": plugin_name,
+        "display_name": "",
+        "version": "",
+        "plugin_attribution": "",
+        "version_attribution": ""
+    }
+    ])
+    headers = {
+        'x-auth-token':'MIIQNQYJKoZIhvcNAQcCoIIQJjCCECICAQExDTALBglghkgBZQMEAgEwgg5HBgkqhkiG9w0BBwGggg44BIIONHsidG9rZW4iOnsiZXhwaXJlc19hdCI6IjIwMjUtMDYtMTVUMjE6MDc6NDYuODEzMDAwWiIsIm1ldGhvZHMiOlsicGFzc3dvcmQiXSwiY2F0YWxvZyI6W10sInJvbGVzIjpbeyJuYW1lIjoicmVhZG9ubHkiLCJpZCI6IjAifSx7Im5hbWUiOiJ0ZV9hZG1pbiIsImlkIjoiMCJ9LHsibmFtZSI6ImFwaWdfYWRtIiwiaWQiOiIwIn0seyJuYW1lIjoic2VydmVyX2FkbSIsImlkIjoiMCJ9LHsibmFtZSI6InJkc19hZG0iLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9jc2JzX3JlcF9hY2NlbGVyYXRpb24iLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9lY3NfZGlza0FjYyIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX2Rzc19tb250aCIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX29ic19kZWVwX2FyY2hpdmUiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9hX2NuLXNvdXRoLTRjIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfZGVjX21vbnRoX3VzZXIiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9jYnJfc2VsbG91dCIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX2Vjc19vbGRfcmVvdXJjZSIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX2V2c19Sb3lhbHR5IiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfd2VsaW5rYnJpZGdlX2VuZHBvaW50X2J1eSIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX2Nicl9maWxlIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfZG1zLXJvY2tldG1xNS1iYXNpYyIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX2Rtcy1rYWZrYTMiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9vYnNfZGVjX21vbnRoIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfY3Nic19yZXN0b3JlIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfY2JyX3Ztd2FyZSIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX2lkbWVfbWJtX2ZvdW5kYXRpb24iLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9lY3NfYzZhIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfbXVsdGlfYmluZCIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX3Ntbl9jYWxsbm90aWZ5IiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfYV9hcC1zb3V0aGVhc3QtM2QiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9jc2JzX3Byb2dyZXNzYmFyIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfY2VzX3Jlc291cmNlZ3JvdXBfdGFnIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfZWNzX29mZmxpbmVfYWM3IiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfZXZzX3JldHlwZSIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2ludGVybmFsIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfa29vbWFwIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfZXZzX2Vzc2QyIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfZG1zLWFtcXAtYmFzaWMiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9ldnNfcG9vbF9jYSIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX2FfY24tc291dGh3ZXN0LTJiIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfaHdjcGgiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9lY3Nfb2ZmbGluZV9kaXNrXzQiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9od2RldiIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX3Ntbl93ZWxpbmtyZWQiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9odl92ZW5kb3IiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9hX2NuLW5vcnRoLTRlIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfYV9jbi1ub3J0aC00ZCIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX2Vjc19oZWNzX3giLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9jYnJfZmlsZXNfYmFja3VwIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfZWNzX2FjNyIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX2NzYnNfcmVzdG9yZV9hbGwiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9hX2NuLW5vcnRoLTRmIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfb3BfZ2F0ZWRfcm91bmR0YWJsZSIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX2V2c19leHQiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9wZnNfZGVlcF9hcmNoaXZlIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfYV9hcC1zb3V0aGVhc3QtMWUiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9hX3J1LW1vc2Nvdy0xYiIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX2FfYXAtc291dGhlYXN0LTFkIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfYXBwc3RhZ2UiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9hX2FwLXNvdXRoZWFzdC0xZiIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX3Ntbl9hcHBsaWNhdGlvbiIsImlkIjoiMCJ9LHsibmFtZSI6Im9wX2dhdGVkX2V2c19jb2xkIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfcmRzX2NhIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfZWNzX2dwdV9nNXIiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9vcF9nYXRlZF9tZXNzYWdlb3ZlcjVnIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfZWNzX3JpIiwiaWQiOiIwIn0seyJuYW1lIjoib3BfZ2F0ZWRfYV9ydS1ub3J0aHdlc3QtMmMiLCJpZCI6IjAifSx7Im5hbWUiOiJvcF9nYXRlZF9pZWZfcGxhdGludW0iLCJpZCI6IjAifSx7Im5hbWUiOiIyNTksMTI3LDE5OCwxMDgsMjIzLDg0LDE0NCw3MCwxNDEsNzksNjYsMCwyNjAsMjQ4LDgxLDEyNSw0MCwxNzQsNywyMDgsOTUsMzIsMTAsMjExLDE2LDYzLDU4LDc1LDEyMywxODAsMTc3LDE4NiwzMCwxMzAsMjUxLDIwMiwxMjAsMTY3LDM4LDU0LDIzNCwxNDksODMsMjEzLDE5NSw0OCwyNTUsMjMxLDE1MywxOTAsMTA0LDEwMDEsMywyMDYsMTMzLDE4Miw5MSwxODgsMjksNDUsMzQsMzYsMTIyLDIxOCwyNTYsMTQsMTcwLDI1LDEzOCw3OCwxNzgsNDIsMTA3LDM5LDIwMSwxMiw4Nyw1MCwxMDAsMTY0LDEzMiwyOCwxNTUsMjI3LDU2LDExMSwxMTUsMjYxLDY5LDE1LDE4NCwxMTQsMTM5LDEwMiwyNTcsMjE1LDk5LDE0NywxNTAsNzMsMjMsNiwyMzcsMjIwLDU5LDE1NywxMzUsMjMwLDQ5LDI1OCwxMTMsOTYiLCJpZCI6IjgifSx7Im5hbWUiOiIxLDAiLCJpZCI6IjkifSx7Im5hbWUiOiJvcF9maW5lX2dyYWluZWQiLCJpZCI6IjcifV0sInByb2plY3QiOnsiZG9tYWluIjp7Im5hbWUiOiJod3N0YWZmX3B1Yl9UUkNDbG91ZFRlYW0iLCJpZCI6IjlmMWEwMTdlMzFhMDQ0ODlhNTY1NzJhNTU5OTI0ZjdjIn0sIm5hbWUiOiJhcC1zb3V0aGVhc3QtMyIsImlkIjoiMDRlOGU1YjQ0ODAwMGZiZjJmYjZjMDA4MWZjZjJiNWMifSwiaXNzdWVkX2F0IjoiMjAyNS0wNi0xNFQyMTowNzo0Ni44MTMwMDBaIiwidXNlciI6eyJkb21haW4iOnsibmFtZSI6Imh3c3RhZmZfcHViX1RSQ0Nsb3VkVGVhbSIsImlkIjoiOWYxYTAxN2UzMWEwNDQ4OWE1NjU3MmE1NTk5MjRmN2MifSwibmFtZSI6Iml0YWlfZ2VuZGxlciIsInBhc3N3b3JkX2V4cGlyZXNfYXQiOiIiLCJpZCI6IjQ0OTc4M2ExNTA4NDRhZTNhY2Y1MDNmN2M2ZGY1NTljIn19fTGCAcEwggG9AgEBMIGXMIGJMQswCQYDVQQGEwJDTjESMBAGA1UECAwJR3VhbmdEb25nMREwDwYDVQQHDAhTaGVuWmhlbjEuMCwGA1UECgwlSHVhd2VpIFNvZnR3YXJlIFRlY2hub2xvZ2llcyBDby4sIEx0ZDEOMAwGA1UECwwFQ2xvdWQxEzARBgNVBAMMCmNhLmlhbS5wa2kCCQDcsytdEGFqEDALBglghkgBZQMEAgEwDQYJKoZIhvcNAQEBBQAEggEAeAQNVhBojm7lrNg86BOIIzNvIpxBQ0bUDlemDu4jPqUAWC5+BL344Yvf0l7rquC5v67oNxtcsvI6x-pXNevSWpX-hzuEulPakwY+VHIX3A-s8zF9+K9q8aJS4kNJzoiw+Q9s2UNPTara+5IpyqfWAZHy8lUQ+5-I8xuCyRSvCG2hWbELLhqfrwzjTZZ43o0s6p6XV4gomCMxEM1crR0zELo-L+BjIGuRIFgI17C0j4V4aoZGMGOuuyHUd7fqb9fdJ+b-o3Ch-Ybtche-R2mlI+wFrdmweOpq2KkoDVFGgML7skeqnzuTFX0roazTQcxp2eWnoqouVFLghJALCGTJxw==',
+    'x-language': 'en-us',
+    'Content-Type': 'application/json',
+    'Cookie': 'HWWAFSESID=625e6738b7379857f2; HWWAFSESTIME=1749809286262'
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload)
+    
+    # write response | .[0].data[0].layout_content to file
+    with open(plugin_name + ".json", "w", encoding="utf-8") as f:
+        # Write response as JSON string to file
+        try:
+            f.write(json.dumps(response.json()[0], ensure_ascii=False, indent=2))
+        except Exception as error:
+            f.write("can't write")
+            print('response: ', response.json())
+            print(error)

@@ -1,0 +1,189 @@
+{
+  "plugin_name": "upload-obs",
+  "display_name": "",
+  "data": [
+    {
+      "unique_id": "0f5aa40040724795ab1d613795296af7",
+      "name": "endpoint_select",
+      "default_value": "",
+      "plugin_name": "upload-obs",
+      "version": "0.0.1",
+      "type": "endpoint:${devcloud2018.deploy_iam_connection.endponit}",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "OBS service connection info",
+      "description": "Select a service extension point which type is IAM account",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "Select the corresponding OBS service connection information. If no OBS service extension point exists, create a service extension point which type is IAM account",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "94e3b290f27a4c41a88346d74a0b676c",
+      "name": "endpoint",
+      "default_value": "",
+      "plugin_name": "upload-obs",
+      "version": "0.0.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "OBS endpoint information",
+      "description": "Please input your OBS endpoint info,refer to the link for details:https://developer.huaweicloud.com/intl/en-us/endpoint?OBS",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": "If your OBS is located in Huawei cn-north-4,please input:https://obs.cn-north4.myhuaweicloud.com",
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "OBS endpoint info cannot be empty",
+        "regex": "",
+        "regex_message": "",
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "ddab9af5ad6b408a8821a5c70f4dd61b",
+      "name": "bucket",
+      "default_value": "",
+      "plugin_name": "upload-obs",
+      "version": "0.0.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "OBS bucket name",
+      "description": "Please enter the name of the OBS bucket that you want to operate",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": "Please input your OBS bucket name",
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "Bucket name cannot be empty",
+        "regex": "",
+        "regex_message": "",
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "709fd157540c4cf0a09895958dbd4950",
+      "name": "key",
+      "default_value": "",
+      "plugin_name": "upload-obs",
+      "version": "0.0.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "OBS file path in the bucket",
+      "description": "Enter the path of the file to be uploaded to the OBS bucket",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": "The path of the uploaded file in the OBS bucket,such as /temp/.If the path does not exist, it is automatically created.",
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "The file path in the bucket cannot be empty",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "cd11306bef36459784a494254d0a651f",
+      "name": "source_file",
+      "default_value": "",
+      "plugin_name": "upload-obs",
+      "version": "0.0.1",
+      "type": "input",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Path of the local file",
+      "description": "Enter the path of the local file to be uploaded. The absolute path must be in the ${SHARE_PATH} path. A maximum of 10 matching paths are supported. Multiple paths must be separated",
+      "required": "true",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": "Path of the file in the local environment, for example, /target/output/",
+        "options": null,
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": "The local file path cannot be empty",
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    },
+    {
+      "unique_id": "69837779bf374ac2b366fe2411bad675",
+      "name": "self_folder",
+      "default_value": "false",
+      "plugin_name": "upload-obs",
+      "version": "0.0.1",
+      "type": "radio",
+      "workspace_id": "*",
+      "layout_content": null,
+      "front_data_prop": null,
+      "label": "Include the folder itself",
+      "description": "If you select Include, the current folder will be uploaded to obs. If you select not include, only the contents in the current folder will be uploaded",
+      "required": "false",
+      "extend_prop": {
+        "api_options": null,
+        "api_type": null,
+        "show_placeholder": null,
+        "options": [
+          {
+            "label": "Exclude",
+            "value": "false"
+          },
+          {
+            "label": "Include",
+            "value": "true"
+          }
+        ],
+        "disabled_conditions": null,
+        "visible_conditions": null
+      },
+      "validation": {
+        "required_message": null,
+        "regex": null,
+        "regex_message": null,
+        "max_length": null,
+        "min_length": null
+      }
+    }
+  ]
+}
