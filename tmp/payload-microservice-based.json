@@ -1,0 +1,66 @@
+
+https://devcloud.ap-southeast-3.huaweicloud.com/cicd/v5/internal/b3f25c9ab5cb457b97aa19bbc06b2743/pipelines
+{
+    "projectId": "b3f25c9ab5cb457b97aa19bbc06b2743",
+    "name": "repo-based",
+    "description": "",
+    "is_publish": false,
+    "disable_release_branch_management": false,
+    "sources": [
+        {
+            "type": "code",
+            "params": {
+                "git_type": "codehub",
+                "repo_project_id": "",
+                "codehub_id": "956532",
+                "endpoint_id": "",
+                "default_branch": "master",
+                "git_url": "https://codehub.devcloud.ap-southeast-3.huaweicloud.com/b3f25c9ab5cb457b97aa19bbc06b2743/service-a.git",
+                "human_name": "",
+                "ssh_git_url": "git@codehub.devcloud.ap-southeast-3.huaweicloud.com:b3f25c9ab5cb457b97aa19bbc06b2743/service-a.git",
+                "web_url": "",
+                "repo_name": "service-a",
+                "alias": "",
+                "workspace_id": "",
+                "workspace_name": ""
+            }
+        }
+    ],
+    "agency_name": "",
+    "group_id": "",
+    "definition": "eyJzdGFnZXMiOlt7ImlkIjoxNzUxMjk2MjMyMTY0LCJpZGVudGlmaWVyIjoiMTc1MTI5NjIzMjE2NDMzZDg0NjViLTRlZjUtNDYwNS1hYjNhLTI2NDI4MDFmNGIzMiIsInJ1bl9hbHdheXMiOmZhbHNlLCJuYW1lIjoiU3RhZ2VfMSIsInNlcXVlbmNlIjoiMCIsImpvYnMiOlt7ImlkIjoiIiwic3RhZ2VfaWQiOjE3NTEyOTYyMzIxNjQsImlkZW50aWZpZXIiOiJKT0JfRGJrdEIiLCJuYW1lIjoiTmV3IEpvYiIsImRlcGVuZHNfb24iOltdLCJ0aW1lb3V0IjoiIiwidGltZW91dF91bml0IjoiIiwic3RlcHMiOltdLCJleGVjX3R5cGUiOiJBR0VOVExFU1NfSk9CIiwic2VxdWVuY2UiOjAsImNvbmRpdGlvbiI6IiR7eyBkZWZhdWx0KCkgfX0ifV0sInJ1bGVfdGVtcGxhdGVzIjpbXSwicHJlIjpbeyJ0YXNrIjoib2ZmaWNpYWxfZGV2Y2xvdWRfYXV0b1RyaWdnZXIiLCJzZXF1ZW5jZSI6MH1dLCJwb3N0IjpbXSwiZGVwZW5kc19vbiI6W119XX0="
+}
+
+
+
+https://devcloud.ap-southeast-3.huaweicloud.com/cicd/v5/internal/b3f25c9ab5cb457b97aa19bbc06b2743/pipelines?componentId=63a06a7860c7431c8d0cf648578950ea&component_id=63a06a7860c7431c8d0cf648578950ea
+
+{
+    "projectId": "b3f25c9ab5cb457b97aa19bbc06b2743",
+    "name": "service-a-based",
+    "description": "",
+    "is_publish": false,
+    "disable_release_branch_management": false,
+    "sources": [
+        {
+            "type": "code",
+            "params": {
+                "git_type": "codehub",
+                "repo_project_id": "",
+                "codehub_id": "956532",
+                "endpoint_id": "",
+                "default_branch": "master",
+                "git_url": "https://codehub.devcloud.ap-southeast-3.huaweicloud.com/b3f25c9ab5cb457b97aa19bbc06b2743/service-a.git",
+                "human_name": "",
+                "ssh_git_url": "git@codehub.devcloud.ap-southeast-3.huaweicloud.com:b3f25c9ab5cb457b97aa19bbc06b2743/service-a.git",
+                "web_url": "",
+                "repo_name": "service-a",
+                "alias": "",
+                "workspace_id": "",
+                "workspace_name": ""
+            }
+        }
+    ],
+    "agency_name": "",
+    "definition": "eyJzdGFnZXMiOlt7ImlkIjoxNzUxMjk2Mjc1MjExLCJpZGVudGlmaWVyIjoiMTc1MTI5NjI3NTIxMTJmMjlhOTVjLWM1NTctNDQzMS1hN2UzLTA0YmE2MWQzMTVkMCIsInJ1bl9hbHdheXMiOmZhbHNlLCJuYW1lIjoiU3RhZ2VfMSIsInNlcXVlbmNlIjoiMCIsImpvYnMiOlt7ImlkIjoiIiwic3RhZ2VfaWQiOjE3NTEyOTYyNzUyMTEsImlkZW50aWZpZXIiOiJKT0JfZkJTcE4iLCJuYW1lIjoiTmV3IEpvYiIsImRlcGVuZHNfb24iOltdLCJ0aW1lb3V0IjoiIiwidGltZW91dF91bml0IjoiIiwic3RlcHMiOltdLCJleGVjX3R5cGUiOiJBR0VOVExFU1NfSk9CIiwic2VxdWVuY2UiOjAsImNvbmRpdGlvbiI6IiR7eyBkZWZhdWx0KCkgfX0ifV0sInJ1bGVfdGVtcGxhdGVzIjpbXSwicHJlIjpbeyJ0YXNrIjoib2ZmaWNpYWxfZGV2Y2xvdWRfYXV0b1RyaWdnZXIiLCJzZXF1ZW5jZSI6MH1dLCJwb3N0IjpbXSwiZGVwZW5kc19vbiI6W119XX0="
+}

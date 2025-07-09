@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inspector
+  namespace: tehila-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inspector
+  template:
+    metadata:
+      labels:
+        app: inspector
+    spec:
+      containers:
+        - name: inspector
+          image: tehilathestudent/inspector
+          ports:
+            - containerPort: 6274
+            - containerPort: 6277
+          env:
+            - name: HOST
+              value: "0.0.0.0"
+            - name: ALLOWED_ORIGINS
+              value: http://119.8.175.35:32274  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inspector-service
+  namespace: tehila-test
+spec:
+  selector:
+    app: inspector
+  ports:
+    - protocol: TCP
+      name: inspector
+      port: 6274
+      targetPort: 6274
+      nodePort: 32274
+    - protocol: TCP
+      name: inspector-ui
+      port: 6277
+      targetPort: 6277
+      nodePort: 32277
+  type: NodePort

@@ -1,0 +1,679 @@
+{
+    "id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+    "origin_id": null,
+    "name": "publish-npm-package",
+    "description": "",
+    "manifest_version": "3.0",
+    "region": "ap-southeast-3",
+    "domain_id": "9f1a017e31a04489a56572a559924f7c",
+    "project_id": "b3f25c9ab5cb457b97aa19bbc06b2743",
+    "component_id": "",
+    "is_publish": false,
+    "creator_id": "449783a150844ae3acf503f7c6df559c",
+    "creator_name": "itai_gendler",
+    "updater_id": "449783a150844ae3acf503f7c6df559c",
+    "create_time": 1751338144000,
+    "update_time": 1751348511000,
+    "deleted": false,
+    "banned": false,
+    "is_collect": false,
+    "from_git_code": null,
+    "from_git_code_repo": null,
+    "access_token": null,
+    "git_code_repo_id": null,
+    "pac_repo_relation": null,
+    "yaml_content": null,
+    "agency_name": "",
+    "sources": [
+        {
+            "type": "code",
+            "params": {
+                "git_type": "codehub",
+                "git_url": "https://codehub.devcloud.ap-southeast-3.huaweicloud.com/b3f25c9ab5cb457b97aa19bbc06b2743/service-a.git",
+                "ssh_git_url": "git@codehub.devcloud.ap-southeast-3.huaweicloud.com:b3f25c9ab5cb457b97aa19bbc06b2743/service-a.git",
+                "web_url": "",
+                "repo_name": "service-a",
+                "human_name": "",
+                "default_branch": "master",
+                "endpoint_id": "",
+                "codehub_id": "956532",
+                "alias": "",
+                "workspace_id": "",
+                "workspace_name": "",
+                "repo_project_id": ""
+            }
+        }
+    ],
+    "variables": [
+        {
+            "name": "package_description",
+            "sequence": 1,
+            "type": "string",
+            "is_strict": false,
+            "value": "dev team npm pakcage",
+            "is_secret": false,
+            "description": "",
+            "is_runtime": true,
+            "limits": [],
+            "is_reset": false,
+            "latest_value": ""
+        },
+        {
+            "name": "package_max_codecheck_errors",
+            "sequence": 2,
+            "type": "string",
+            "is_strict": false,
+            "value": "30",
+            "is_secret": false,
+            "description": "",
+            "is_runtime": true,
+            "limits": [],
+            "is_reset": false,
+            "latest_value": ""
+        },
+        {
+            "name": "package_tag",
+            "sequence": 3,
+            "type": "string",
+            "is_strict": false,
+            "value": "fix",
+            "is_secret": false,
+            "description": "",
+            "is_runtime": true,
+            "limits": [
+                "fix",
+                "feature",
+                "release"
+            ],
+            "is_reset": false,
+            "latest_value": ""
+        },
+        {
+            "name": "package_version",
+            "sequence": 4,
+            "type": "autoIncrement",
+            "is_strict": true,
+            "value": "1.0.0",
+            "is_secret": false,
+            "description": "",
+            "is_runtime": false,
+            "limits": [],
+            "is_reset": false,
+            "latest_value": "1.0.0"
+        }
+    ],
+    "schedules": null,
+    "triggers": [
+        {
+            "git_url": "https://codehub.devcloud.ap-southeast-3.huaweicloud.com/b3f25c9ab5cb457b97aa19bbc06b2743/service-a.git",
+            "git_type": "codehub",
+            "is_auto_comment": false,
+            "events": [
+                {
+                    "type": "push",
+                    "enable": false,
+                    "branches": null,
+                    "exclude_branches": null,
+                    "paths": null,
+                    "exclude_paths": null
+                },
+                {
+                    "type": "merge_request",
+                    "enable": false,
+                    "create": false,
+                    "update": false,
+                    "code_update": false,
+                    "merge": false,
+                    "reopen": false,
+                    "branches": null,
+                    "exclude_branches": null,
+                    "paths": null,
+                    "exclude_paths": null,
+                    "pr_tags": null
+                },
+                {
+                    "type": "tag_push",
+                    "enable": false,
+                    "create": null,
+                    "tags": [],
+                    "exclude_tags": []
+                }
+            ],
+            "hook_id": null,
+            "repo_id": "956532",
+            "endpoint_id": "",
+            "access_token": null
+        }
+    ],
+    "from_source": 0,
+    "project_name": null,
+    "group_id": null,
+    "group_name": null,
+    "concurrency_control": {
+        "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+        "concurrency_number": 5,
+        "exceed_action": "ABORT",
+        "create_time": 1751338144000,
+        "update_time": 1751348511000,
+        "enable": false
+    },
+    "cancel_strategy": {
+        "id": 40421,
+        "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+        "cancel_strategies": [
+            {
+                "granularity": "MR",
+                "cancel_strategy": "CANCEL_ALL_RUN"
+            }
+        ],
+        "enable": false
+    },
+    "definition": {
+        "stages": [
+            {
+                "name": "verificating pakcage",
+                "identifier": "1751338141921ca25763a-3c19-4c9b-b874-ceef71391309",
+                "run_condition": null,
+                "type": null,
+                "sequence": 0,
+                "parallel": null,
+                "pre": [
+                    {
+                        "runtime_attribution": null,
+                        "multi_step_editable": 0,
+                        "official_task_version": null,
+                        "icon_url": null,
+                        "name": null,
+                        "task": "official_devcloud_autoTrigger",
+                        "business_type": null,
+                        "inputs": null,
+                        "env": null,
+                        "sequence": 0,
+                        "identifier": null,
+                        "endpoint_ids": null
+                    }
+                ],
+                "post": null,
+                "jobs": [
+                    {
+                        "id": "",
+                        "identifier_old": null,
+                        "stage_index": null,
+                        "type": null,
+                        "name": "scan package",
+                        "async": null,
+                        "identifier": "JOB_kSGFQ",
+                        "sequence": 0,
+                        "condition": "${{ default() }}",
+                        "strategy": {
+                            "select_strategy": "selected"
+                        },
+                        "timeout": "",
+                        "resource": "{\"type\":\"system\",\"arch\":\"x86\"}",
+                        "steps": [
+                            {
+                                "runtime_attribution": "agent",
+                                "multi_step_editable": 1,
+                                "official_task_version": "0.0.2",
+                                "icon_url": "",
+                                "name": "scan package",
+                                "task": "official_shell_plugin",
+                                "business_type": "Normal",
+                                "inputs": [
+                                    {
+                                        "key": "OFFICIAL_SHELL_SCRIPT_INPUT",
+                                        "value": "echo hello"
+                                    }
+                                ],
+                                "env": [],
+                                "sequence": 0,
+                                "identifier": "1751339331834a6a89846-d9a3-456b-9f7b-e38dc3fba958",
+                                "endpoint_ids": []
+                            }
+                        ],
+                        "stage_id": "1751338141921",
+                        "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+                        "unfinished_steps": [],
+                        "condition_tag": "",
+                        "exec_type": "OCTOPUS_JOB",
+                        "depends_on": [],
+                        "reusable_job_id": null
+                    },
+                    {
+                        "id": "",
+                        "identifier_old": null,
+                        "stage_index": null,
+                        "type": null,
+                        "name": "code check",
+                        "async": null,
+                        "identifier": "JOB_PJhxJ",
+                        "sequence": 0,
+                        "condition": "${{ default() }}",
+                        "strategy": {
+                            "select_strategy": "selected"
+                        },
+                        "timeout": "",
+                        "resource": "{\"type\":\"system\",\"arch\":\"x86\"}",
+                        "steps": [
+                            {
+                                "runtime_attribution": "agent",
+                                "multi_step_editable": 1,
+                                "official_task_version": "0.0.2",
+                                "icon_url": "",
+                                "name": "code check",
+                                "task": "official_shell_plugin",
+                                "business_type": "Normal",
+                                "inputs": [
+                                    {
+                                        "key": "OFFICIAL_SHELL_SCRIPT_INPUT",
+                                        "value": "echo hello"
+                                    }
+                                ],
+                                "env": [],
+                                "sequence": 0,
+                                "identifier": "17513393565945d938de8-e701-4e99-a048-4ad62e8c7901",
+                                "endpoint_ids": []
+                            }
+                        ],
+                        "stage_id": "1751338141921",
+                        "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+                        "unfinished_steps": [],
+                        "condition_tag": "",
+                        "exec_type": "OCTOPUS_JOB",
+                        "depends_on": [
+                            "JOB_kSGFQ"
+                        ],
+                        "reusable_job_id": null
+                    },
+                    {
+                        "id": "",
+                        "identifier_old": null,
+                        "stage_index": null,
+                        "type": null,
+                        "name": "get verification report",
+                        "async": null,
+                        "identifier": "JOB_TGpSY",
+                        "sequence": 1,
+                        "condition": "${{ default() }}",
+                        "strategy": {
+                            "select_strategy": "selected"
+                        },
+                        "timeout": "",
+                        "resource": "{\"type\":\"system\",\"arch\":\"x86\"}",
+                        "steps": [
+                            {
+                                "runtime_attribution": "agent",
+                                "multi_step_editable": 1,
+                                "official_task_version": "0.0.2",
+                                "icon_url": "",
+                                "name": "ExecuteShellCommand",
+                                "task": "official_shell_plugin",
+                                "business_type": "Normal",
+                                "inputs": [
+                                    {
+                                        "key": "OFFICIAL_SHELL_SCRIPT_INPUT",
+                                        "value": "echo hello"
+                                    }
+                                ],
+                                "env": [],
+                                "sequence": 0,
+                                "identifier": "17513393532666696a04f-7440-4df5-98a4-41c0c6b3a6a8",
+                                "endpoint_ids": []
+                            }
+                        ],
+                        "stage_id": "1751338141921",
+                        "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+                        "unfinished_steps": [],
+                        "condition_tag": "",
+                        "exec_type": "OCTOPUS_JOB",
+                        "depends_on": [],
+                        "reusable_job_id": null
+                    }
+                ],
+                "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+                "depends_on": [],
+                "run_always": false
+            },
+            {
+                "name": "publishing code",
+                "identifier": "17513393608669a48da7c-efde-4fff-9783-718ed36d9452",
+                "run_condition": null,
+                "type": null,
+                "sequence": 1,
+                "parallel": null,
+                "pre": [
+                    {
+                        "runtime_attribution": null,
+                        "multi_step_editable": 0,
+                        "official_task_version": null,
+                        "icon_url": null,
+                        "name": null,
+                        "task": "official_devcloud_autoTrigger",
+                        "business_type": null,
+                        "inputs": null,
+                        "env": null,
+                        "sequence": 0,
+                        "identifier": null,
+                        "endpoint_ids": null
+                    }
+                ],
+                "post": null,
+                "jobs": [
+                    {
+                        "id": "",
+                        "identifier_old": null,
+                        "stage_index": null,
+                        "type": null,
+                        "name": "package code",
+                        "async": null,
+                        "identifier": "JOB_KDGbG",
+                        "sequence": 0,
+                        "condition": "${{ default() }}",
+                        "strategy": {
+                            "select_strategy": "selected"
+                        },
+                        "timeout": "",
+                        "resource": "{\"type\":\"system\",\"arch\":\"x86\"}",
+                        "steps": [
+                            {
+                                "runtime_attribution": "agent",
+                                "multi_step_editable": 1,
+                                "official_task_version": "0.0.2",
+                                "icon_url": "",
+                                "name": "ExecuteShellCommand",
+                                "task": "official_shell_plugin",
+                                "business_type": "Normal",
+                                "inputs": [
+                                    {
+                                        "key": "OFFICIAL_SHELL_SCRIPT_INPUT",
+                                        "value": "npm pack"
+                                    }
+                                ],
+                                "env": [],
+                                "sequence": 0,
+                                "identifier": "1751339360866d07eedee-180a-4e85-9162-a38b77dcc926",
+                                "endpoint_ids": []
+                            }
+                        ],
+                        "stage_id": "",
+                        "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+                        "unfinished_steps": [],
+                        "condition_tag": "",
+                        "exec_type": "OCTOPUS_JOB",
+                        "depends_on": [],
+                        "reusable_job_id": null
+                    },
+                    {
+                        "id": "",
+                        "identifier_old": null,
+                        "stage_index": null,
+                        "type": null,
+                        "name": "zip",
+                        "async": null,
+                        "identifier": "JOB_JZnfW",
+                        "sequence": 0,
+                        "condition": "${{ default() }}",
+                        "strategy": {
+                            "select_strategy": "selected"
+                        },
+                        "timeout": "",
+                        "resource": "{\"type\":\"system\",\"arch\":\"x86\"}",
+                        "steps": [
+                            {
+                                "runtime_attribution": "agent",
+                                "multi_step_editable": 1,
+                                "official_task_version": "0.0.2",
+                                "icon_url": "",
+                                "name": "ExecuteShellCommand",
+                                "task": "official_shell_plugin",
+                                "business_type": "Normal",
+                                "inputs": [
+                                    {
+                                        "key": "OFFICIAL_SHELL_SCRIPT_INPUT",
+                                        "value": "zip package"
+                                    }
+                                ],
+                                "env": [],
+                                "sequence": 0,
+                                "identifier": "17513393608668ce23334-bb8a-4fd9-9bfc-92f5f3495ba4",
+                                "endpoint_ids": []
+                            }
+                        ],
+                        "stage_id": "",
+                        "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+                        "unfinished_steps": [],
+                        "condition_tag": "",
+                        "exec_type": "OCTOPUS_JOB",
+                        "depends_on": [
+                            "JOB_KDGbG"
+                        ],
+                        "reusable_job_id": null
+                    },
+                    {
+                        "id": "",
+                        "identifier_old": null,
+                        "stage_index": null,
+                        "type": null,
+                        "name": "scan zippped package",
+                        "async": null,
+                        "identifier": "JOB_cACKG",
+                        "sequence": 1,
+                        "condition": "${{ default() }}",
+                        "strategy": {
+                            "select_strategy": "selected"
+                        },
+                        "timeout": "",
+                        "resource": "{\"type\":\"system\",\"arch\":\"x86\"}",
+                        "steps": [
+                            {
+                                "runtime_attribution": "agent",
+                                "multi_step_editable": 1,
+                                "official_task_version": "0.0.2",
+                                "icon_url": "",
+                                "name": "ExecuteShellCommand",
+                                "task": "official_shell_plugin",
+                                "business_type": "Normal",
+                                "inputs": [
+                                    {
+                                        "key": "OFFICIAL_SHELL_SCRIPT_INPUT",
+                                        "value": "scan < package.zip"
+                                    }
+                                ],
+                                "env": [],
+                                "sequence": 0,
+                                "identifier": "1751339360866e871b053-0e12-4f9f-adfe-66d148ed438d",
+                                "endpoint_ids": []
+                            }
+                        ],
+                        "stage_id": "",
+                        "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+                        "unfinished_steps": [],
+                        "condition_tag": "",
+                        "exec_type": "OCTOPUS_JOB",
+                        "depends_on": [],
+                        "reusable_job_id": null
+                    }
+                ],
+                "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+                "depends_on": [
+                    "1751338141921ca25763a-3c19-4c9b-b874-ceef71391309"
+                ],
+                "run_always": false
+            },
+            {
+                "name": "notifiying people",
+                "identifier": "1751339360204159f0ea0-9ebf-448e-9087-a5f6ea7b5464",
+                "run_condition": null,
+                "type": null,
+                "sequence": 2,
+                "parallel": null,
+                "pre": [
+                    {
+                        "runtime_attribution": null,
+                        "multi_step_editable": 0,
+                        "official_task_version": null,
+                        "icon_url": null,
+                        "name": null,
+                        "task": "official_devcloud_autoTrigger",
+                        "business_type": null,
+                        "inputs": null,
+                        "env": null,
+                        "sequence": 0,
+                        "identifier": null,
+                        "endpoint_ids": null
+                    }
+                ],
+                "post": null,
+                "jobs": [
+                    {
+                        "id": "",
+                        "identifier_old": null,
+                        "stage_index": null,
+                        "type": null,
+                        "name": "send slack notification",
+                        "async": null,
+                        "identifier": "JOB_Drrac",
+                        "sequence": 0,
+                        "condition": "${{ default() }}",
+                        "strategy": {
+                            "select_strategy": "selected"
+                        },
+                        "timeout": "",
+                        "resource": "{\"type\":\"system\",\"arch\":\"x86\"}",
+                        "steps": [
+                            {
+                                "runtime_attribution": "agent",
+                                "multi_step_editable": 1,
+                                "official_task_version": "0.0.2",
+                                "icon_url": "",
+                                "name": "ExecuteShellCommand",
+                                "task": "official_shell_plugin",
+                                "business_type": "Normal",
+                                "inputs": [
+                                    {
+                                        "key": "OFFICIAL_SHELL_SCRIPT_INPUT",
+                                        "value": "curl slack.npming.group {notify }"
+                                    }
+                                ],
+                                "env": [],
+                                "sequence": 0,
+                                "identifier": "175133936020548329cfd-cd95-4fb2-a346-fc025c76ea64",
+                                "endpoint_ids": []
+                            }
+                        ],
+                        "stage_id": "",
+                        "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+                        "unfinished_steps": [],
+                        "condition_tag": "",
+                        "exec_type": "OCTOPUS_JOB",
+                        "depends_on": [],
+                        "reusable_job_id": null
+                    },
+                    {
+                        "id": "",
+                        "identifier_old": null,
+                        "stage_index": null,
+                        "type": null,
+                        "name": "publish to registry",
+                        "async": null,
+                        "identifier": "JOB_MttZr",
+                        "sequence": 0,
+                        "condition": "${{ default() }}",
+                        "strategy": {
+                            "select_strategy": "selected"
+                        },
+                        "timeout": "",
+                        "resource": "{\"type\":\"system\",\"arch\":\"x86\"}",
+                        "steps": [
+                            {
+                                "runtime_attribution": "agent",
+                                "multi_step_editable": 1,
+                                "official_task_version": "0.0.2",
+                                "icon_url": "",
+                                "name": "ExecuteShellCommand",
+                                "task": "official_shell_plugin",
+                                "business_type": "Normal",
+                                "inputs": [
+                                    {
+                                        "key": "OFFICIAL_SHELL_SCRIPT_INPUT",
+                                        "value": "npm publish"
+                                    }
+                                ],
+                                "env": [],
+                                "sequence": 0,
+                                "identifier": "175133936020598940315-7cc7-450f-8c01-892641103fc7",
+                                "endpoint_ids": []
+                            }
+                        ],
+                        "stage_id": "",
+                        "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+                        "unfinished_steps": [],
+                        "condition_tag": "",
+                        "exec_type": "OCTOPUS_JOB",
+                        "depends_on": [
+                            "JOB_Drrac"
+                        ],
+                        "reusable_job_id": null
+                    },
+                    {
+                        "id": "",
+                        "identifier_old": null,
+                        "stage_index": null,
+                        "type": null,
+                        "name": "echo version",
+                        "async": null,
+                        "identifier": "JOB_MhQSe",
+                        "sequence": 1,
+                        "condition": "${{ default() }}",
+                        "strategy": {
+                            "select_strategy": "selected"
+                        },
+                        "timeout": "",
+                        "resource": "{\"type\":\"system\",\"arch\":\"x86\"}",
+                        "steps": [
+                            {
+                                "runtime_attribution": "agent",
+                                "multi_step_editable": 1,
+                                "official_task_version": "0.0.2",
+                                "icon_url": "",
+                                "name": "ExecuteShellCommand",
+                                "task": "official_shell_plugin",
+                                "business_type": "Normal",
+                                "inputs": [
+                                    {
+                                        "key": "OFFICIAL_SHELL_SCRIPT_INPUT",
+                                        "value": "echo pachage_details_version"
+                                    }
+                                ],
+                                "env": [],
+                                "sequence": 0,
+                                "identifier": "17513393602050fe5006d-3ac7-4793-8cc2-5254700a5c57",
+                                "endpoint_ids": []
+                            }
+                        ],
+                        "stage_id": "",
+                        "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+                        "unfinished_steps": [],
+                        "condition_tag": "",
+                        "exec_type": "OCTOPUS_JOB",
+                        "depends_on": [],
+                        "reusable_job_id": null
+                    }
+                ],
+                "pipeline_id": "e4dfdaa1306d4acbbd7e9b34f516dc80",
+                "depends_on": [
+                    "17513393608669a48da7c-efde-4fff-9783-718ed36d9452"
+                ],
+                "run_always": false
+            }
+        ]
+    },
+    "detail_url": "https://devcloud.ap-southeast-3.huaweicloud.com/cicd/project/b3f25c9ab5cb457b97aa19bbc06b2743/pipeline/detail/e4dfdaa1306d4acbbd7e9b34f516dc80?from=in-project&v=1",
+    "modify_url": "https://devcloud.ap-southeast-3.huaweicloud.com/cicd/project/b3f25c9ab5cb457b97aa19bbc06b2743/pipeline/modify/e4dfdaa1306d4acbbd7e9b34f516dc80?from=in-project&v=1",
+    "tags": [],
+    "is_crmodel": null,
+    "yaml_repo_properties": null,
+    "pac_source_alias": "",
+    "pac_source_repo_https_endpoint": "",
+    "subject_id": "e4dfdaa1306d4acbbd7e9b34f516dc80"
+}

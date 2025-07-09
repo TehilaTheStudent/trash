@@ -12,3 +12,31 @@
     "value": "194df340ca4749e4892457378111cbd2"
   }
 ]
+
+"inputs": [
+  {
+    "key": "repository_readonly",
+    "value": "service-a"
+  },
+  {
+    "key": "checkMode",
+    "value": "full"
+  },
+  {
+    "key": "codeBranch",
+    "value": "master"
+  },
+  {
+  //   "key": "__sameProject__",
+  //   "value": "true"
+  // },
+  // {
+  //   "key": "__projectId__",
+  //   "value": ""
+  // },
+  // {
+  //   "key": "jobId",
+  //   "value": "194df340ca4749e4892457378111cbd2"
+  // }
+],
+"env": [],

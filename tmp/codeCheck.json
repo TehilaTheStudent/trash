@@ -1,0 +1,170 @@
+[
+  {
+    "plugin_name": "official_devcloud_codeCheck",
+    "input_configuration": [
+      {
+        "inputKey": "__sameProject__",
+        "valueLabel": "Project Config",
+        "valueHelpTips": "Project Config",
+        "inputUIComponent": "d-radio-group",
+        "defaultValue": "true",
+        "options": {
+          "type": "fixed",
+          "choices": [
+            {
+              "labelToShowUser": "This Project",
+              "optionActualValue": "true",
+              "isCheckedByDefault": true
+            },
+            {
+              "labelToShowUser": "Select Project",
+              "optionActualValue": "false",
+              "isCheckedByDefault": false
+            }
+          ]
+        },
+        "dataType": "string"
+      },
+      {
+        "inputKey": "__projectId__",
+        "valueLabel": "Select Project",
+        "valueHelpTips": "Select Project",
+        "displayUIComponentIfConditions": [
+          {
+            "inputKey": "__sameProject__",
+            "equation": "===",
+            "valueToEqualTo": "false"
+          }
+        ],
+        "inputUIComponent": "d-select",
+        "options": {
+          "type": "api",
+          "apiOptions": {
+            "requestDetails": {
+              "url": "/v1/project/queryRelatedProject",
+              "method": "GET",
+              "queryParams": {
+                "archive": "1",
+                "pageNo": "1",
+                "pageSize": "50",
+                "queryType": "simplify"
+              },
+              "headers": {},
+              "body": {},
+              "relatedInputKeys": [
+                "__sameProject__"
+              ]
+            },
+            "responseDetails": {
+              "responsePath": "result.projectInfoList",
+              "labelToShowUser": "name",
+              "valueToFill": "identifier"
+            }
+          }
+        },
+        "inputValueExample": "option1",
+        "dataType": "string"
+      },
+      {
+        "inputKey": "jobId",
+        "valueLabel": "Select Task",
+        "valueHelpTips": "Select a task which has same repository or configured to be called from pipeline",
+        "valueValidations": [
+          {
+            "ruleType": "required",
+            "isRequired": true,
+            "message": "请选择需要调度的任务不能为空"
+          }
+        ],
+        "inputUIComponent": "link-select",
+        "options": {
+          "type": "api",
+          "apiOptions": {
+            "requestDetails": {
+              "url": "/v3/pipelines/plugin-tasks",
+              "method": "POST",
+              "queryParams": {},
+              "headers": {},
+              "body": {
+                "project_id": "${__sameProject__}===true?${project_id}:${__projectId__}",
+                "task_type": "codeCheck",
+                "repo_info": "${repo_info}"
+              },
+              "relatedInputKeys": [
+                "__sameProject__",
+                "__projectId__"
+              ]
+            },
+            "responseDetails": {
+              "responsePath": "",
+              "labelToShowUser": "name",
+              "valueToFill": "id"
+            }
+          }
+        },
+        "dataType": "string"
+      },
+      {
+        "inputKey": "repository_readonly",
+        "valueLabel": "Repository",
+        "displayUIComponentIfConditions": [
+          {
+            "inputKey": "jobId",
+            "equation": "notEmpty",
+            "valueToEqualTo": ""
+          }
+        ],
+        "valueValidations": [
+          {
+            "ruleType": "required",
+            "isRequired": true,
+            "message": "仓库不能为空"
+          }
+        ],
+        "inputUIComponent": "d-select",
+        "options": {
+          "type": "context",
+          "dataSource": "repoSource",
+          "explanation": "each option is name of the repo from the sources repos of the pipeline"
+        },
+        "inputValueExample": "option1",
+        "dataType": "string"
+      },
+      {
+        "inputKey": "checkMode",
+        "valueLabel": "Check Mode",
+        "valueHelpTips": "Check Mode",
+        "inputUIComponent": "d-radio-group",
+        "defaultValue": "full",
+        "options": {
+          "type": "fixed",
+          "choices": [
+            {
+              "labelToShowUser": "Full",
+              "optionActualValue": "full",
+              "isCheckedByDefault": true
+            },
+            {
+              "labelToShowUser": "Incremental (last commit)",
+              "optionActualValue": "push_inc_full",
+              "isCheckedByDefault": false
+            },
+            {
+              "labelToShowUser": "Incremental (last success)",
+              "optionActualValue": "push_multi_inc_full",
+              "isCheckedByDefault": false
+            }
+          ]
+        },
+        "dataType": "string"
+      },
+      {
+        "inputKey": "codeBranch",
+        "valueLabel": "Code Branch",
+        "valueHelpTips": "Code Branch",
+        "inputUIComponent": "d-input",
+        "dataType": "string"
+      }
+    ]
+  }
+]

@@ -1,0 +1,25 @@
+openapi: 3.0.3
+info:
+  title: Bearer Auth Example
+  version: 1.0.0
+paths:
+  /protected:
+    get:
+      security: []
+      summary: Requires bearer token
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Requires bearer token
+      responses:
+        '200':
+            description: OK       
+components:
+  securitySchemes:   
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - BearerAuth: []

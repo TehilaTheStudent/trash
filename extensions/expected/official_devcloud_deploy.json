@@ -16,3 +16,20 @@
     "value": "548cca58c85542d4af4de144b0e61bd5"
   }
 ]
+{
+  "key": "relatedPipelineTask",
+  "value": "" // this is stagedid.jobid.stepid of a official_devcloud_cloudBuild previous task in the pipeline, only if exists, can leave ""
+},
+{
+  "key": "SYSTEM_DEVCLOUD_SUBPIPELINE_TRIGGER_ID",
+  "value": "afe8cc001efb4068b332caf97768bf7f" // this is the arrange_infos.id of the deploy application
+},
+{
+  "key": "_OFFICIAL_DEVCLOUD_JOB_NAME_",
+  "value": "production-singapur-manifest-deploment" // this is the name of the deploy application
+},
+{
+  "key": "_OFFICIAL_DEVCLOUD_JOB_APPLICATION_ID_",
+  "value": "8186582c52ce48ca8db6130d27d352c2" // this is the id of the deploy application
+}
+],

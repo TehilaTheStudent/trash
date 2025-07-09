@@ -1,0 +1,1262 @@
+{
+    "result": {
+        "tools": [
+            {
+                "name": "SetDefaulTemplate",
+                "description": "设置每个项目对应语言的默认规则集配置",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "ruleset_id": {
+                            "type": "string",
+                            "description": "规则集ID"
+                        },
+                        "language": {
+                            "type": "string",
+                            "description": "规则集语言"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "ruleset_id",
+                        "language"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ShowTaskCmetrics",
+                "description": "查询cmertrics缺陷概要",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ShowTasksRulesets",
+                "description": "查询任务的已选规则集列表",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        },
+                        "offset": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "default": 0,
+                            "description": "分页索引,偏移量"
+                        },
+                        "limit": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 1000,
+                            "default": 10,
+                            "description": "每页显示的数量,每页最多显示1000条"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ShowTaskListByProjectId",
+                "description": "查询任务列表",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "offset": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "default": 0,
+                            "description": "分页索引,偏移量"
+                        },
+                        "limit": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 100,
+                            "default": 10,
+                            "description": "每页显示的数量,每页最多显示100条"
+                        }
+                    },
+                    "required": [
+                        "project_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "CheckRecord",
+                "description": "历史扫描结果查询",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        },
+                        "offset": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "default": 0,
+                            "description": "分页索引,偏移量"
+                        },
+                        "limit": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 1000,
+                            "default": 10,
+                            "description": "每页显示的数量,每页最多显示1000条"
+                        },
+                        "start_time": {
+                            "type": "string",
+                            "description": "过滤开始时间,根据任务检查开始时间过滤"
+                        },
+                        "end_time": {
+                            "type": "string",
+                            "description": "过滤结束时间,根据任务检查开始时间过滤"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ListTaskRuleset",
+                "description": "查询任务的已选规则集列表",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ListRules",
+                "description": "获取规则列表接口",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "rule_languages": {
+                            "type": "string",
+                            "description": "规则对应的语言"
+                        },
+                        "rule_severity": {
+                            "type": "string",
+                            "description": "缺陷等级,0致命,1严重,2一般,3提示"
+                        },
+                        "offset": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "default": 0,
+                            "description": "分页索引,偏移量"
+                        },
+                        "limit": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 1000,
+                            "default": 100,
+                            "description": "每页显示的数量"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ShowTaskSettings",
+                "description": "查询任务的高级选项",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        },
+                        "offset": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "default": 0,
+                            "description": "分页索引,偏移量,非必填"
+                        },
+                        "limit": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 1000,
+                            "default": 10,
+                            "description": "每页显示的数量,非必填"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "UpdateTaskSettings",
+                "description": "任务配置高级选项",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        },
+                        "body": {
+                            "type": "object",
+                            "properties": {
+                                "task_advanced_settings": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "minLength": 1,
+                                                "maxLength": 50,
+                                                "description": "高级选项对应的名称"
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "minLength": 1,
+                                                "maxLength": 1000,
+                                                "description": "高级选项对应的取值"
+                                            }
+                                        },
+                                        "required": [
+                                            "key",
+                                            "value"
+                                        ],
+                                        "additionalProperties": false
+                                    },
+                                    "description": "高级选项参数的相关信息"
+                                }
+                            },
+                            "required": [
+                                "task_advanced_settings"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Request body"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "task_id",
+                        "body"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ListTemplateRules",
+                "description": "查看规则集的规则列表",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "ruleset_id": {
+                            "type": "string",
+                            "description": "规则集ID"
+                        },
+                        "types": {
+                            "type": "string",
+                            "default": "1",
+                            "description": "规则状态"
+                        },
+                        "languages": {
+                            "type": "string",
+                            "description": "规则语言"
+                        },
+                        "tags": {
+                            "type": "string",
+                            "description": "规则所属标签"
+                        },
+                        "offset": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "default": 0,
+                            "description": "分页索引,偏移量"
+                        },
+                        "limit": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 1000,
+                            "default": 100,
+                            "description": "每页显示的数量"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "ruleset_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ShowTaskDefects",
+                "description": "查询缺陷详情",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        },
+                        "offset": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "default": 0,
+                            "description": "分页索引,偏移量"
+                        },
+                        "limit": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 100,
+                            "default": 10,
+                            "description": "每页显示的数量,每页最多显示100条"
+                        },
+                        "status_ids": {
+                            "type": "string",
+                            "description": "问题状态筛选"
+                        },
+                        "severity": {
+                            "type": "string",
+                            "description": "严重级别,0致命,1严重,2一般,3提示"
+                        }
+                    },
+                    "required": [
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ShowTaskPathTree",
+                "description": "获取任务的目录树",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目id"
+                        },
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务id"
+                        },
+                        "current_path": {
+                            "type": "string",
+                            "description": "目录或文件的路径"
+                        },
+                        "offset": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "default": 0,
+                            "description": "分页索引,偏移量"
+                        },
+                        "limit": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 1000,
+                            "default": 10,
+                            "description": "每页显示的数量,每页最多显示1000条"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "DeleteRuleset",
+                "description": "删除自定义规则集",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "ruleset_id": {
+                            "type": "string",
+                            "description": "规则集ID"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "ruleset_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ShowTasklog",
+                "description": "查询任务检查失败日志",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        },
+                        "execute_id": {
+                            "type": "string",
+                            "description": "任务单次的执行ID"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ShowProgressDetail",
+                "description": "查询任务执行状态",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        }
+                    },
+                    "required": [
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "CheckRulesetParameters",
+                "description": "查询任务规则集的检查参数",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        },
+                        "ruleset_id": {
+                            "type": "string",
+                            "description": "规则集ID"
+                        },
+                        "language": {
+                            "type": "string",
+                            "description": "规则集语言"
+                        },
+                        "offset": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "default": 0,
+                            "description": "分页索引,偏移量,非必填"
+                        },
+                        "limit": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 1000,
+                            "default": 10,
+                            "description": "每页显示的数量,非必填"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "task_id",
+                        "ruleset_id",
+                        "language"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "StopTaskById",
+                "description": "终止检查任务",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        }
+                    },
+                    "required": [
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ListTaskParameter",
+                "description": "任务配置检查参数",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        },
+                        "body": {
+                            "type": "object",
+                            "properties": {
+                                "check_id": {
+                                    "type": "integer",
+                                    "description": "检查工具ID"
+                                },
+                                "ruleset_id": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 64,
+                                    "description": "规则集ID"
+                                },
+                                "language": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 128,
+                                    "description": "规则集语言"
+                                },
+                                "status": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 3,
+                                    "description": "off:关闭,on:开启"
+                                },
+                                "task_check_settings": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "cfg_key": {
+                                                "type": "string",
+                                                "minLength": 1,
+                                                "maxLength": 50,
+                                                "description": "检查参数对应的key值"
+                                            },
+                                            "status": {
+                                                "type": "string",
+                                                "minLength": 1,
+                                                "maxLength": 3,
+                                                "description": "参数状态"
+                                            },
+                                            "cfg_value": {
+                                                "type": "string",
+                                                "minLength": 1,
+                                                "maxLength": 1000,
+                                                "description": "检查参数值"
+                                            }
+                                        },
+                                        "required": [
+                                            "cfg_key",
+                                            "status"
+                                        ],
+                                        "additionalProperties": false
+                                    },
+                                    "description": "检查参数信息"
+                                }
+                            },
+                            "required": [
+                                "check_id",
+                                "ruleset_id",
+                                "language",
+                                "status",
+                                "task_check_settings"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Request body"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "task_id",
+                        "body"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "UpdateTaskRuleset",
+                "description": "修改任务规则集",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        },
+                        "body": {
+                            "type": "object",
+                            "additionalProperties": {},
+                            "description": "Request body"
+                        }
+                    },
+                    "required": [
+                        "task_id",
+                        "body"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "CreateRuleset",
+                "description": "创建自定义规则集",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "body": {
+                            "type": "object",
+                            "properties": {
+                                "project_id": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 50,
+                                    "description": "项目ID"
+                                },
+                                "template_name": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 500,
+                                    "description": "新规则集名称"
+                                },
+                                "language": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 128,
+                                    "description": "规则集语言"
+                                },
+                                "is_default": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 1,
+                                    "description": "如果有基于的规则集则是1,没有基于的规则集则是0"
+                                },
+                                "rule_ids": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 4000,
+                                    "description": "新启用规则ids"
+                                },
+                                "uncheck_ids": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 4000,
+                                    "description": "新关闭规则id"
+                                },
+                                "template_id": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 50,
+                                    "description": "规则集ID"
+                                },
+                                "custom_attributes": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "not": {}
+                                            },
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "attribute": {
+                                                        "type": "string",
+                                                        "description": "配置项属性,severity:为问题级别"
+                                                    },
+                                                    "rules": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "anyOf": [
+                                                                {
+                                                                    "not": {}
+                                                                },
+                                                                {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "rule_id": {
+                                                                            "type": "string",
+                                                                            "description": "规则ID"
+                                                                        },
+                                                                        "value": {
+                                                                            "type": "string",
+                                                                            "description": "attribute的问题级别,0致命,1严重,2一般,3提示"
+                                                                        },
+                                                                        "rule_config_list": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "anyOf": [
+                                                                                    {
+                                                                                        "not": {}
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "id": {
+                                                                                                "type": "integer",
+                                                                                                "description": "规则配置ID"
+                                                                                            },
+                                                                                            "rule_id": {
+                                                                                                "type": "integer",
+                                                                                                "description": "规则ID"
+                                                                                            },
+                                                                                            "default_value": {
+                                                                                                "type": "string",
+                                                                                                "description": "默认值"
+                                                                                            },
+                                                                                            "option_value": {
+                                                                                                "type": "string",
+                                                                                                "description": "当前"
+                                                                                            },
+                                                                                            "option_key": {
+                                                                                                "type": "string",
+                                                                                                "description": "当前规则配置项key"
+                                                                                            },
+                                                                                            "option_name": {
+                                                                                                "type": "string",
+                                                                                                "description": "当前规则配置项名称"
+                                                                                            },
+                                                                                            "template_id": {
+                                                                                                "type": "string",
+                                                                                                "description": "规则集id"
+                                                                                            },
+                                                                                            "description": {
+                                                                                                "type": "string",
+                                                                                                "description": "描述"
+                                                                                            }
+                                                                                        },
+                                                                                        "additionalProperties": false
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            "description": "规则阈值详细"
+                                                                        }
+                                                                    },
+                                                                    "additionalProperties": false
+                                                                }
+                                                            ]
+                                                        },
+                                                        "description": "规则详细"
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        ]
+                                    },
+                                    "description": "自定义规则参数项,支持修改规则阈值"
+                                }
+                            },
+                            "required": [
+                                "project_id",
+                                "template_name",
+                                "language",
+                                "is_default",
+                                "rule_ids"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Request body"
+                        }
+                    },
+                    "required": [
+                        "body"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "RunTask",
+                "description": "执行检查任务",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        },
+                        "body": {
+                            "type": "object",
+                            "properties": {
+                                "username": {
+                                    "type": "string",
+                                    "description": "该任务对应临时仓库有权限的用户名"
+                                },
+                                "access_token": {
+                                    "type": "string",
+                                    "description": "该任务对应临时仓库有权限的用户token"
+                                },
+                                "git_url": {
+                                    "type": "string",
+                                    "description": "该任务对应的临时仓库地址"
+                                },
+                                "git_branch": {
+                                    "type": "string",
+                                    "description": "该任务对应的临时仓库分支"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "description": "Request body"
+                        }
+                    },
+                    "required": [
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "CheckParameters",
+                "description": "查询任务规则集的检查参数",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        },
+                        "ruleset_id": {
+                            "type": "string",
+                            "description": "规则集ID"
+                        },
+                        "language": {
+                            "type": "string",
+                            "description": "规则集语言"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "task_id",
+                        "ruleset_id",
+                        "language"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "UpdateDefectStatus",
+                "description": "修改缺陷状态",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务id"
+                        },
+                        "body": {
+                            "type": "object",
+                            "properties": {
+                                "defect_id": {
+                                    "type": "string",
+                                    "description": "问题id,多个时英文逗号分隔"
+                                },
+                                "defect_status": {
+                                    "type": "string",
+                                    "description": "状态2:已忽略 1:已解决 0:未解决"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "description": "Request body"
+                        }
+                    },
+                    "required": [
+                        "task_id",
+                        "body"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ListRulesets",
+                "description": "查询规则集列表",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "category": {
+                            "type": "string",
+                            "description": "规则集类别"
+                        },
+                        "offset": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "default": 0,
+                            "description": "分页索引,偏移量"
+                        },
+                        "limit": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 1000,
+                            "default": 100,
+                            "description": "每页显示的数量"
+                        }
+                    },
+                    "required": [
+                        "project_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ShowTaskDefectsStatistic",
+                "description": "查询缺陷详情的统计",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        }
+                    },
+                    "required": [
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "CreateTask",
+                "description": "新建检查任务",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "body": {
+                            "type": "object",
+                            "properties": {
+                                "check_type": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "not": {}
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "description": "检查类型,数组格式,默认为source"
+                                },
+                                "git_url": {
+                                    "type": "string",
+                                    "description": "仓库地址"
+                                },
+                                "git_branch": {
+                                    "type": "string",
+                                    "description": "仓库分支"
+                                },
+                                "language": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "not": {}
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "description": "检查语言,数组格式,支持cpp,java,js,python,php,css,html,go,typescript,csharp"
+                                },
+                                "rule_sets": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "ruleset_id": {
+                                                "type": "string",
+                                                "description": "规则集id,需要从web界面获取"
+                                            },
+                                            "language": {
+                                                "type": "string",
+                                                "description": "检查语言,支持cpp,java,js,python,php,css,html,go,typescript"
+                                            }
+                                        },
+                                        "required": [
+                                            "language"
+                                        ],
+                                        "additionalProperties": false
+                                    },
+                                    "description": "指定规则集"
+                                },
+                                "task_type": {
+                                    "type": "string",
+                                    "description": "检查类型,支持full/inc两种类型,full表示全量检查,inc表示mr检查"
+                                },
+                                "username": {
+                                    "type": "string",
+                                    "description": "仓库有权限的用户名"
+                                },
+                                "access_token": {
+                                    "type": "string",
+                                    "description": "仓库有权限的用户token"
+                                },
+                                "endpoint_id": {
+                                    "type": "string",
+                                    "description": "仓库有权限的用户endpointId"
+                                },
+                                "inc_config": {
+                                    "type": "object",
+                                    "properties": {
+                                        "parent_task_id": {
+                                            "type": "string",
+                                            "description": "需要关联的父任务ID,流水线创建或MR创建任务需要该参数"
+                                        },
+                                        "git_source_branch": {
+                                            "type": "string",
+                                            "description": "增量检查代码源分支"
+                                        },
+                                        "git_target_branch": {
+                                            "type": "string",
+                                            "description": "增量检查代码目标分支"
+                                        },
+                                        "merge_id": {
+                                            "type": "string",
+                                            "description": "MR唯一标示ID"
+                                        },
+                                        "event_type": {
+                                            "type": "string",
+                                            "description": "webhook触发事件类型,merge_request/push_request"
+                                        },
+                                        "action": {
+                                            "type": "string",
+                                            "description": "webhook事件状态,open/close/update"
+                                        },
+                                        "title": {
+                                            "type": "string",
+                                            "description": "MR标题"
+                                        }
+                                    },
+                                    "additionalProperties": false,
+                                    "description": "增量检查相关的参数"
+                                },
+                                "enable_fossbot": {
+                                    "type": "boolean",
+                                    "description": "是否打开fossbot检查,默认不开"
+                                },
+                                "resource_pool_id": {
+                                    "type": "string",
+                                    "description": "资源池id,可以从资源池管理页面获取"
+                                }
+                            },
+                            "required": [
+                                "git_url",
+                                "git_branch",
+                                "language"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Request body"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "body"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "UpdateIgnorePath",
+                "description": "任务配置屏蔽目录",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "project_id": {
+                            "type": "string",
+                            "description": "项目ID"
+                        },
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        },
+                        "body": {
+                            "type": "object",
+                            "properties": {
+                                "ignore_path_settings": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "file_path": {
+                                                "type": "string",
+                                                "description": "目录或文件路径"
+                                            },
+                                            "checkbox_status": {
+                                                "type": "string",
+                                                "description": "屏蔽状态,包括unchecked(不屏蔽)、all(全屏蔽)、half(半屏蔽)"
+                                            }
+                                        },
+                                        "required": [
+                                            "file_path",
+                                            "checkbox_status"
+                                        ],
+                                        "additionalProperties": false
+                                    },
+                                    "description": "屏蔽目录的节点信息列表"
+                                }
+                            },
+                            "required": [
+                                "ignore_path_settings"
+                            ],
+                            "additionalProperties": false,
+                            "description": "Request body"
+                        }
+                    },
+                    "required": [
+                        "project_id",
+                        "task_id",
+                        "body"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "ShowTaskDetail",
+                "description": "查询缺陷概要",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "task_id": {
+                            "type": "string",
+                            "description": "任务ID"
+                        }
+                    },
+                    "required": [
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            },
+            {
+                "name": "DeleteTask",
+                "description": "删除检查任务",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "task_id": {
+                            "type": "string",
+                            "description": "检查任务ID"
+                        }
+                    },
+                    "required": [
+                        "task_id"
+                    ],
+                    "additionalProperties": false,
+                    "$schema": "http://json-schema.org/draft-07/schema#"
+                }
+            }
+        ]
+    },
+    "jsonrpc": "2.0",
+    "id": 1
+}

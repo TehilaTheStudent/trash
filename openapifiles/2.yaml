@@ -1,0 +1,20 @@
+openapi: 3.0.3
+info:
+  title: Basic Auth Example
+  version: 1.0.0
+paths:
+  /user:
+    get:
+      summary: Requires basic auth
+      security:
+        - BasicAuth: []
+      responses:
+        '200':
+          description: OK
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+security:
+  - BasicAuth: []

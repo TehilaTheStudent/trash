@@ -1,0 +1,121 @@
+{
+    "id": "bf323014510144ea8e29e41fdabdeb88",
+    "origin_id": null,
+    "name": "1",
+    "description": "",
+    "manifest_version": "3.0",
+    "region": "ap-southeast-3",
+    "domain_id": "9f1a017e31a04489a56572a559924f7c",
+    "project_id": "b3f25c9ab5cb457b97aa19bbc06b2743",
+    "component_id": null,
+    "is_publish": false,
+    "creator_id": "449783a150844ae3acf503f7c6df559c",
+    "creator_name": "itai_gendler",
+    "updater_id": "449783a150844ae3acf503f7c6df559c",
+    "create_time": 1751357769000,
+    "update_time": 1751357769000,
+    "deleted": false,
+    "banned": false,
+    "is_collect": false,
+    "from_git_code": null,
+    "from_git_code_repo": null,
+    "access_token": null,
+    "git_code_repo_id": null,
+    "pac_repo_relation": null,
+    "yaml_content": null,
+    "agency_name": "",
+    "sources": [
+        {
+            "type": "code",
+            "params": {
+                "git_type": "codehub",
+                "git_url": "https://codehub.devcloud.ap-southeast-3.huaweicloud.com/b3f25c9ab5cb457b97aa19bbc06b2743/npm-lib-to-parse-jsons.git",
+                "ssh_git_url": "git@codehub.devcloud.ap-southeast-3.huaweicloud.com:b3f25c9ab5cb457b97aa19bbc06b2743/npm-lib-to-parse-jsons.git",
+                "web_url": "",
+                "repo_name": "npm-lib-to-parse-jsons",
+                "human_name": "",
+                "default_branch": "master",
+                "endpoint_id": "",
+                "codehub_id": "956762",
+                "alias": "",
+                "workspace_id": "",
+                "workspace_name": "",
+                "repo_project_id": ""
+            }
+        }
+    ],
+    "variables": [],
+    "schedules": null,
+    "triggers": [
+        {
+            "enable": true,
+            "events": [
+                {
+                    "enable": false,
+                    "branches": null,
+                    "exclude_branches": null,
+                    "type": "push",
+                    "paths": null,
+                    "exclude_paths": null
+                },
+                {
+                    "type": "merge_request",
+                    "enable": false,
+                    "branches": null,
+                    "exclude_branches": null,
+                    "create": false,
+                    "merge": false,
+                    "update": false,
+                    "paths": null,
+                    "exclude_paths": null,
+                    "code_update": false,
+                    "reopen": false
+                },
+                {
+                    "enable": false,
+                    "tags": [],
+                    "exclude_tags": [],
+                    "type": "tag_push"
+                }
+            ],
+            "git_url": "https://codehub.devcloud.ap-southeast-3.huaweicloud.com/b3f25c9ab5cb457b97aa19bbc06b2743/npm-lib-to-parse-jsons.git",
+            "git_type": "codehub",
+            "human_name": "",
+            "endpoint_id": "",
+            "codehub_id": "956762",
+            "is_auto_comment": false
+        }
+    ],
+    "from_source": 0,
+    "project_name": null,
+    "group_id": null,
+    "group_name": null,
+    "concurrency_control": {
+        "pipeline_id": "bf323014510144ea8e29e41fdabdeb88",
+        "concurrency_number": 5,
+        "exceed_action": "ABORT",
+        "create_time": 1751357769000,
+        "update_time": 1751357769000,
+        "enable": false
+    },
+    "cancel_strategy": {
+        "id": 40579,
+        "pipeline_id": "bf323014510144ea8e29e41fdabdeb88",
+        "cancel_strategies": [
+            {
+                "granularity": "MR",
+                "cancel_strategy": "CANCEL_ALL_RUN"
+            }
+        ],
+        "enable": false
+    },
+    "detail_url": "https://devcloud.ap-southeast-3.huaweicloud.com/cicd/project/b3f25c9ab5cb457b97aa19bbc06b2743/pipeline/detail/bf323014510144ea8e29e41fdabdeb88?from=in-project&v=1",
+    "modify_url": "https://devcloud.ap-southeast-3.huaweicloud.com/cicd/project/b3f25c9ab5cb457b97aa19bbc06b2743/pipeline/modify/bf323014510144ea8e29e41fdabdeb88?from=in-project&v=1",
+    "tags": [],
+    "is_crmodel": null,
+    "yaml_repo_properties": null,
+    "pac_source_alias": "",
+    "pac_source_repo_https_endpoint": "",
+    "subject_id": "bf323014510144ea8e29e41fdabdeb88",
+    "definition": "eyJzdGFnZXMiOlt7Im5hbWUiOiJTdGFnZV8xIiwic2VxdWVuY2UiOiIwIiwiam9icyI6W3siaWQiOiIiLCJzdGFnZV9pZCI6IjE3NTEzNTc3NjUzNzgiLCJzdHJhdGVneSI6eyJzZWxlY3Rfc3RyYXRlZ3kiOiJzZWxlY3RlZCJ9LCJpZGVudGlmaWVyIjoiSk9CX2VKUmV4IiwibmFtZSI6IkNoZWNrIiwiZGVwZW5kc19vbiI6W10sInRpbWVvdXQiOiIiLCJ0aW1lb3V0X3VuaXQiOiIiLCJzdGVwcyI6W3sibmFtZSI6IkNoZWNrIiwidGFzayI6Im9mZmljaWFsX2RldmNsb3VkX2NvZGVDaGVjayIsInNlcXVlbmNlIjowLCJpbnB1dHMiOlt7ImtleSI6InJlcG9zaXRvcnlfcmVhZG9ubHkiLCJ2YWx1ZSI6Im5wbS1saWItdG8tcGFyc2UtanNvbnMifSx7ImtleSI6ImNoZWNrTW9kZSIsInZhbHVlIjoiZnVsbCJ9LHsia2V5IjoiY29kZUJyYW5jaCIsInZhbHVlIjoibWFzdGVyIn0seyJrZXkiOiJfX3NhbWVQcm9qZWN0X18iLCJ2YWx1ZSI6InRydWUifSx7ImtleSI6Il9fcHJvamVjdElkX18iLCJ2YWx1ZSI6IiJ9LHsia2V5Ijoiam9iSWQiLCJ2YWx1ZSI6IjE3MmVlNzg4ZDE0MjQzMWI5ZDgxNzZmNmQzZDgxN2JmIn1dLCJlbnYiOltdLCJpY29uX3VybCI6Ii9hcGkvdjEvKi9jb21tb24vZ2V0LXBsdWdpbi1pY29uP29iamVjdF9rZXk9b2ZmaWNpYWxfZGV2Y2xvdWRfY29kZUNoZWNrLTU0OTAyYTI4YmQ3YjRjZWNiNTgyZGFmOGM4ZGExYTdmLUNvZGVBcnRzQ2hlY2vku6PnoIHmo4Dmn6UucG5nLTA4MGNmOGQ3Y2M4MDBmZTEwZjdkYzAwNmRmYmJjZmEwJmljb25fdHlwZT1wbHVnaW4iLCJidXNpbmVzc190eXBlIjoiR2F0ZSIsInJ1bnRpbWVfYXR0cmlidXRpb24iOiJhZ2VudCIsImlkZW50aWZpZXIiOiIxNzUxMzU3Nzc5NDU1ZWE0MTIwZDktNDNhZC00NTBiLWI4MzUtNjFjYjNmZjU1N2U3IiwibXVsdGlfc3RlcF9lZGl0YWJsZSI6MCwib2ZmaWNpYWxfdGFza192ZXJzaW9uIjoiMC4wLjMiLCJlbmRwb2ludF9pZHMiOltdfV0sInJlc291cmNlIjoie1widHlwZVwiOlwic3lzdGVtXCIsXCJhcmNoXCI6XCJ4ODZcIn0iLCJjb25kaXRpb24iOiIke3sgZGVmYXVsdCgpIH19IiwiY29uZGl0aW9uX3RhZyI6IiIsInVuZmluaXNoZWRfc3RlcHMiOltdLCJleGVjX3R5cGUiOiJPQ1RPUFVTX0pPQiIsInNlcXVlbmNlIjowLCJwaXBlbGluZV9pZCI6ImJmMzIzMDE0NTEwMTQ0ZWE4ZTI5ZTQxZmRhYmRlYjg4In1dLCJpZGVudGlmaWVyIjoiMTc1MTM1Nzc2NTM3OGMwZWRkNDk1LTMxNmMtNDJlOS1iNzY5LTA0MDU2ZWY2YWZmZiIsInByZSI6W3sicnVudGltZV9hdHRyaWJ1dGlvbiI6bnVsbCwibXVsdGlfc3RlcF9lZGl0YWJsZSI6MCwib2ZmaWNpYWxfdGFza192ZXJzaW9uIjpudWxsLCJpY29uX3VybCI6bnVsbCwibmFtZSI6bnVsbCwidGFzayI6Im9mZmljaWFsX2RldmNsb3VkX2F1dG9UcmlnZ2VyIiwiYnVzaW5lc3NfdHlwZSI6bnVsbCwiaW5wdXRzIjpudWxsLCJlbnYiOm51bGwsInNlcXVlbmNlIjowLCJpZGVudGlmaWVyIjpudWxsLCJlbmRwb2ludF9pZHMiOm51bGx9XSwicG9zdCI6bnVsbCwiZGVwZW5kc19vbiI6W10sInJ1bl9hbHdheXMiOmZhbHNlLCJwaXBlbGluZV9pZCI6ImJmMzIzMDE0NTEwMTQ0ZWE4ZTI5ZTQxZmRhYmRlYjg4In1dfQ=="
+}
